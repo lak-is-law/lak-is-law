@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="440" viewBox="0 0 920 440">
+  <defs>
+    <!-- Background Velvet Burgundy Gradient -->
+    <linearGradient id="cardBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#180312"/>
+      <stop offset="50%" stop-color="#28051e"/>
+      <stop offset="100%" stop-color="#3e082e"/>
+    </linearGradient>
+
+    <!-- 3D Specular Top Bevel Gradient -->
+    <linearGradient id="specularWhite" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Metallic Burgundy Gradient -->
+    <linearGradient id="burgundyAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#ff3da9"/>
+      <stop offset="100%" stop-color="#8a125c"/>
+    </linearGradient>
+
+    <!-- Metric Pill Gradient -->
+    <linearGradient id="pillBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2e0722"/>
+      <stop offset="100%" stop-color="#14020f"/>
+    </linearGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow3D" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Section Header -->
+  <text x="0" y="22" font-family="'SFMono-Regular',Consolas,monospace" font-size="11" fill="#ffffff" font-weight="600" letter-spacing="3.5">SELECTED PRODUCTION WORK</text>
+  <text x="0" y="64" font-family="Georgia,'Times New Roman',serif" font-size="36" fill="#ffffff" font-weight="normal">Flagship Products, Built To Scale.</text>
+  <rect x="0" y="78" width="920" height="2" fill="url(#burgundyAccent)"/>
+
+  <!-- CARD 1: AWS Challenge Game -->
+  <g transform="translate(0, 104)" filter="url(#shadow3D)">
+    <rect width="295" height="225" rx="16" fill="url(#cardBg)"/>
+    <!-- 3D Specular Top Lip Highlight -->
+    <rect x="0" y="0" width="295" height="225" rx="16" fill="none" stroke="url(#specularWhite)" stroke-width="1.5"/>
+    <rect x="0" y="221" width="295" height="4" rx="2" fill="#4e0a37"/>
+    
+    <!-- Top Number Badge -->
+    <rect x="20" y="16" width="54" height="22" rx="11" fill="#12020e" stroke="#a81876" stroke-width="1"/>
+    <text x="47" y="31" font-family="'SFMono-Regular',Consolas,monospace" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">01</text>
+    <text x="84" y="31" font-family="'SFMono-Regular',Consolas,monospace" font-size="9.5" fill="#e3cbdc" font-weight="600" letter-spacing="1.5">FULL-STACK  ·  SOLO</text>
+
+    <!-- Title -->
+    <text x="20" y="72" font-family="Georgia,'Times New Roman',serif" font-size="22" fill="#ffffff" font-weight="normal">AWS Challenge Game</text>
+    
+    <!-- Description -->
+    <text x="20" y="98" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="11.5" fill="#f5eaf2" letter-spacing="0.2">Gamified option-based learning in 5</text>
+    <text x="20" y="116" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="11.5" fill="#f5eaf2" letter-spacing="0.2">themes. Built solo with Next.js &amp; Prisma.</text>
+
+    <!-- 3D Metrics Grid -->
+    <g transform="translate(18, 142)">
+      <rect width="78" height="62" rx="10" fill="url(#pillBg)" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="39" y="32" font-family="Georgia,'Times New Roman',serif" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="middle">1M+</text>
+      <text x="39" y="49" font-family="'SFMono-Regular',Consolas,monospace" font-size="8.5" fill="#e3cbdc" font-weight="bold" text-anchor="middle">ASPIRANTS</text>
+
+      <rect x="88" y="0" width="78" height="62" rx="10" fill="url(#pillBg)" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="127" y="32" font-family="Georgia,'Times New Roman',serif" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="middle">~2x</text>
+      <text x="127" y="49" font-family="'SFMono-Regular',Consolas,monospace" font-size="8.5" fill="#e3cbdc" font-weight="bold" text-anchor="middle">CONVERSION</text>
+
+      <rect x="178" y="0" width="78" height="62" rx="10" fill="url(#pillBg)" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="217" y="32" font-family="Georgia,'Times New Roman',serif" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="middle">-40%</text>
+      <text x="217" y="49" font-family="'SFMono-Regular',Consolas,monospace" font-size="8.5" fill="#e3cbdc" font-weight="bold" text-anchor="middle">LATENCY</text>
+    </g>
+  </g>
+
+  <!-- CARD 2: TrackYourFlight -->
+  <g transform="translate(312, 104)" filter="url(#shadow3D)">
+    <rect width="295" height="225" rx="16" fill="url(#cardBg)"/>
+    <rect x="0" y="0" width="295" height="225" rx="16" fill="none" stroke="url(#specularWhite)" stroke-width="1.5"/>
+    <rect x="0" y="221" width="295" height="4" rx="2" fill="#4e0a37"/>
+
+    <rect x="20" y="16" width="54" height="22" rx="11" fill="#12020e" stroke="#a81876" stroke-width="1"/>
+    <text x="47" y="31" font-family="'SFMono-Regular',Consolas,monospace" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">02</text>
+    <text x="84" y="31" font-family="'SFMono-Regular',Consolas,monospace" font-size="9.5" fill="#e3cbdc" font-weight="600" letter-spacing="1.5">3D  ·  REAL-TIME TELEMETRY</text>
+
+    <text x="20" y="72" font-family="Georgia,'Times New Roman',serif" font-size="22" fill="#ffffff" font-weight="normal">TrackYourFlight</text>
+    <text x="20" y="98" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="11.5" fill="#f5eaf2" letter-spacing="0.2">Live flight radar with a 9,000-point</text>
+    <text x="20" y="116" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="11.5" fill="#f5eaf2" letter-spacing="0.2">3D globe maintaining 60 FPS under 50KB.</text>
+
+    <!-- 3D Metrics Grid -->
+    <g transform="translate(18, 142)">
+      <rect width="78" height="62" rx="10" fill="url(#pillBg)" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="39" y="32" font-family="Georgia,'Times New Roman',serif" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">12K+</text>
+      <text x="39" y="49" font-family="'SFMono-Regular',Consolas,monospace" font-size="8.5" fill="#e3cbdc" font-weight="bold" text-anchor="middle">AIRCRAFT</text>
+
+      <rect x="88" y="0" width="78" height="62" rx="10" fill="url(#pillBg)" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="127" y="32" font-family="Georgia,'Times New Roman',serif" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="middle">60+</text>
+      <text x="127" y="49" font-family="'SFMono-Regular',Consolas,monospace" font-size="8.5" fill="#e3cbdc" font-weight="bold" text-anchor="middle">AIRLINES</text>
+
+      <rect x="178" y="0" width="78" height="62" rx="10" fill="url(#pillBg)" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="217" y="32" font-family="Georgia,'Times New Roman',serif" font-size="17" fill="#ffffff" font-weight="normal" text-anchor="middle">&lt;100ms</text>
+      <text x="217" y="49" font-family="'SFMono-Regular',Consolas,monospace" font-size="8.5" fill="#e3cbdc" font-weight="bold" text-anchor="middle">CACHING</text>
+    </g>
+  </g>
+
+  <!-- CARD 3: Locate Art -->
+  <g transform="translate(625, 104)" filter="url(#shadow3D)">
+    <rect width="295" height="225" rx="16" fill="url(#cardBg)"/>
+    <rect x="0" y="0" width="295" height="225" rx="16" fill="none" stroke="url(#specularWhite)" stroke-width="1.5"/>
+    <rect x="0" y="221" width="295" height="4" rx="2" fill="#4e0a37"/>
+
+    <rect x="20" y="16" width="54" height="22" rx="11" fill="#12020e" stroke="#a81876" stroke-width="1"/>
+    <text x="47" y="31" font-family="'SFMono-Regular',Consolas,monospace" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">03</text>
+    <text x="84" y="31" font-family="'SFMono-Regular',Consolas,monospace" font-size="9.5" fill="#e3cbdc" font-weight="600" letter-spacing="1.5">WEBGL  ·  CULTURE ENGINE</text>
+
+    <text x="20" y="72" font-family="Georgia,'Times New Roman',serif" font-size="22" fill="#ffffff" font-weight="normal">Locate Art</text>
+    <text x="20" y="98" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="11.5" fill="#f5eaf2" letter-spacing="0.2">Interactive 3D WebGL globe mapping</text>
+    <text x="20" y="116" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="11.5" fill="#f5eaf2" letter-spacing="0.2">India's cultural heritage &amp; art traditions.</text>
+
+    <!-- 3D Metrics Grid -->
+    <g transform="translate(18, 142)">
+      <rect width="78" height="62" rx="10" fill="url(#pillBg)" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="39" y="32" font-family="Georgia,'Times New Roman',serif" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="middle">120+</text>
+      <text x="39" y="49" font-family="'SFMono-Regular',Consolas,monospace" font-size="8.5" fill="#e3cbdc" font-weight="bold" text-anchor="middle">ART FORMS</text>
+
+      <rect x="88" y="0" width="78" height="62" rx="10" fill="url(#pillBg)" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="127" y="32" font-family="Georgia,'Times New Roman',serif" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">3D GLSL</text>
+      <text x="127" y="49" font-family="'SFMono-Regular',Consolas,monospace" font-size="8.5" fill="#e3cbdc" font-weight="bold" text-anchor="middle">SHADERS</text>
+
+      <rect x="178" y="0" width="78" height="62" rx="10" fill="url(#pillBg)" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="217" y="32" font-family="Georgia,'Times New Roman',serif" font-size="16" fill="#ffffff" font-weight="normal" text-anchor="middle">Next.js</text>
+      <text x="217" y="49" font-family="'SFMono-Regular',Consolas,monospace" font-size="8.5" fill="#e3cbdc" font-weight="bold" text-anchor="middle">STACK</text>
+    </g>
+  </g>
+
+  <!-- Bottom Tray: Secondary Shipped Engines -->
+  <text x="0" y="360" font-family="'SFMono-Regular',Consolas,monospace" font-size="10" fill="#ffffff" font-weight="600" letter-spacing="3">ADDITIONAL SHIPPED ARCHITECTURE</text>
+
+  <g transform="translate(0, 375)">
+    <rect width="295" height="38" rx="19" fill="#12020e" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="147" y="24" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="12" fill="#ffffff" font-weight="500" text-anchor="middle">Red Gambit  /  Minimax · KataGo · Stockfish</text>
+
+    <rect x="312" y="0" width="295" height="38" rx="19" fill="#12020e" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="459" y="24" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="12" fill="#ffffff" font-weight="500" text-anchor="middle">Spider-Verse  /  Zero-Latency AR Portal</text>
+
+    <rect x="625" y="0" width="295" height="38" rx="19" fill="#12020e" stroke="url(#specularWhite)" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="772" y="24" font-family="-apple-system,'Segoe UI',Helvetica,sans-serif" font-size="12" fill="#ffffff" font-weight="500" text-anchor="middle">TODAR 2.0  /  Real-time Expense Telemetry</text>
+  </g>
+</svg>

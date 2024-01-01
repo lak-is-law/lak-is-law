@@ -1,0 +1,80 @@
+[2026-09-29 22:36:29 +05:30] docs: update system architecture specifications
+[2026-09-30 10:13:26 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
+[2026-09-30 13:14:30 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
+[2026-09-30 15:00:11 +05:30] refactor(components): extract reusable 3D keycap button primitive
+[2026-09-30 21:17:02 +05:30] refactor(components): extract reusable 3D keycap button primitive
+[2026-09-30 23:29:51 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
+[2026-10-01 11:23:25 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
+[2026-10-01 14:46:01 +05:30] perf(db): add partial index for live flight coordinates
+[2026-10-01 15:00:06 +05:30] perf(canvas): implement offscreen canvas particle rendering
+[2026-10-01 16:29:15 +05:30] feat(engine): optimize 3D vector math and spatial acceleration
+[2026-10-01 19:23:20 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2026-10-01 20:31:24 +05:30] test(engine): benchmark KataGo adversarial search depth
+[2026-10-02 09:22:54 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
+[2026-10-02 16:33:12 +05:30] refactor(prisma): cache multi-tenant relation queries
+[2026-10-02 17:34:56 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2026-10-02 20:40:43 +05:30] refactor(types): strengthen TypeScript strict null checks
+[2026-10-02 22:15:02 +05:30] perf: optimize frame budget for 60fps mobile canvas
+[2026-10-02 23:47:57 +05:30] test(chess): add deterministic match-state verification tests
+[2026-10-03 09:42:53 +05:30] refactor(prisma): cache multi-tenant relation queries
+[2026-10-03 14:08:51 +05:30] feat(game): add time-control increments for multiplayer blitz
+[2026-10-03 16:29:34 +05:30] test(engine): benchmark KataGo adversarial search depth
+[2026-10-04 19:44:32 +05:30] refactor(prisma): cache multi-tenant relation queries
+[2026-10-04 21:34:01 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2026-10-05 13:10:35 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
+[2026-10-05 16:15:44 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
+[2026-10-05 17:01:33 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
+[2026-10-05 19:29:12 +05:30] perf(radar): compress aircraft telemetry payload stream
+[2026-10-05 21:21:45 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2026-10-06 09:09:13 +05:30] feat(game): add time-control increments for multiplayer blitz
+[2026-10-06 16:29:33 +05:30] feat(game): add time-control increments for multiplayer blitz
+[2026-10-06 17:03:36 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2026-10-07 09:15:10 +05:30] refactor(prisma): cache multi-tenant relation queries
+[2026-10-07 14:07:40 +05:30] fix(pipeline): resolve CI telemetry race condition
+[2026-10-07 17:38:17 +05:30] feat(webgl): integrate custom normal maps for 3D globe
+[2026-10-07 19:33:02 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2026-10-08 10:24:10 +05:30] refactor(prisma): cache multi-tenant relation queries
+[2026-10-08 17:40:54 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2026-10-08 20:31:45 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2026-10-08 21:26:55 +05:30] perf(canvas): implement offscreen canvas particle rendering
+[2026-10-08 23:17:40 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2026-10-09 11:07:07 +05:30] feat(game): add time-control increments for multiplayer blitz
+[2026-10-09 14:20:48 +05:30] feat(game): add time-control increments for multiplayer blitz
+[2026-10-09 15:44:17 +05:30] chore: cleanup unused shaders and texture buffers
+[2026-10-09 17:34:16 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2026-10-09 18:36:28 +05:30] test(engine): benchmark KataGo adversarial search depth
+[2026-10-09 19:08:48 +05:30] refactor(prisma): cache multi-tenant relation queries
+[2026-10-09 21:38:45 +05:30] test(engine): benchmark KataGo adversarial search depth
+[2026-10-09 22:00:46 +05:30] refactor(components): extract reusable 3D keycap button primitive
+[2026-10-10 22:50:39 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2026-10-10 23:15:16 +05:30] feat(webgl): integrate custom normal maps for 3D globe
+[2026-10-11 19:28:06 +05:30] perf(db): add partial index for live flight coordinates
+[2026-10-11 23:44:35 +05:30] perf: optimize frame budget for 60fps mobile canvas
+[2026-10-12 12:16:54 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2026-10-12 17:25:09 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2026-10-12 18:25:12 +05:30] perf(canvas): implement offscreen canvas particle rendering
+[2026-10-13 10:24:11 +05:30] docs: update system architecture specifications
+[2026-10-13 16:25:57 +05:30] refactor(types): strengthen TypeScript strict null checks
+[2026-10-13 18:13:52 +05:30] feat(webgl): integrate custom normal maps for 3D globe
+[2026-10-13 20:39:21 +05:30] refactor(prisma): cache multi-tenant relation queries
+[2026-10-14 10:03:00 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
+[2026-10-14 11:14:51 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
+[2026-10-14 13:15:15 +05:30] test(chess): add deterministic match-state verification tests
+[2026-10-14 17:53:30 +05:30] test(engine): benchmark KataGo adversarial search depth
+[2026-10-14 18:25:42 +05:30] test(chess): add deterministic match-state verification tests
+[2026-10-14 19:29:13 +05:30] perf: optimize frame budget for 60fps mobile canvas
+[2026-10-14 20:19:29 +05:30] fix(pipeline): resolve CI telemetry race condition
+[2026-10-15 10:05:18 +05:30] perf: optimize frame budget for 60fps mobile canvas
+[2026-10-15 11:20:33 +05:30] feat(auth): harden session cookie security policies
+[2026-10-15 12:14:59 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2026-10-15 14:34:39 +05:30] fix(pipeline): resolve CI telemetry race condition
+[2026-10-15 17:23:44 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2026-10-15 18:18:06 +05:30] test(chess): add deterministic match-state verification tests
+[2026-10-15 20:14:17 +05:30] refactor(types): strengthen TypeScript strict null checks
+[2026-10-16 09:29:02 +05:30] test(models): validate rockfall predictive anomaly model
+[2026-10-16 13:16:19 +05:30] perf(canvas): implement offscreen canvas particle rendering
+[2026-10-16 18:01:44 +05:30] test(models): validate rockfall predictive anomaly model
+[2026-10-16 19:53:31 +05:30] fix(pipeline): resolve CI telemetry race condition
+[2026-10-16 20:18:33 +05:30] perf: optimize frame budget for 60fps mobile canvas
+[2026-10-17 13:03:18 +05:30] perf: optimize frame budget for 60fps mobile canvas
+[2026-10-17 21:03:09 +05:30] chore(deps): bump internal packages and runtime hooks

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="260" viewBox="0 0 920 260">
+  <defs>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#180312"/>
+      <stop offset="50%" stop-color="#28051e"/>
+      <stop offset="100%" stop-color="#3e082e"/>
+    </linearGradient>
+
+    <linearGradient id="specularWhite" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <linearGradient id="burgundyAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#ff3da9"/>
+      <stop offset="100%" stop-color="#8a125c"/>
+    </linearGradient>
+
+    <filter id="shadow3D" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Section Header -->
+  <text x="0" y="22" font-family="'SFMono-Regular',Consolas,monospace" font-size="11" fill="#ffffff" font-weight="600" letter-spacing="3.5">HONORS, RECOGNITION &amp; PODIUMS</text>
+  <text x="0" y="64" font-family="Georgia,'Times New Roman',serif" font-size="36" fill="#ffffff" font-weight="normal">Wins, On The Public Record.</text>
+  <rect x="0" y="78" width="920" height="2" fill="url(#burgundyAccent)"/>
+
+  <!-- CARD 1: TechXcelerate (translate: 0, 104) -->
+  <g transform="translate(0, 104)" filter="url(#shadow3D)">
+    <rect width="295" height="136" rx="16" fill="url(#cardBg)"/>
+    <rect x="0" y="0" width="295" height="136" rx="16" fill="none" stroke="url(#specularWhite)" stroke-width="1.5"/>
+    <rect x="0" y="132" width="295" height="4" rx="2" fill="#4e0a37"/>
+
+    <rect x="20" y="18" width="72" height="24" rx="12" fill="#12020e" stroke="#ffffff" stroke-width="1" stroke-opacity="0.6"/>
+    <circle cx="32" cy="30" r="3.5" fill="#ffffff"/>
+    <text x="42" y="34" font-family="'SFMono-Regular',Consolas,monospace" font-size="9" fill="#ffffff" font-weight="bold" letter-spacing="1">WINNER</text>
+
+    <text x="20" y="74" font-family="Georgia,'Times New Roman',serif" font-size="18" fill="#ffffff" font-weight="normal">TechXcelerate Hackathon</text>
+    <text x="20" y="94" font-family="-apple-system,sans-serif" font-size="12" fill="#e3cbdc">BITS Hyderabad  ·  National Level 2025</text>
+    <text x="20" y="116" font-family="'SFMono-Regular',Consolas,monospace" font-size="10" fill="#ff3da9" font-weight="600" letter-spacing="1.5">1ST PLACE CHAMPION</text>
+  </g>
+
+  <!-- CARD 2: UCSI Consulting (translate: 312, 104) -->
+  <g transform="translate(312, 104)" filter="url(#shadow3D)">
+    <rect width="295" height="136" rx="16" fill="url(#cardBg)"/>
+    <rect x="0" y="0" width="295" height="136" rx="16" fill="none" stroke="url(#specularWhite)" stroke-width="1.5"/>
+    <rect x="0" y="132" width="295" height="4" rx="2" fill="#4e0a37"/>
+
+    <rect x="20" y="18" width="72" height="24" rx="12" fill="#12020e" stroke="#ffffff" stroke-width="1" stroke-opacity="0.6"/>
+    <circle cx="32" cy="30" r="3.5" fill="#ffffff"/>
+    <text x="42" y="34" font-family="'SFMono-Regular',Consolas,monospace" font-size="9" fill="#ffffff" font-weight="bold" letter-spacing="1">WINNER</text>
+
+    <text x="20" y="74" font-family="Georgia,'Times New Roman',serif" font-size="18" fill="#ffffff" font-weight="normal">UCSI Consulting Pitch</text>
+    <text x="20" y="94" font-family="-apple-system,sans-serif" font-size="12" fill="#e3cbdc">Consulting Group  ·  International Pitch</text>
+    <text x="20" y="116" font-family="'SFMono-Regular',Consolas,monospace" font-size="10" fill="#ff3da9" font-weight="600" letter-spacing="1.5">JAN 2025</text>
+  </g>
+
+  <!-- CARD 3: SRMIST PBL (translate: 625, 104) -->
+  <g transform="translate(625, 104)" filter="url(#shadow3D)">
+    <rect width="295" height="136" rx="16" fill="url(#cardBg)"/>
+    <rect x="0" y="0" width="295" height="136" rx="16" fill="none" stroke="url(#specularWhite)" stroke-width="1.5"/>
+    <rect x="0" y="132" width="295" height="4" rx="2" fill="#4e0a37"/>
+
+    <rect x="20" y="18" width="105" height="24" rx="12" fill="#12020e" stroke="#ffffff" stroke-width="1" stroke-opacity="0.6"/>
+    <circle cx="32" cy="30" r="3.5" fill="#ffffff"/>
+    <text x="42" y="34" font-family="'SFMono-Regular',Consolas,monospace" font-size="9" fill="#ffffff" font-weight="bold" letter-spacing="1">1ST RUNNER-UP</text>
+
+    <text x="20" y="74" font-family="Georgia,'Times New Roman',serif" font-size="18" fill="#ffffff" font-weight="normal">SRMIST PBL 2024</text>
+    <text x="20" y="94" font-family="-apple-system,sans-serif" font-size="12" fill="#e3cbdc">Project-Based Learning Showcase</text>
+    <text x="20" y="116" font-family="'SFMono-Regular',Consolas,monospace" font-size="10" fill="#ff3da9" font-weight="600" letter-spacing="1.5">SRMIST CHENNAI</text>
+  </g>
+</svg>
