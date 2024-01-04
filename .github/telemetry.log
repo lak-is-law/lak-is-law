@@ -7,3 +7,4 @@
 [2024-01-03 23:02:20 +05:30] fix(pipeline): resolve CI telemetry race condition
 [2024-01-04 09:48:25 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2024-01-04 09:53:23 +05:30] feat(auth): harden session cookie security policies
+[2024-01-04 10:34:35 +05:30] chore(deps): bump internal packages and runtime hooks
