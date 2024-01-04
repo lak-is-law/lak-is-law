@@ -8,3 +8,4 @@
 [2024-01-04 09:48:25 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2024-01-04 09:53:23 +05:30] feat(auth): harden session cookie security policies
 [2024-01-04 10:34:35 +05:30] chore(deps): bump internal packages and runtime hooks
+[2024-01-04 10:47:28 +05:30] feat(auth): harden session cookie security policies
