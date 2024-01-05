@@ -17,3 +17,4 @@
 [2024-01-05 11:44:24 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2024-01-05 12:47:40 +05:30] feat(engine): optimize 3D vector math and spatial acceleration
 [2024-01-05 12:48:34 +05:30] refactor(components): extract reusable 3D keycap button primitive
+[2024-01-05 13:11:42 +05:30] chore: cleanup unused shaders and texture buffers
