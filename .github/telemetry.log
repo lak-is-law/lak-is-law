@@ -28,3 +28,4 @@
 [2024-01-05 18:08:29 +05:30] chore(deps): bump internal packages and runtime hooks
 [2024-01-05 18:33:06 +05:30] docs: update system architecture specifications
 [2024-01-05 18:59:36 +05:30] feat(game): add time-control increments for multiplayer blitz
+[2024-01-05 19:01:08 +05:30] perf(canvas): implement offscreen canvas particle rendering
