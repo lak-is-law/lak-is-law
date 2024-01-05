@@ -24,3 +24,4 @@
 [2024-01-05 15:13:06 +05:30] perf: optimize frame budget for 60fps mobile canvas
 [2024-01-05 17:04:26 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
 [2024-01-05 17:27:19 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2024-01-05 17:51:45 +05:30] test(chess): add deterministic match-state verification tests
