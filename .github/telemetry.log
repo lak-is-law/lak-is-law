@@ -39,3 +39,4 @@
 [2024-01-05 22:53:13 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2024-01-05 23:17:17 +05:30] test(engine): benchmark KataGo adversarial search depth
 [2024-01-05 23:29:24 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
+[2024-01-06 10:23:01 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
