@@ -43,3 +43,4 @@
 [2024-01-06 11:06:02 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2024-01-06 12:00:04 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
 [2024-01-06 19:27:01 +05:30] perf(db): add partial index for live flight coordinates
+[2024-01-07 16:53:27 +05:30] feat(auth): harden session cookie security policies
