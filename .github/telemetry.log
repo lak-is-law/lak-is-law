@@ -1,4 +1,3 @@
-[2024-02-11 18:35:20 +05:30] chore(deps): bump internal packages and runtime hooks
 [2024-02-11 18:52:01 +05:30] perf(db): add partial index for live flight coordinates
 [2024-02-11 20:38:59 +05:30] fix(pipeline): resolve CI telemetry race condition
 [2024-02-12 09:33:16 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
@@ -48,3 +47,4 @@
 [2024-02-16 23:04:12 +05:30] feat(api): rate-limit flight telemetry stream endpoints
 [2024-02-19 11:27:52 +05:30] refactor(types): strengthen TypeScript strict null checks
 [2024-02-19 12:06:11 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2024-02-19 13:39:04 +05:30] feat(api): rate-limit flight telemetry stream endpoints
