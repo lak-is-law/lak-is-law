@@ -1,4 +1,3 @@
-[2024-02-16 23:04:12 +05:30] feat(api): rate-limit flight telemetry stream endpoints
 [2024-02-19 11:27:52 +05:30] refactor(types): strengthen TypeScript strict null checks
 [2024-02-19 12:06:11 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
 [2024-02-19 13:39:04 +05:30] feat(api): rate-limit flight telemetry stream endpoints
@@ -48,3 +47,4 @@
 [2024-02-28 20:08:40 +05:30] perf(db): add partial index for live flight coordinates
 [2024-02-29 10:21:48 +05:30] perf: optimize frame budget for 60fps mobile canvas
 [2024-02-29 10:39:17 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
+[2024-02-29 14:06:06 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
