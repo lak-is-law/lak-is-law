@@ -1,4 +1,3 @@
-[2024-02-27 19:19:59 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2024-02-27 19:20:15 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2024-02-27 20:08:01 +05:30] feat(webgl): integrate custom normal maps for 3D globe
 [2024-02-27 23:31:31 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
@@ -48,3 +47,4 @@
 [2024-03-06 10:11:23 +05:30] feat(webgl): integrate custom normal maps for 3D globe
 [2024-03-06 10:38:38 +05:30] test(engine): benchmark KataGo adversarial search depth
 [2024-03-06 10:54:12 +05:30] perf(db): add partial index for live flight coordinates
+[2024-03-06 10:55:51 +05:30] fix(pipeline): resolve CI telemetry race condition
