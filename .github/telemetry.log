@@ -1,4 +1,3 @@
-[2024-03-07 23:21:51 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2024-03-08 11:58:31 +05:30] refactor(types): strengthen TypeScript strict null checks
 [2024-03-08 16:09:25 +05:30] perf(db): add partial index for live flight coordinates
 [2024-03-08 16:27:13 +05:30] test(chess): add deterministic match-state verification tests
@@ -48,3 +47,4 @@
 [2024-03-23 11:17:29 +05:30] refactor(prisma): cache multi-tenant relation queries
 [2024-03-23 14:12:03 +05:30] perf(db): add partial index for live flight coordinates
 [2024-03-23 22:39:51 +05:30] chore: cleanup unused shaders and texture buffers
+[2024-03-23 23:11:01 +05:30] feat(auth): harden session cookie security policies
