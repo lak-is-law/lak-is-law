@@ -1,4 +1,3 @@
-[2024-03-23 14:12:03 +05:30] perf(db): add partial index for live flight coordinates
 [2024-03-23 22:39:51 +05:30] chore: cleanup unused shaders and texture buffers
 [2024-03-23 23:11:01 +05:30] feat(auth): harden session cookie security policies
 [2024-03-23 23:20:11 +05:30] perf(canvas): implement offscreen canvas particle rendering
@@ -48,3 +47,4 @@
 [2024-03-29 10:59:46 +05:30] test(engine): benchmark KataGo adversarial search depth
 [2024-03-29 12:14:22 +05:30] test(models): validate rockfall predictive anomaly model
 [2024-03-29 13:37:49 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2024-03-29 14:49:31 +05:30] feat(webgl): integrate custom normal maps for 3D globe
