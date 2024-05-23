@@ -1,4 +1,3 @@
-[2024-05-12 22:38:16 +05:30] test(models): validate rockfall predictive anomaly model
 [2024-05-13 16:20:17 +05:30] chore: cleanup unused shaders and texture buffers
 [2024-05-13 19:54:24 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
 [2024-05-14 10:48:28 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
@@ -48,3 +47,4 @@
 [2024-05-23 09:28:58 +05:30] feat(api): rate-limit flight telemetry stream endpoints
 [2024-05-23 10:55:26 +05:30] fix(pipeline): resolve CI telemetry race condition
 [2024-05-23 13:37:27 +05:30] feat(game): add time-control increments for multiplayer blitz
+[2024-05-23 19:40:47 +05:30] refactor(prisma): cache multi-tenant relation queries
