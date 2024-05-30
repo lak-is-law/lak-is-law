@@ -1,4 +1,3 @@
-[2024-05-21 09:15:28 +05:30] docs: update system architecture specifications
 [2024-05-21 10:36:10 +05:30] docs: update system architecture specifications
 [2024-05-21 13:42:02 +05:30] refactor(components): extract reusable 3D keycap button primitive
 [2024-05-21 14:13:35 +05:30] perf(radar): compress aircraft telemetry payload stream
@@ -48,3 +47,4 @@
 [2024-05-29 23:06:52 +05:30] refactor(types): strengthen TypeScript strict null checks
 [2024-05-29 23:21:39 +05:30] refactor(prisma): cache multi-tenant relation queries
 [2024-05-29 23:24:32 +05:30] perf(db): add partial index for live flight coordinates
+[2024-05-30 11:37:17 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
