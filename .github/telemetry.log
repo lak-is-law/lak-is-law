@@ -1,4 +1,3 @@
-[2024-06-18 10:49:49 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
 [2024-06-18 11:05:59 +05:30] docs: update system architecture specifications
 [2024-06-18 11:39:29 +05:30] test(models): validate rockfall predictive anomaly model
 [2024-06-18 13:03:40 +05:30] feat(api): rate-limit flight telemetry stream endpoints
@@ -48,3 +47,4 @@
 [2024-06-24 09:31:37 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
 [2024-06-24 15:38:40 +05:30] test(chess): add deterministic match-state verification tests
 [2024-06-24 16:43:01 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
+[2024-06-24 16:46:13 +05:30] perf(radar): compress aircraft telemetry payload stream
