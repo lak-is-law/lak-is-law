@@ -1,4 +1,3 @@
-[2024-06-27 11:23:12 +05:30] test(chess): add deterministic match-state verification tests
 [2024-06-27 14:21:47 +05:30] feat(api): rate-limit flight telemetry stream endpoints
 [2024-06-27 16:41:16 +05:30] feat(api): rate-limit flight telemetry stream endpoints
 [2024-06-27 16:57:27 +05:30] perf(db): add partial index for live flight coordinates
@@ -48,3 +47,4 @@
 [2024-07-08 18:11:31 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2024-07-08 18:12:11 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
 [2024-07-08 20:33:26 +05:30] fix(pipeline): resolve CI telemetry race condition
+[2024-07-08 20:56:05 +05:30] feat(api): rate-limit flight telemetry stream endpoints
