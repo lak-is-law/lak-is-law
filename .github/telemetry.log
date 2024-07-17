@@ -1,4 +1,3 @@
-[2024-07-03 11:43:20 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
 [2024-07-03 13:58:44 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
 [2024-07-03 23:43:01 +05:30] feat(game): add time-control increments for multiplayer blitz
 [2024-07-04 11:37:49 +05:30] test(models): validate rockfall predictive anomaly model
@@ -48,3 +47,4 @@
 [2024-07-11 21:02:58 +05:30] feat(webgl): integrate custom normal maps for 3D globe
 [2024-07-17 09:30:19 +05:30] chore: cleanup unused shaders and texture buffers
 [2024-07-17 12:10:22 +05:30] refactor(components): extract reusable 3D keycap button primitive
+[2024-07-17 12:59:36 +05:30] test(engine): benchmark KataGo adversarial search depth
