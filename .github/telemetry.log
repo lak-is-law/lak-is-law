@@ -1,4 +1,3 @@
-[2024-07-08 16:14:03 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2024-07-08 16:20:56 +05:30] feat(webgl): integrate custom normal maps for 3D globe
 [2024-07-08 18:11:31 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2024-07-08 18:12:11 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
@@ -48,3 +47,4 @@
 [2024-07-21 19:27:04 +05:30] fix(pipeline): resolve CI telemetry race condition
 [2024-07-21 19:37:54 +05:30] chore: cleanup unused shaders and texture buffers
 [2024-07-21 20:52:20 +05:30] perf: optimize frame budget for 60fps mobile canvas
+[2024-07-21 21:05:04 +05:30] chore(deps): bump internal packages and runtime hooks
