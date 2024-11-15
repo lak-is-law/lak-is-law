@@ -1,4 +1,3 @@
-[2024-11-04 09:46:29 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
 [2024-11-04 11:25:30 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2024-11-04 15:30:46 +05:30] fix(pipeline): resolve CI telemetry race condition
 [2024-11-04 16:47:28 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
@@ -48,3 +47,4 @@
 [2024-11-14 09:21:31 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2024-11-14 18:51:24 +05:30] test(chess): add deterministic match-state verification tests
 [2024-11-14 23:04:42 +05:30] feat(auth): harden session cookie security policies
+[2024-11-15 09:15:11 +05:30] perf(radar): compress aircraft telemetry payload stream
