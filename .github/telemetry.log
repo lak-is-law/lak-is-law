@@ -1,4 +1,3 @@
-[2024-11-04 15:30:46 +05:30] fix(pipeline): resolve CI telemetry race condition
 [2024-11-04 16:47:28 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
 [2024-11-04 17:30:07 +05:30] perf: optimize frame budget for 60fps mobile canvas
 [2024-11-05 14:35:24 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
@@ -48,3 +47,4 @@
 [2024-11-14 23:04:42 +05:30] feat(auth): harden session cookie security policies
 [2024-11-15 09:15:11 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2024-11-15 11:52:26 +05:30] perf(canvas): implement offscreen canvas particle rendering
+[2024-11-16 13:29:18 +05:30] docs: update system architecture specifications
