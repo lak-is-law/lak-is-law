@@ -1,4 +1,3 @@
-[2024-11-07 19:00:34 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
 [2024-11-07 19:54:05 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
 [2024-11-07 21:58:03 +05:30] feat(game): add time-control increments for multiplayer blitz
 [2024-11-07 22:05:55 +05:30] chore: cleanup unused shaders and texture buffers
@@ -48,3 +47,4 @@
 [2024-11-20 10:30:03 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
 [2024-11-20 11:36:11 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
 [2024-11-20 13:00:02 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
+[2024-11-20 19:16:40 +05:30] perf: optimize frame budget for 60fps mobile canvas
