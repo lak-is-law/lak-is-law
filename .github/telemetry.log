@@ -1,4 +1,3 @@
-[2024-11-21 12:50:03 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
 [2024-11-21 13:06:43 +05:30] test(models): validate rockfall predictive anomaly model
 [2024-11-21 13:46:20 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
 [2024-11-21 14:23:51 +05:30] perf(canvas): implement offscreen canvas particle rendering
@@ -48,3 +47,4 @@
 [2024-11-26 15:34:57 +05:30] chore: cleanup unused shaders and texture buffers
 [2024-11-26 16:11:19 +05:30] feat(api): rate-limit flight telemetry stream endpoints
 [2024-11-26 16:26:26 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
+[2024-11-26 17:07:42 +05:30] test(models): validate rockfall predictive anomaly model
