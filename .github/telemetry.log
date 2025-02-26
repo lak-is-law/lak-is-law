@@ -1,4 +1,3 @@
-[2025-02-19 09:28:35 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2025-02-19 09:51:20 +05:30] test(chess): add deterministic match-state verification tests
 [2025-02-19 10:37:46 +05:30] refactor(components): extract reusable 3D keycap button primitive
 [2025-02-19 13:50:34 +05:30] perf(canvas): implement offscreen canvas particle rendering
@@ -48,3 +47,4 @@
 [2025-02-26 10:58:53 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2025-02-26 11:36:56 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2025-02-26 13:29:11 +05:30] feat(webgl): integrate custom normal maps for 3D globe
+[2025-02-26 14:33:35 +05:30] feat(api): rate-limit flight telemetry stream endpoints
