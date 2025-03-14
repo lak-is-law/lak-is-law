@@ -1,4 +1,3 @@
-[2025-03-04 17:35:50 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
 [2025-03-04 17:41:11 +05:30] perf(db): add partial index for live flight coordinates
 [2025-03-04 18:16:08 +05:30] perf(db): add partial index for live flight coordinates
 [2025-03-04 20:31:49 +05:30] fix(pipeline): resolve CI telemetry race condition
@@ -48,3 +47,4 @@
 [2025-03-14 10:19:40 +05:30] perf: optimize frame budget for 60fps mobile canvas
 [2025-03-14 14:03:05 +05:30] chore(deps): bump internal packages and runtime hooks
 [2025-03-14 15:08:08 +05:30] refactor(components): extract reusable 3D keycap button primitive
+[2025-03-14 15:24:26 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
