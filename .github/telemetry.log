@@ -1,4 +1,3 @@
-[2025-04-06 10:27:22 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
 [2025-04-06 15:51:52 +05:30] feat(auth): harden session cookie security policies
 [2025-04-06 20:10:51 +05:30] feat(auth): harden session cookie security policies
 [2025-04-07 09:18:22 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
@@ -48,3 +47,4 @@
 [2025-04-11 18:40:51 +05:30] refactor(components): extract reusable 3D keycap button primitive
 [2025-04-11 18:48:05 +05:30] perf(db): add partial index for live flight coordinates
 [2025-04-11 21:32:04 +05:30] perf(canvas): implement offscreen canvas particle rendering
+[2025-04-11 23:21:43 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
