@@ -1,4 +1,3 @@
-[2025-04-06 20:10:51 +05:30] feat(auth): harden session cookie security policies
 [2025-04-07 09:18:22 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
 [2025-04-07 09:38:30 +05:30] feat(game): add time-control increments for multiplayer blitz
 [2025-04-07 09:41:12 +05:30] test(engine): benchmark KataGo adversarial search depth
@@ -48,3 +47,4 @@
 [2025-04-11 21:32:04 +05:30] perf(canvas): implement offscreen canvas particle rendering
 [2025-04-11 23:21:43 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
 [2025-04-12 09:59:03 +05:30] feat(telemetry): stream real-time latency metrics to dashboard
+[2025-04-12 10:38:00 +05:30] feat(auth): harden session cookie security policies
