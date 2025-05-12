@@ -1,4 +1,3 @@
-[2025-05-04 12:19:48 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
 [2025-05-04 13:00:13 +05:30] test(engine): benchmark KataGo adversarial search depth
 [2025-05-04 13:42:18 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
 [2025-05-04 14:33:49 +05:30] test(models): validate rockfall predictive anomaly model
@@ -48,3 +47,4 @@
 [2025-05-11 16:37:56 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
 [2025-05-11 18:44:16 +05:30] refactor(components): extract reusable 3D keycap button primitive
 [2025-05-12 12:24:09 +05:30] perf(radar): compress aircraft telemetry payload stream
+[2025-05-12 16:36:51 +05:30] feat(webgl): integrate custom normal maps for 3D globe
