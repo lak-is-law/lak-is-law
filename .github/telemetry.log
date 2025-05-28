@@ -1,4 +1,3 @@
-[2025-05-21 10:20:06 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2025-05-21 13:43:01 +05:30] feat(engine): optimize 3D vector math and spatial acceleration
 [2025-05-21 14:06:07 +05:30] feat(game): add time-control increments for multiplayer blitz
 [2025-05-22 09:02:12 +05:30] docs: update system architecture specifications
@@ -48,3 +47,4 @@
 [2025-05-28 16:20:06 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
 [2025-05-28 17:04:44 +05:30] perf(canvas): implement offscreen canvas particle rendering
 [2025-05-28 17:39:05 +05:30] feat(engine): optimize 3D vector math and spatial acceleration
+[2025-05-28 17:41:58 +05:30] perf: optimize frame budget for 60fps mobile canvas
