@@ -1,4 +1,3 @@
-[2025-05-20 22:54:37 +05:30] refactor(prisma): cache multi-tenant relation queries
 [2025-05-20 23:44:36 +05:30] docs: update system architecture specifications
 [2025-05-21 10:20:06 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2025-05-21 13:43:01 +05:30] feat(engine): optimize 3D vector math and spatial acceleration
@@ -48,3 +47,4 @@
 [2025-05-28 14:54:36 +05:30] chore(deps): bump internal packages and runtime hooks
 [2025-05-28 16:19:32 +05:30] perf(db): add partial index for live flight coordinates
 [2025-05-28 16:20:06 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
+[2025-05-28 17:04:44 +05:30] perf(canvas): implement offscreen canvas particle rendering
