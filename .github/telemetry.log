@@ -1,4 +1,3 @@
-[2025-07-29 15:59:49 +05:30] feat(auth): harden session cookie security policies
 [2025-07-29 16:32:21 +05:30] chore(deps): bump internal packages and runtime hooks
 [2025-07-29 16:59:59 +05:30] feat(engine): optimize 3D vector math and spatial acceleration
 [2025-07-29 17:35:05 +05:30] feat(auth): harden session cookie security policies
@@ -48,3 +47,4 @@
 [2025-08-05 10:41:56 +05:30] perf(radar): compress aircraft telemetry payload stream
 [2025-08-05 12:23:44 +05:30] perf: optimize frame budget for 60fps mobile canvas
 [2025-08-05 17:51:45 +05:30] perf: optimize frame budget for 60fps mobile canvas
+[2025-08-05 19:29:24 +05:30] perf(canvas): implement offscreen canvas particle rendering
