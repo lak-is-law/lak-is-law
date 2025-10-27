@@ -1,4 +1,3 @@
-[2025-10-14 23:34:06 +05:30] refactor(types): strengthen TypeScript strict null checks
 [2025-10-15 09:22:18 +05:30] test(models): validate rockfall predictive anomaly model
 [2025-10-15 12:30:25 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
 [2025-10-15 13:35:27 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
@@ -48,3 +47,4 @@
 [2025-10-27 12:27:26 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
 [2025-10-27 13:11:33 +05:30] chore: cleanup unused shaders and texture buffers
 [2025-10-27 13:24:04 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
+[2025-10-27 13:45:01 +05:30] perf: optimize frame budget for 60fps mobile canvas
