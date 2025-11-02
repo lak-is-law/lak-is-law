@@ -1,4 +1,3 @@
-[2025-10-30 14:01:26 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
 [2025-10-30 14:40:05 +05:30] refactor(components): extract reusable 3D keycap button primitive
 [2025-10-30 18:14:22 +05:30] refactor(prisma): cache multi-tenant relation queries
 [2025-10-30 19:00:49 +05:30] test(engine): benchmark KataGo adversarial search depth
@@ -48,3 +47,4 @@
 [2025-11-02 09:47:12 +05:30] perf(db): add partial index for live flight coordinates
 [2025-11-02 10:45:56 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
 [2025-11-02 11:39:58 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
+[2025-11-02 16:27:52 +05:30] perf(db): add partial index for live flight coordinates
