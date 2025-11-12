@@ -1,4 +1,3 @@
-[2025-11-02 11:39:58 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
 [2025-11-02 16:27:52 +05:30] perf(db): add partial index for live flight coordinates
 [2025-11-02 20:43:03 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
 [2025-11-02 23:38:11 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
@@ -48,3 +47,4 @@
 [2025-11-12 18:16:55 +05:30] feat(engine): optimize 3D vector math and spatial acceleration
 [2025-11-12 18:50:36 +05:30] refactor(types): strengthen TypeScript strict null checks
 [2025-11-12 18:52:18 +05:30] feat(engine): optimize 3D vector math and spatial acceleration
+[2025-11-12 21:10:11 +05:30] refactor(types): strengthen TypeScript strict null checks
