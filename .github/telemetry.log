@@ -1,4 +1,3 @@
-[2026-01-14 09:43:21 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
 [2026-01-14 10:38:30 +05:30] fix(ai): resolve Minimax alpha-beta pruning edge case
 [2026-01-14 13:52:15 +05:30] feat(webgl): integrate custom normal maps for 3D globe
 [2026-01-14 14:10:36 +05:30] refactor(prisma): cache multi-tenant relation queries
@@ -48,3 +47,4 @@
 [2026-01-21 10:29:10 +05:30] chore: cleanup unused shaders and texture buffers
 [2026-01-21 11:02:00 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
 [2026-01-21 12:06:34 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
+[2026-01-21 12:57:00 +05:30] test(engine): benchmark KataGo adversarial search depth
