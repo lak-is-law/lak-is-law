@@ -1,4 +1,3 @@
-[2026-01-13 20:10:56 +05:30] feat(auth): harden session cookie security policies
 [2026-01-13 23:25:22 +05:30] feat(auth): harden session cookie security policies
 [2026-01-13 23:36:51 +05:30] perf: optimize frame budget for 60fps mobile canvas
 [2026-01-14 09:43:21 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
@@ -48,3 +47,4 @@
 [2026-01-20 22:36:34 +05:30] test(chess): add deterministic match-state verification tests
 [2026-01-21 09:10:35 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
 [2026-01-21 09:42:35 +05:30] refactor(components): extract reusable 3D keycap button primitive
+[2026-01-21 10:29:10 +05:30] chore: cleanup unused shaders and texture buffers
