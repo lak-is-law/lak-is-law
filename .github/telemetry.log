@@ -1,4 +1,3 @@
-[2026-01-21 10:29:10 +05:30] chore: cleanup unused shaders and texture buffers
 [2026-01-21 11:02:00 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
 [2026-01-21 12:06:34 +05:30] feat(ui): refine glassmorphic card bevel lighting and shadows
 [2026-01-21 12:57:00 +05:30] test(engine): benchmark KataGo adversarial search depth
@@ -48,3 +47,4 @@
 [2026-01-26 16:59:15 +05:30] feat(auth): harden session cookie security policies
 [2026-01-26 18:58:43 +05:30] perf: optimize frame budget for 60fps mobile canvas
 [2026-01-26 19:55:33 +05:30] chore: cleanup unused shaders and texture buffers
+[2026-01-26 21:38:13 +05:30] fix(ui): eliminate subpixel border jitter on high-DPI displays
