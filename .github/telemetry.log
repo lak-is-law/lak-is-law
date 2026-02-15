@@ -1,4 +1,3 @@
-[2026-02-06 13:51:00 +05:30] feat(api): rate-limit flight telemetry stream endpoints
 [2026-02-06 14:23:56 +05:30] chore: cleanup unused shaders and texture buffers
 [2026-02-06 16:29:38 +05:30] refactor(prisma): cache multi-tenant relation queries
 [2026-02-06 17:22:29 +05:30] chore(deps): bump internal packages and runtime hooks
@@ -48,3 +47,4 @@
 [2026-02-14 22:08:12 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
 [2026-02-14 22:46:34 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
 [2026-02-14 23:24:01 +05:30] perf: optimize frame budget for 60fps mobile canvas
+[2026-02-15 09:12:37 +05:30] refactor(components): extract reusable 3D keycap button primitive
