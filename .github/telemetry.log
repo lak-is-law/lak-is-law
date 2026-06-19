@@ -1,4 +1,3 @@
-[2026-06-10 23:44:34 +05:30] test(chess): add deterministic match-state verification tests
 [2026-06-11 10:21:48 +05:30] chore(deps): bump internal packages and runtime hooks
 [2026-06-11 12:34:07 +05:30] feat(api): rate-limit flight telemetry stream endpoints
 [2026-06-11 12:47:25 +05:30] chore: cleanup unused shaders and texture buffers
@@ -48,3 +47,4 @@
 [2026-06-18 21:33:23 +05:30] feat(analytics): record user interaction heatmaps on 3D globe
 [2026-06-19 09:34:50 +05:30] test(engine): benchmark KataGo adversarial search depth
 [2026-06-19 10:42:02 +05:30] refactor(glsl): stream atmospheric scattering vertex shader
+[2026-06-19 16:42:01 +05:30] perf(db): add partial index for live flight coordinates
