@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="1200" height="240" role="img" aria-labelledby="gl-t">
-  <title id="gl-t">GitHub at a glance: 7,211 contributions, 14 PRs, 28-day streak.</title>
+  <title id="gl-t">GitHub at a glance: 3,871 contributions, 14 PRs, 13-day streak.</title>
   <defs>
     <linearGradient id="gl-bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#190B12"/><stop offset="1" stop-color="#10070C"/>
@@ -38,22 +38,22 @@
     <!-- Metric 1: Total Contributions -->
     <g>
       <text class="gl-mono" x="48" y="138" font-size="10" letter-spacing="1.8" fill="#C77B9B">TOTAL CONTRIBUTIONS</text>
-      <text class="gl-serif" x="48" y="174" font-size="34" font-weight="300" fill="#F8F0F3">7,211</text>
+      <text class="gl-serif" x="48" y="174" font-size="34" font-weight="300" fill="#F8F0F3">3,871</text>
       <text class="gl-sans" x="48" y="196" font-size="12" fill="#B6A3AC">2023–2026 indexed</text>
     </g>
 
     <!-- Metric 2: This Year -->
     <g>
       <text class="gl-mono" x="210" y="138" font-size="10" letter-spacing="1.8" fill="#C77B9B">THIS YEAR</text>
-      <text class="gl-serif" x="210" y="174" font-size="34" font-weight="300" fill="#F8F0F3">3,199</text>
-      <text class="gl-sans" x="210" y="196" font-size="12" fill="#B6A3AC">284 active days</text>
+      <text class="gl-serif" x="210" y="174" font-size="34" font-weight="300" fill="#F8F0F3">1,286</text>
+      <text class="gl-sans" x="210" y="196" font-size="12" fill="#B6A3AC">200 active days</text>
     </g>
 
     <!-- Metric 3: Longest Streak -->
     <g>
       <text class="gl-mono" x="355" y="138" font-size="10" letter-spacing="1.8" fill="#C77B9B">LONGEST STREAK</text>
-      <text class="gl-serif" x="355" y="174" font-size="34" font-weight="300" fill="#F8F0F3">28 Days</text>
-      <text class="gl-sans" x="355" y="196" font-size="12" fill="#B6A3AC">Feb 2026 sprint</text>
+      <text class="gl-serif" x="355" y="174" font-size="34" font-weight="300" fill="#F8F0F3">13 Days</text>
+      <text class="gl-sans" x="355" y="196" font-size="12" fill="#B6A3AC">Mar 2026 sprint</text>
     </g>
 
     <!-- Metric 4: Pull Requests -->

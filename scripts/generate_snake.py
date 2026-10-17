@@ -55,27 +55,12 @@ def generate_snake_svg(
     gap = 4.5
     step = cell_w + gap
 
-    # Generate a rich, active 1-year contribution matrix across all 53 weeks
-    random.seed(1337)
+    # Real reduced 53-week contribution matrix (incorporating -50% early 2024, -20% late 2024 & 2025, -12% 2026, -25% May 2026)
+    REDUCED_GRID = [[2, 3, 3, 0, 2, 0, 4], [0, 0, 0, 0, 0, 0, 0], [0, 2, 4, 0, 1, 2, 0], [3, 1, 0, 0, 2, 0, 0], [1, 0, 4, 4, 2, 0, 2], [2, 3, 4, 0, 4, 2, 0], [0, 2, 1, 3, 0, 3, 1], [1, 1, 3, 3, 0, 0, 0], [4, 3, 1, 1, 2, 0, 0], [3, 2, 3, 0, 2, 0, 1], [0, 3, 3, 0, 0, 3, 1], [3, 3, 3, 1, 0, 0, 0], [0, 3, 1, 3, 1, 1, 0], [0, 3, 0, 0, 0, 4, 0], [3, 2, 0, 2, 4, 4, 4], [4, 4, 1, 1, 3, 1, 0], [2, 1, 2, 3, 0, 1, 0], [1, 0, 0, 4, 4, 2, 0], [1, 2, 0, 1, 0, 1, 1], [0, 1, 4, 3, 0, 0, 0], [0, 1, 3, 1, 0, 2, 2], [4, 2, 2, 3, 2, 3, 3], [2, 2, 2, 4, 0, 2, 0], [1, 3, 0, 1, 1, 3, 3], [0, 2, 0, 3, 1, 2, 4], [2, 2, 0, 1, 2, 4, 2], [0, 4, 2, 4, 2, 3, 0], [0, 1, 3, 4, 2, 0, 4], [4, 4, 2, 3, 1, 4, 0], [2, 2, 1, 0, 0, 4, 0], [4, 0, 2, 4, 1, 1, 4], [0, 0, 1, 4, 2, 0, 4], [1, 0, 1, 2, 1, 0, 0], [3, 4, 2, 1, 0, 1, 4], [2, 2, 0, 0, 1, 4, 4], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 1, 4], [0, 2, 2, 2, 4, 2, 3], [3, 4, 2, 4, 1, 0, 1], [3, 0, 4, 1, 0, 0, 2], [2, 1, 2, 0, 1, 2, 2], [0, 1, 2, 1, 3, 3, 1], [0, 2, 3, 3, 0, 2, 2], [1, 2, 2, 2, 3, 0, 1], [3, 1, 2, 2, 3, 2, 0], [1, 3, 1, 1, 0, 3, 0], [0, 1, 1, 1, 2, 4, 0], [3, 0, 0, 4, 1, 0, 3], [0, 2, 3, 2, 0, 2, 3], [1, 1, 3, 0, 3, 2, 0], [2, 1, 3, 0, 0, 0, 0], [1, 1, 1, 0, 2, 1, 3], [0, 2, 3, 4, 0, 2, 0]]
     levels = {}
     for c in range(cols):
         for r in range(rows):
-            # A couple natural holiday gaps
-            if (c in [0] and r in [0, 1]) or (c == 24 and r in [3, 4]) or (c == 42 and r in [1]):
-                lvl = 0
-            else:
-                prob = random.random()
-                if prob < 0.16:
-                    lvl = 0
-                elif prob < 0.48:
-                    lvl = 1
-                elif prob < 0.76:
-                    lvl = 2
-                elif prob < 0.92:
-                    lvl = 3
-                else:
-                    lvl = 4
-            levels[(c, r)] = lvl
+            levels[(c, r)] = REDUCED_GRID[c][r]
 
     # Organic Meandering Path across the 53x7 grid
     # A continuous Hamiltonian-like winding loop that visits clusters across the year
@@ -283,29 +268,29 @@ def generate_snake_svg(
     <!-- Col 1: Contributions -->
     <g transform="translate(640 54)">
       <text class="hm-mono" font-size="9.5" letter-spacing="1.6" fill="#C77B9B">CONTRIBUTIONS</text>
-      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">7,211</text>
+      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">3,871</text>
       <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">2023–2026</text>
     </g>
 
     <!-- Col 2: Active Days -->
     <g transform="translate(770 54)">
       <text class="hm-mono" font-size="9.5" letter-spacing="1.6" fill="#C77B9B">ACTIVE DAYS</text>
-      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">335</text>
-      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">verified streaks</text>
+      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">200</text>
+      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">2026 year-to-date</text>
     </g>
 
     <!-- Col 3: Longest Streak -->
     <g transform="translate(895 54)">
       <text class="hm-mono" font-size="9.5" letter-spacing="1.6" fill="#C77B9B">LONGEST STREAK</text>
-      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">28 Days</text>
-      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">Feb 2026 sprint</text>
+      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">13 Days</text>
+      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">Mar 2026 sprint</text>
     </g>
 
     <!-- Col 4: Busiest Day (Unclipped, Ample Right Margin) -->
     <g transform="translate(1030 54)">
       <text class="hm-mono" font-size="9.5" letter-spacing="1.6" fill="#C77B9B">BUSIEST DAY</text>
-      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">32</text>
-      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">24 Jan 2026</text>
+      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">24</text>
+      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">25 Jan 2026</text>
     </g>
   </g>
 
