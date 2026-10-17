@@ -55,8 +55,9 @@ jobs:
             --max-length "${{ github.event.inputs.max_length || '18' }}" \
             --output dist/github-snake-dark.svg
 
-          # Also keep assets/ updated
+          # Also keep assets/ updated and deploy playable interactive snake
           cp dist/github-snake-dark.svg assets/contribution-snake.svg
+          cp index.html dist/index.html
 
       - name: Deploy to Output Branch
         uses: crazy-max/ghaction-github-pages@v3.2.0

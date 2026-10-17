@@ -302,6 +302,53 @@ def generate_snake_svg(
     <rect x="1092" y="382" width="12" height="12" rx="3" fill="{dot_colors[4]}"/>
     <text class="hm-mono" x="1114" y="392" font-size="10.5" fill="#B6A3AC">More</text>
   </g>
+
+  <!-- Interactive Arrow Key Control with 2s Auto-Resume (when SVG viewed directly) -->
+  <script type="text/javascript">
+  <![CDATA[
+    document.addEventListener('DOMContentLoaded', function() {{
+      let mode = 'auto';
+      let autoTimer = null;
+      let manualHead = {{ c: 20, r: 3 }};
+      const headEl = document.querySelector('.snk_seg_0');
+      const cols = 53, rows = 7;
+      const step = 18.5, x0 = 116.0, y0 = 192.0;
+
+      window.addEventListener('keydown', function(e) {{
+        let dx = 0, dy = 0;
+        if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {{ dy = -1; }}
+        else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {{ dy = 1; }}
+        else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {{ dx = -1; }}
+        else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {{ dx = 1; }}
+        else return;
+
+        e.preventDefault();
+        mode = 'manual';
+        manualHead.c = (manualHead.c + dx + cols) % cols;
+        manualHead.r = (manualHead.r + dy + rows) % rows;
+        
+        if (headEl) {{
+          headEl.style.animationPlayState = 'paused';
+          headEl.style.transform = 'translate(' + (x0 + manualHead.c * step) + 'px, ' + (y0 + manualHead.r * step) + 'px)';
+        }}
+
+        const cell = document.getElementById('c_' + manualHead.c + '_' + manualHead.r);
+        if (cell) {{
+          cell.style.animation = 'none';
+          cell.style.fill = '#1C0C15';
+        }}
+
+        clearTimeout(autoTimer);
+        autoTimer = setTimeout(function() {{
+          mode = 'auto';
+          if (headEl) {{
+            headEl.style.animationPlayState = 'running';
+          }}
+        }}, 2000);
+      }});
+    }});
+  ]]>
+  </script>
 </svg>
 """
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
