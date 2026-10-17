@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lakshya Agarwal — Interactive GitHub Contribution Snake</title>
+  <style>
+    :root {
+      --bg-dark: #10070C;
+      --bg-card: #190B12;
+      --accent-burgundy: #701A3D;
+      --accent-rose: #C77B9B;
+      --accent-light: #E5B5C7;
+      --text-white: #F8F0F3;
+      --text-muted: #B6A3AC;
+      --dot-0: #1C0C15;
+      --dot-1: #451126;
+      --dot-2: #701A3D;
+      --dot-3: #A12556;
+      --dot-4: #E5B5C7;
+      --snake-head: #FFFFFF;
+      --snake-eye: #10070C;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 50% 20%, #2A0E1B 0%, #190B12 45%, #10070C 100%);
+      color: var(--text-white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+    .serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      background: linear-gradient(135deg, rgba(25, 11, 18, 0.95), rgba(16, 7, 12, 0.98));
+      border: 1px solid rgba(199, 123, 155, 0.25);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 80px rgba(112, 26, 61, 0.25);
+      padding: 36px 44px;
+      position: relative;
+      backdrop-filter: blur(20px);
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 2.8px;
+      color: var(--accent-rose);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      color: var(--text-white);
+    }
+
+    .title em {
+      font-style: italic;
+      color: var(--accent-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      background: rgba(39, 16, 28, 0.8);
+      border: 1px solid rgba(199, 123, 155, 0.3);
+      color: var(--text-white);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: var(--accent-burgundy);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    /* Mode Banner */
+    .mode-dock {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(18, 6, 14, 0.85);
+      border: 1px solid rgba(199, 123, 155, 0.2);
+      border-radius: 14px;
+      padding: 12px 20px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .mode-indicator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mode-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      letter-spacing: 1.4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .mode-badge.auto {
+      background: rgba(70, 16, 38, 0.7);
+      border: 1px solid var(--accent-light);
+      color: var(--accent-light);
+    }
+
+    .mode-badge.manual {
+      background: rgba(229, 181, 199, 0.2);
+      border: 1px solid #FFD700;
+      color: #FFD700;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .mode-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 1.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .mode-timer-track {
+      width: 140px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .mode-timer-bar {
+      height: 100%;
+      background: #FFD700;
+      width: 100%;
+      transform-origin: left;
+    }
+
+    .telemetry-strip {
+      display: flex;
+      gap: 24px;
+      font-size: 11.5px;
+    }
+
+    .telemetry-item span {
+      color: var(--accent-rose);
+    }
+
+    .telemetry-item b {
+      color: var(--text-white);
+      font-size: 13px;
+    }
+
+    /* Game Canvas Grid Area */
+    .board-wrapper {
+      position: relative;
+      background: #12060E;
+      border: 1px solid rgba(199, 123, 155, 0.2);
+      border-radius: 16px;
+      padding: 20px;
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      image-rendering: pixelated;
+    }
+
+    /* Controls Dock */
+    .controls-dock {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .instructions {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .key-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .key {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 3px 7px;
+      border-radius: 5px;
+      font-size: 11px;
+      color: var(--accent-light);
+    }
+
+    .dpad-container {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dpad-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(39, 16, 28, 0.8);
+      border: 1px solid rgba(199, 123, 155, 0.35);
+      color: var(--text-white);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+
+    .dpad-btn:active {
+      background: var(--accent-burgundy);
+      border-color: var(--accent-light);
+      transform: scale(0.92);
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 24px 18px; }
+      .title { font-size: 24px; }
+      .telemetry-strip { flex-wrap: wrap; gap: 12px; }
+      .controls-dock { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div>
+        <div class="eyebrow mono">TELEMETRY &middot; REAL-TIME EXPERIENCES</div>
+        <h1 class="title serif">GitHub Contribution <em>Snake</em></h1>
+      </div>
+      <div class="nav-links">
+        <a href="https://github.com/lak-is-law" class="nav-btn mono">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          @lak-is-law
+        </a>
+        <a href="https://lakshya.uk" class="nav-btn mono">Portfolio &rsaquo;</a>
+      </div>
+    </div>
+
+    <!-- Mode & Telemetry Dock -->
+    <div class="mode-dock">
+      <div class="mode-indicator">
+        <div id="modeBadge" class="mode-badge auto mono">
+          <div class="mode-pulse"></div>
+          <span id="modeText">AUTO-PILOT ACTIVE</span>
+        </div>
+        <div id="timerTrack" class="mode-timer-track">
+          <div id="timerBar" class="mode-timer-bar"></div>
+        </div>
+      </div>
+
+      <div class="telemetry-strip mono">
+        <div class="telemetry-item"><span>LENGTH:</span> <b id="statLength">4</b></div>
+        <div class="telemetry-item"><span>EATEN:</span> <b id="statEaten">0</b></div>
+        <div class="telemetry-item"><span>SCORE:</span> <b id="statScore">0</b></div>
+        <div class="telemetry-item"><span>INDEXED:</span> <b>7,211</b></div>
+      </div>
+    </div>
+
+    <!-- Interactive Grid Canvas -->
+    <div class="board-wrapper">
+      <canvas id="gameCanvas" width="1070" height="150"></canvas>
+    </div>
+
+    <!-- Controls Dock -->
+    <div class="controls-dock">
+      <div class="instructions mono">
+        <div class="key-hint">
+          <span class="key">&uarr;</span><span class="key">&darr;</span><span class="key">&larr;</span><span class="key">&rarr;</span>
+          <span>or WASD to take control</span>
+        </div>
+        <div>&bull; Auto-resumes after <b>2s</b> of idle</div>
+      </div>
+
+      <!-- Touch / Click Virtual D-Pad -->
+      <div class="dpad-container">
+        <button class="dpad-btn" id="btnLeft" aria-label="Left">&larr;</button>
+        <button class="dpad-btn" id="btnUp" aria-label="Up">&uarr;</button>
+        <button class="dpad-btn" id="btnDown" aria-label="Down">&darr;</button>
+        <button class="dpad-btn" id="btnRight" aria-label="Right">&rarr;</button>
+      </div>
+
+      <!-- Legend -->
+      <div class="legend-row mono">
+        <span>Less</span>
+        <div class="legend-swatch" style="background:#1C0C15; border:1px solid rgba(199,123,155,0.2);"></div>
+        <div class="legend-swatch" style="background:#451126;"></div>
+        <div class="legend-swatch" style="background:#701A3D;"></div>
+        <div class="legend-swatch" style="background:#A12556;"></div>
+        <div class="legend-swatch" style="background:#E5B5C7;"></div>
+        <span>More</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const COLS = 53;
+      const ROWS = 7;
+      const CELL_SIZE = 14;
+      const CELL_GAP = 5;
+      const STEP = CELL_SIZE + CELL_GAP;
+
+      const canvas = document.getElementById('gameCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const modeBadge = document.getElementById('modeBadge');
+      const modeText = document.getElementById('modeText');
+      const timerTrack = document.getElementById('timerTrack');
+      const timerBar = document.getElementById('timerBar');
+
+      const statLength = document.getElementById('statLength');
+      const statEaten = document.getElementById('statEaten');
+      const statScore = document.getElementById('statScore');
+
+      const COLORS = ['#1C0C15', '#451126', '#701A3D', '#A12556', '#E5B5C7'];
+
+      // Generate initial grid with verified contribution density
+      const grid = [];
+      let totalEaten = 0;
+      let score = 0;
+
+      // Seed deterministic pseudorandom
+      let seed = 42;
+      function rnd() {
+        seed = (seed * 9301 + 49297) % 233280;
+        return seed / 233280;
+      }
+
+      for (let c = 0; c < COLS; c++) {
+        grid[c] = [];
+        for (let r = 0; r < ROWS; r++) {
+          let lvl = 0;
+          if ((c < 2 && r < 3) || (c === 24 && r > 2) || (c === 42 && r < 3)) {
+            lvl = 0;
+          } else {
+            const p = rnd();
+            if (p < 0.24) lvl = 0;
+            else if (p < 0.58) lvl = 1;
+            else if (p < 0.82) lvl = 2;
+            else if (p < 0.94) lvl = 3;
+            else lvl = 4;
+          }
+          grid[c][r] = lvl;
+        }
+      }
+
+      // Snake State
+      let snake = [
+        { x: 12, y: 3 },
+        { x: 11, y: 3 },
+        { x: 10, y: 3 },
+        { x: 9, y: 3 }
+      ];
+      let dir = { x: 1, y: 0 };
+      let nextDir = { x: 1, y: 0 };
+
+      // Control Mode State
+      let mode = 'auto'; // 'auto' | 'manual'
+      let lastInputTime = 0;
+      const IDLE_LIMIT = 2000; // 2 seconds
+
+      function setDirection(dx, dy) {
+        // Prevent 180 reverse if length > 1
+        if (snake.length > 1 && dx === -dir.x && dy === -dir.y) return;
+        nextDir = { x: dx, y: dy };
+        mode = 'manual';
+        lastInputTime = Date.now();
+        updateModeUI();
+      }
+
+      // Keyboard Controls
+      window.addEventListener('keydown', (e) => {
+        let handled = false;
+        if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+          setDirection(0, -1);
+          handled = true;
+        } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+          setDirection(0, 1);
+          handled = true;
+        } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+          setDirection(-1, 0);
+          handled = true;
+        } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+          setDirection(1, 0);
+          handled = true;
+        }
+
+        if (handled) {
+          e.preventDefault();
+        }
+      });
+
+      // Virtual D-Pad Click / Touch Handlers
+      document.getElementById('btnUp').onclick = () => setDirection(0, -1);
+      document.getElementById('btnDown').onclick = () => setDirection(0, 1);
+      document.getElementById('btnLeft').onclick = () => setDirection(-1, 0);
+      document.getElementById('btnRight').onclick = () => setDirection(1, 0);
+
+      // Auto-Pilot Algorithm: Find nearest uneaten colored cell
+      function findAutoDirection() {
+        const head = snake[0];
+
+        let bestDist = Infinity;
+        let target = null;
+
+        for (let c = 0; c < COLS; c++) {
+          for (let r = 0; r < ROWS; r++) {
+            if (grid[c][r] > 0) {
+              const d = Math.abs(c - head.x) + Math.abs(r - head.y);
+              if (d < bestDist) {
+                bestDist = d;
+                target = { x: c, y: r };
+              }
+            }
+          }
+        }
+
+        const validMoves = [
+          { x: 1, y: 0 },
+          { x: -1, y: 0 },
+          { x: 0, y: 1 },
+          { x: 0, y: -1 }
+        ].filter(m => !(m.x === -dir.x && m.y === -dir.y));
+
+        if (!target) {
+          // If all dots eaten, patrol gracefully
+          return validMoves[Math.floor(Math.random() * validMoves.length)];
+        }
+
+        // Rank moves by distance to target and avoidance of self-collision
+        validMoves.sort((a, b) => {
+          const nxA = (head.x + a.x + COLS) % COLS;
+          const nyA = (head.y + a.y + ROWS) % ROWS;
+          const nxB = (head.x + b.x + COLS) % COLS;
+          const nyB = (head.y + b.y + ROWS) % ROWS;
+
+          const collidesA = snake.some(s => s.x === nxA && s.y === nyA);
+          const collidesB = snake.some(s => s.x === nxB && s.y === nyB);
+
+          if (collidesA !== collidesB) return collidesA ? 1 : -1;
+
+          const distA = Math.abs(nxA - target.x) + Math.abs(nyA - target.y);
+          const distB = Math.abs(nxB - target.x) + Math.abs(nyB - target.y);
+          return distA - distB;
+        });
+
+        return validMoves[0] || dir;
+      }
+
+      function updateModeUI() {
+        const now = Date.now();
+        const elapsed = now - lastInputTime;
+
+        if (mode === 'manual') {
+          if (elapsed >= IDLE_LIMIT) {
+            mode = 'auto';
+            modeBadge.className = 'mode-badge auto mono';
+            modeText.textContent = 'AUTO-PILOT ACTIVE';
+            timerTrack.style.display = 'none';
+          } else {
+            modeBadge.className = 'mode-badge manual mono';
+            const remaining = ((IDLE_LIMIT - elapsed) / 1000).toFixed(1);
+            modeText.textContent = `MANUAL (${remaining}s to auto)`;
+            timerTrack.style.display = 'block';
+            timerBar.style.transform = `scaleX(${(IDLE_LIMIT - elapsed) / IDLE_LIMIT})`;
+          }
+        } else {
+          modeBadge.className = 'mode-badge auto mono';
+          modeText.textContent = 'AUTO-PILOT ACTIVE';
+          timerTrack.style.display = 'none';
+        }
+      }
+
+      // Main Game Loop Tick
+      function tick() {
+        updateModeUI();
+
+        if (mode === 'auto') {
+          nextDir = findAutoDirection();
+        }
+
+        dir = nextDir;
+        const head = snake[0];
+        const newHead = {
+          x: (head.x + dir.x + COLS) % COLS,
+          y: (head.y + dir.y + ROWS) % ROWS
+        };
+
+        // Check if eaten
+        const cellLvl = grid[newHead.x][newHead.y];
+        snake.unshift(newHead);
+
+        if (cellLvl > 0) {
+          // Eat dot!
+          totalEaten++;
+          score += cellLvl * 15;
+          grid[newHead.x][newHead.y] = 0; // turn empty
+          // Length increases (tail is kept)
+        } else {
+          // Normal move (tail removed)
+          snake.pop();
+        }
+
+        // Update stats
+        statLength.textContent = snake.length;
+        statEaten.textContent = totalEaten;
+        statScore.textContent = score;
+
+        // Render Frame
+        render();
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw Contribution Grid
+        for (let c = 0; c < COLS; c++) {
+          for (let r = 0; r < ROWS; r++) {
+            const x = c * STEP;
+            const y = r * STEP;
+            const lvl = grid[c][r];
+
+            ctx.fillStyle = COLORS[lvl];
+            ctx.beginPath();
+            ctx.roundRect(x, y, CELL_SIZE, CELL_SIZE, 3);
+            ctx.fill();
+
+            // Subtle border for empty cells
+            if (lvl === 0) {
+              ctx.strokeStyle = 'rgba(199, 123, 155, 0.12)';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw Snake Body (Gradient from Head to Tail)
+        for (let i = snake.length - 1; i >= 0; i--) {
+          const seg = snake[i];
+          const x = seg.x * STEP;
+          const y = seg.y * STEP;
+
+          if (i === 0) {
+            // Snake Head
+            ctx.save();
+            ctx.shadowColor = '#E5B5C7';
+            ctx.shadowBlur = 10;
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
+            ctx.roundRect(x, y, CELL_SIZE, CELL_SIZE, 4.5);
+            ctx.fill();
+            ctx.restore();
+
+            // Eyes
+            ctx.fillStyle = '#10070C';
+            const eyeSize = 1.6;
+            if (dir.x === 1) {
+              ctx.fillRect(x + 10, y + 3, eyeSize, eyeSize);
+              ctx.fillRect(x + 10, y + 9, eyeSize, eyeSize);
+            } else if (dir.x === -1) {
+              ctx.fillRect(x + 2, y + 3, eyeSize, eyeSize);
+              ctx.fillRect(x + 2, y + 9, eyeSize, eyeSize);
+            } else if (dir.y === 1) {
+              ctx.fillRect(x + 3, y + 10, eyeSize, eyeSize);
+              ctx.fillRect(x + 9, y + 10, eyeSize, eyeSize);
+            } else {
+              ctx.fillRect(x + 3, y + 2, eyeSize, eyeSize);
+              ctx.fillRect(x + 9, y + 2, eyeSize, eyeSize);
+            }
+          } else {
+            // Body Segment
+            const factor = i / snake.length;
+            ctx.fillStyle = factor > 0.6 ? '#701A3D' : (factor > 0.3 ? '#A12556' : '#C77B9B');
+            ctx.globalAlpha = Math.max(0.55, 1.0 - factor * 0.45);
+            ctx.beginPath();
+            ctx.roundRect(x + 0.5, y + 0.5, CELL_SIZE - 1, CELL_SIZE - 1, 3.5);
+            ctx.fill();
+            ctx.globalAlpha = 1.0;
+          }
+        }
+      }
+
+      // Initial Render
+      render();
+
+      // Run game tick every 125ms (~8 moves/sec, optimal tactile control)
+      setInterval(tick, 125);
+
+      // Fast UI timer update (every 50ms) for smooth countdown bar
+      setInterval(updateModeUI, 50);
+    })();
+  </script>
+</body>
+</html>
