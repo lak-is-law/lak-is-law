@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" width="1200" height="370" role="img" aria-labelledby="p-td-t">
+  <title id="p-td-t">TODAR: Smart Personal Finance &amp; AI-Forecasting Platform.</title>
+  <defs>
+    <linearGradient id="ptd-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#190B12"/><stop offset="1" stop-color="#10070C"/>
+    </linearGradient>
+    <radialGradient id="ptd-glow" cx="80%" cy="35%" r="60%">
+      <stop offset="0" stop-color="#701A3D" stop-opacity=".68"/><stop offset="1" stop-color="#451126" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="ptd-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#C77B9B" stroke-opacity=".07"/>
+    </pattern>
+    <clipPath id="ptd-clip"><rect width="1200" height="370" rx="18"/></clipPath>
+    <linearGradient id="ptd-trace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F0F3"/><stop offset=".45" stop-color="#E5B5C7"/><stop offset="1" stop-color="#C77B9B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ptd-chart-fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E5B5C7" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#701A3D" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .ptd-serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .ptd-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .ptd-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .ptd-in { animation: ptd-in 1.2s cubic-bezier(.16,1,.3,1) both; }
+    .ptd-d1 { animation-delay: .15s; } .ptd-d2 { animation-delay: .4s; }
+    .ptd-chip { animation: ptd-chip .7s cubic-bezier(.34,1.56,.64,1) both; }
+    @keyframes ptd-chip { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .ptd-draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: ptd-draw 2s cubic-bezier(.65,0,.35,1) .5s forwards; }
+    @keyframes ptd-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @keyframes ptd-draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .ptd-in, .ptd-chip { animation: none; } .ptd-draw { animation: none; stroke-dashoffset: 0; } }
+    .ptd-trace { stroke-dasharray: 564 3136; stroke-dashoffset: 3700; animation: ptd-trace 7s linear -5s infinite; }
+    @keyframes ptd-trace { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .ptd-trace { display: none; } }
+  </style>
+  <g clip-path="url(#ptd-clip)">
+    <rect width="1200" height="370" fill="url(#ptd-bg)"/>
+    <rect x="720" width="480" height="370" fill="url(#ptd-grid)"/>
+    <rect width="1200" height="370" fill="url(#ptd-glow)"/>
+
+    <g class="ptd-in ptd-d1">
+      <text class="ptd-mono" x="56" y="62" font-size="12" letter-spacing="2.6" fill="#C77B9B">04 · FINTECH · ML FORECASTING · 2026</text>
+      <text class="ptd-serif" x="54" y="126" font-size="52" font-weight="300" letter-spacing="-1.5" fill="#F8F0F3">TODAR<tspan font-size="28" font-style="italic" fill="#E5B5C7"> · Todar 2.0</tspan></text>
+      <text class="ptd-sans" x="56" y="166" font-size="17" fill="#B6A3AC">Smart personal finance &amp; predictive AI budget modeling with zero-friction ritual.</text>
+      <text class="ptd-mono" x="56" y="200" font-size="12.5" fill="#E5B5C7"><tspan fill="#C77B9B">BUILT ›</tspan> Next.js + PostgreSQL + TensorFlow.js burn-rate telemetry engine</text>
+      <line class="ptd-draw" x1="56" y1="226" x2="680" y2="226" stroke="#C77B9B" stroke-opacity=".3"/>
+      
+      <g transform="translate(56 266)">
+        <text class="ptd-serif" font-size="34" font-weight="300" fill="#F8F0F3">99.2%</text>
+        <text class="ptd-sans" y="24" font-size="12.5" fill="#B6A3AC">ML forecast accuracy</text>
+      </g>
+      <g transform="translate(261 266)">
+        <text class="ptd-serif" font-size="34" font-weight="300" fill="#F8F0F3">Real-Time</text>
+        <text class="ptd-sans" y="24" font-size="12.5" fill="#B6A3AC">ledger recalculation</text>
+      </g>
+      <g transform="translate(466 266)">
+        <text class="ptd-serif" font-size="34" font-weight="300" fill="#F8F0F3">&lt;50ms</text>
+        <text class="ptd-sans" y="24" font-size="12.5" fill="#B6A3AC">query latency</text>
+      </g>
+
+      <g class="ptd-chip" style="animation-delay:1.00s"><rect x="56" y="314" width="75" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="ptd-mono" x="93" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Next.js 14</text></g>
+      <g class="ptd-chip" style="animation-delay:1.12s"><rect x="139" y="314" width="86" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="ptd-mono" x="182" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">PostgreSQL</text></g>
+      <g class="ptd-chip" style="animation-delay:1.24s"><rect x="233" y="314" width="102" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="ptd-mono" x="284" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">TensorFlow.js</text></g>
+      <g class="ptd-chip" style="animation-delay:1.36s"><rect x="343" y="314" width="86" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="ptd-mono" x="386" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Python ML</text></g>
+      <g class="ptd-chip" style="animation-delay:1.48s"><rect x="437" y="314" width="75" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="ptd-mono" x="474" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Supabase</text></g>
+    </g>
+
+    <!-- Isometric FinTech Chart Graphic -->
+    <g class="ptd-in ptd-d2"><g transform="translate(0 35)">
+      <g transform="translate(850 40)">
+        <rect x="0" y="16" width="256" height="170" rx="14" fill="#240D1B" stroke="#C77B9B" stroke-opacity=".2" transform="rotate(-7 128 95)"/>
+        <rect x="16" y="8" width="256" height="170" rx="14" fill="#2E1223" stroke="#C77B9B" stroke-opacity=".3" transform="rotate(-2 128 95)"/>
+        
+        <g transform="rotate(3 128 95)">
+          <rect x="26" y="0" width="260" height="180" rx="14" fill="#361528" stroke="#C77B9B" stroke-opacity=".5"/>
+          <!-- FinTech Chart Grid -->
+          <line x1="46" y1="40" x2="266" y2="40" stroke="#E5B5C7" stroke-opacity=".1" stroke-dasharray="2 4"/>
+          <line x1="46" y1="80" x2="266" y2="80" stroke="#E5B5C7" stroke-opacity=".1" stroke-dasharray="2 4"/>
+          <line x1="46" y1="120" x2="266" y2="120" stroke="#E5B5C7" stroke-opacity=".1" stroke-dasharray="2 4"/>
+
+          <!-- Predictive Trend Curve -->
+          <path d="M46 130 Q 90 110, 130 75 T 210 50 T 266 35 L 266 140 L 46 140 Z" fill="url(#ptd-chart-fill)"/>
+          <path d="M46 130 Q 90 110, 130 75 T 210 50 T 266 35" fill="none" stroke="#E5B5C7" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Data Points -->
+          <circle cx="130" cy="75" r="4" fill="#701A3D" stroke="#F8F0F3" stroke-width="1.5"/>
+          <circle cx="210" cy="50" r="4" fill="#701A3D" stroke="#F8F0F3" stroke-width="1.5"/>
+          <circle cx="266" cy="35" r="5" fill="#E5B5C7" filter="url(#ptd-glowf)"/>
+
+          <!-- Telemetry Pill -->
+          <g transform="translate(46 146)">
+            <rect width="120" height="22" rx="6" fill="#190B12" stroke="#C77B9B" stroke-opacity=".4"/>
+            <text class="ptd-mono" x="60" y="15" text-anchor="middle" font-size="9.5" fill="#F8F0F3">BURN RATE · PREDICTED</text>
+          </g>
+        </g>
+      </g>
+
+      <g transform="translate(1005 240)">
+        <rect width="138" height="44" rx="8" fill="#190B12" stroke="#C77B9B" stroke-opacity=".3"/>
+        <text class="ptd-mono" x="12" y="18" font-size="10" letter-spacing="1.5" fill="#C77B9B">FINTECH ML</text>
+        <text class="ptd-mono" x="12" y="34" font-size="11" fill="#F8F0F3">99.2% Accuracy</text>
+      </g>
+    </g></g>
+
+    <!-- Border & Laser Tracer -->
+    <rect x=".5" y=".5" width="1199" height="369" rx="17.5" fill="none" stroke="#C77B9B" stroke-opacity=".22"/>
+    <rect class="ptd-trace" x=".5" y=".5" width="1199" height="369" rx="17.5" fill="none" stroke="url(#ptd-trace)" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+</svg>

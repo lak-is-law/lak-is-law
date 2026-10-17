@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="1200" height="240" role="img" aria-labelledby="gl-t">
+  <title id="gl-t">GitHub at a glance: 7,161 contributions, 14 PRs, 28-day streak.</title>
+  <defs>
+    <linearGradient id="gl-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#190B12"/><stop offset="1" stop-color="#10070C"/>
+    </linearGradient>
+    <radialGradient id="gl-glow" cx="80%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#701A3D" stop-opacity=".6"/><stop offset="1" stop-color="#451126" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gl-trace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F0F3"/><stop offset=".45" stop-color="#E5B5C7"/><stop offset="1" stop-color="#C77B9B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .gl-serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .gl-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .gl-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .gl-in { animation: gl-in 1s cubic-bezier(.16,1,.3,1) both; }
+    .gl-trace { stroke-dasharray: 480 2400; stroke-dashoffset: 2880; animation: gl-trace 7s linear infinite; }
+    @keyframes gl-trace { to { stroke-dashoffset: 0; } }
+    @keyframes gl-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .gl-in { animation: none; } .gl-trace { display: none; } }
+  </style>
+
+  <rect width="1200" height="240" rx="18" fill="url(#gl-bg)"/>
+  <rect width="1200" height="240" rx="18" fill="url(#gl-glow)"/>
+  <rect x=".5" y=".5" width="1199" height="239" rx="17.5" fill="none" stroke="#C77B9B" stroke-opacity=".2"/>
+  <rect class="gl-trace" x=".5" y=".5" width="1199" height="239" rx="17.5" fill="none" stroke="url(#gl-trace)" stroke-width="1.8" stroke-linecap="round"/>
+
+  <g class="gl-in" transform="translate(48 38)">
+    <text class="gl-mono" font-size="11" letter-spacing="2.4" fill="#C77B9B">CODEBASE TELEMETRY · GITHUB AT A GLANCE</text>
+    <text class="gl-serif" y="38" font-size="28" font-weight="300" fill="#F8F0F3">Verified contributions &amp; language architecture.</text>
+  </g>
+
+  <!-- Metrics Grid -->
+  <g class="gl-in" transform="translate(48 122)">
+    <!-- Total Contributions -->
+    <g transform="translate(0 0)">
+      <text class="gl-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">TOTAL CONTRIBUTIONS</text>
+      <text class="gl-serif" y="38" font-size="36" font-weight="300" fill="#F8F0F3">7,161</text>
+      <text class="gl-sans" y="58" font-size="12" fill="#B6A3AC">2024–2026 indexed</text>
+    </g>
+
+    <!-- 2026 Contributions -->
+    <g transform="translate(180 0)">
+      <text class="gl-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">THIS YEAR</text>
+      <text class="gl-serif" y="38" font-size="36" font-weight="300" fill="#F8F0F3">3,199</text>
+      <text class="gl-sans" y="58" font-size="12" fill="#B6A3AC">284 active days</text>
+    </g>
+
+    <!-- Longest Streak -->
+    <g transform="translate(340 0)">
+      <text class="gl-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">LONGEST STREAK</text>
+      <text class="gl-serif" y="38" font-size="36" font-weight="300" fill="#F8F0F3">28 Days</text>
+      <text class="gl-sans" y="58" font-size="12" fill="#B6A3AC">Feb 2026 sprint</text>
+    </g>
+
+    <!-- Production PRs -->
+    <g transform="translate(500 0)">
+      <text class="gl-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">PULL REQUESTS</text>
+      <text class="gl-serif" y="38" font-size="36" font-weight="300" fill="#F8F0F3">14</text>
+      <text class="gl-sans" y="58" font-size="12" fill="#B6A3AC">merged &amp; shipped</text>
+    </g>
+
+    <!-- Vertical separator line -->
+    <line x1="640" y1="-10" x2="640" y2="65" stroke="#C77B9B" stroke-opacity=".25"/>
+
+    <!-- Languages Stack -->
+    <g transform="translate(675 0)">
+      <text class="gl-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">DOMINANT LANGUAGES &amp; STACK</text>
+      
+      <!-- Multi-segment progress bar -->
+      <g transform="translate(0 16)">
+        <rect width="420" height="10" rx="5" fill="#27101C"/>
+        <rect width="176" height="10" rx="5" fill="#E5B5C7"/>
+        <rect x="179" width="118" height="10" rx="5" fill="#C77B9B"/>
+        <rect x="300" width="75" height="10" rx="5" fill="#701A3D"/>
+        <rect x="378" width="42" height="10" rx="5" fill="#C9A27A"/>
+      </g>
+
+      <!-- Language Legend Items -->
+      <g transform="translate(0 48)">
+        <circle cx="4" cy="-4" r="4" fill="#E5B5C7"/>
+        <text class="gl-mono" x="14" font-size="11" fill="#F8F0F3">TypeScript <tspan fill="#B6A3AC">42%</tspan></text>
+
+        <circle cx="124" cy="-4" r="4" fill="#C77B9B"/>
+        <text class="gl-mono" x="134" font-size="11" fill="#F8F0F3">Python <tspan fill="#B6A3AC">28%</tspan></text>
+
+        <circle cx="220" cy="-4" r="4" fill="#701A3D"/>
+        <text class="gl-mono" x="230" font-size="11" fill="#F8F0F3">GLSL/3D <tspan fill="#B6A3AC">18%</tspan></text>
+
+        <circle cx="326" cy="-4" r="4" fill="#C9A27A"/>
+        <text class="gl-mono" x="336" font-size="11" fill="#F8F0F3">Other <tspan fill="#B6A3AC">12%</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-labelledby="hero-title hero-desc">
   <title id="hero-title">Lakshya Agarwal — Engineering intelligence. Designing real-time experiences.</title>
-  <desc id="hero-desc">Full-Stack Architect, AI Developer and Creative Technologist. B.Tech in CSE at SRMIST Chennai, CGPA 4.37 / 5.0.</desc>
+  <desc id="hero-desc">Full-Stack Architect, AI Developer and Creative Technologist. B.Tech in CSE at SRMIST Chennai, CGPA 8.74.</desc>
 
   <defs>
     <radialGradient id="hero-bg" cx="72%" cy="38%" r="80%">
@@ -59,7 +59,9 @@
     <filter id="hero-soft" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="2.5"/>
     </filter>
-    <clipPath id="hero-arch"><path d="M847 380 V202 A118 118 0 0 1 1083 202 V380 Z"/></clipPath>
+    <clipPath id="hero-portal-clip"><circle cx="965" cy="225" r="126"/></clipPath>
+    <radialGradient id="hero-portal-bg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#280E1D"/><stop offset="1" stop-color="#12060E"/></radialGradient>
+    <radialGradient id="hero-photo-vignette" cx="50%" cy="38%" r="62%"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset=".65" stop-color="#190B12" stop-opacity="0.12"/><stop offset="1" stop-color="#10070C" stop-opacity="0.82"/></radialGradient>
     <radialGradient id="hero-photo-wash" cx="50%" cy="30%" r="80%">
       <stop offset="0" stop-color="#F3E1E7"/>
       <stop offset=".6" stop-color="#DDA3B8"/>
@@ -232,8 +234,8 @@
     <!-- Meta strip -->
     <g class="hero-fade d6">
       <line x1="72" y1="446" x2="1128" y2="446" stroke="#C77B9B" stroke-opacity=".14"/>
-      <text class="hero-mono" x="72" y="466" font-size="10.5" letter-spacing="2" fill="#B6A3AC">B.TECH CSE · SRMIST CHENNAI · CGPA 4.37 / 5.0</text>
-      <text class="hero-mono" x="1128" y="466" text-anchor="end" font-size="10.5" letter-spacing="2" fill="#E5B5C7">WINNER, TECHXCELERATE 2025 BITS HYDERABAD · UCSI PITCH WINNER</text>
+      <text class="hero-mono" x="72" y="466" font-size="10.5" letter-spacing="2" fill="#B6A3AC">B.TECH CSE · SRMIST CHENNAI · CGPA 8.74</text>
+      <text class="hero-mono" x="1128" y="466" text-anchor="end" font-size="10.5" letter-spacing="2" fill="#E5B5C7">WINNER, TECHXCELERATE 2025 BITS HYD · UCSI PITCH WINNER · 5+ HONORS</text>
     </g>
 
     <!-- Frame -->

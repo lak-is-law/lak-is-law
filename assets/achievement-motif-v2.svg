@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="1200" height="430" role="img" aria-labelledby="ach-title ach-desc">
   <title id="ach-title">Recognition</title>
-  <desc id="ach-desc">Flipkart BITS '25 1st Place Champion. Myntra WeForShe HackerRamp 2026 Winner, Global Strategy. CGPA 4.37. LeetCode 12K+ problems, peak rating 1321. GeeksforGeeks 12K+ problems, rating 1464. CodeChef 1M+ problems. HackerRank 5 stars in C, Python and Java.</desc>
+  <desc id="ach-desc">Flipkart BITS '25 1st Place Champion. UCSI Venture Pitch Winner. CGPA 8.74. Skyward 12K+ aircraft live. Craftme 1000+ procedural voxels. Todar 99.2% ML forecast precision. 5+ National &amp; Global Honors.</desc>
 
   <defs>
     <linearGradient id="ach-bg" x1="0" y1="0" x2="0" y2="1">
@@ -11,8 +11,8 @@
       <stop offset="0" stop-color="#701A3D" stop-opacity=".85"/>
       <stop offset="1" stop-color="#451126" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="ach-glow-b" cx="90%" cy="0%" r="90%">
-      <stop offset="0" stop-color="#C77B9B" stop-opacity=".35"/>
+    <radialGradient id="ach-glow-b" cx="85%" cy="0%" r="90%">
+      <stop offset="0" stop-color="#701A3D" stop-opacity=".75"/>
       <stop offset="1" stop-color="#451126" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="ach-hair" x1="0" y1="0" x2="1" y2="0">
@@ -30,8 +30,8 @@
       <stop offset=".5" stop-color="#F8F0F3" stop-opacity=".08"/>
       <stop offset="1" stop-color="#F8F0F3" stop-opacity="0"/>
     </linearGradient>
-    <clipPath id="ach-clip-a"><rect x="0" y="0" width="700" height="250" rx="16"/></clipPath>
-    <clipPath id="ach-clip-b"><rect x="0" y="0" width="476" height="250" rx="16"/></clipPath>
+    <clipPath id="ach-clip-a"><rect x="0" y="0" width="620" height="250" rx="16"/></clipPath>
+    <clipPath id="ach-clip-b"><rect x="0" y="0" width="512" height="250" rx="16"/></clipPath>
     <linearGradient id="ach-trace" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#F8F0F3"/><stop offset=".45" stop-color="#E5B5C7"/><stop offset="1" stop-color="#C77B9B" stop-opacity="0"/>
     </linearGradient>
@@ -50,8 +50,8 @@
       .ach-in { animation: none; }
       .ach-draw { animation: none; stroke-dashoffset: 0; }
     }
-    .ach-trace-a { stroke-dasharray: 340 1900; stroke-dashoffset: 2240; animation: ach-trace-a 6s linear infinite; }
-    .ach-trace-b { stroke-dasharray: 260 1452; stroke-dashoffset: 1712; animation: ach-trace-b 6s linear -3s infinite; }
+    .ach-trace-a { stroke-dasharray: 320 1440; stroke-dashoffset: 1760; animation: ach-trace-a 6s linear infinite; }
+    .ach-trace-b { stroke-dasharray: 280 1240; stroke-dashoffset: 1520; animation: ach-trace-b 6s linear -3s infinite; }
     @keyframes ach-trace-a { to { stroke-dashoffset: 0; } }
     @keyframes ach-trace-b { to { stroke-dashoffset: 0; } }
     @media (prefers-reduced-motion: reduce) { .ach-trace-a, .ach-trace-b { display: none; } }
@@ -63,36 +63,34 @@
   <!-- Flipkart BITS '25 — hero card -->
   <g class="ach-in a1"><g transform="translate(24 24)">
     <g clip-path="url(#ach-clip-a)">
-      <rect width="700" height="250" fill="#190B12"/>
-      <rect width="700" height="250" fill="url(#ach-glow-a)"/>
-      <text class="ach-serif" x="684" y="124" text-anchor="end" font-size="128" font-weight="300" letter-spacing="-6" fill="url(#ach-outline)">BITS '25</text>
+      <rect width="620" height="250" fill="#190B12"/>
+      <rect width="620" height="250" fill="url(#ach-glow-a)"/>
+      <text class="ach-serif" x="604" y="124" text-anchor="end" font-size="124" font-weight="300" letter-spacing="-5" fill="url(#ach-outline)">BITS '25</text>
       <rect x="-300" y="0" width="260" height="250" fill="url(#ach-sheen)" transform="skewX(-18)">
-        <animate attributeName="x" values="-300;900;900" keyTimes="0;.35;1" dur="9s" begin="2s" repeatCount="indefinite"/>
+        <animate attributeName="x" values="-300;800;800" keyTimes="0;.35;1" dur="9s" begin="2s" repeatCount="indefinite"/>
       </rect>
     </g>
-    <rect x=".5" y=".5" width="699" height="249" rx="15.5" fill="none" stroke="#C77B9B" stroke-opacity=".38"/>
-    <rect class="ach-trace-a" x=".5" y=".5" width="699" height="249" rx="15.5" fill="none" stroke="url(#ach-trace)" stroke-width="1.8" stroke-linecap="round"/>
-    <rect x="40" y="0" width="300" height="1" fill="url(#ach-hair)"/>
+    <rect x=".5" y=".5" width="619" height="249" rx="15.5" fill="none" stroke="#C77B9B" stroke-opacity=".38"/>
+    <rect class="ach-trace-a" x=".5" y=".5" width="619" height="249" rx="15.5" fill="none" stroke="url(#ach-trace)" stroke-width="1.8" stroke-linecap="round"/>
+    <rect x="40" y="0" width="280" height="1" fill="url(#ach-hair)"/>
     <text class="ach-mono" x="36" y="154" font-size="12" letter-spacing="2.6" fill="#C77B9B">TECHXCELERATE HACKATHON · NATIONAL LEVEL</text>
-    <text class="ach-serif" x="34" y="204" font-size="46" font-weight="300" letter-spacing="-1" fill="#F8F0F3">1st Place Champion</text>
+    <text class="ach-serif" x="34" y="204" font-size="44" font-weight="300" letter-spacing="-1" fill="#F8F0F3">1st Place Champion</text>
     <text class="ach-sans" x="36" y="230" font-size="14" fill="#B6A3AC">Flipkart BITS '25</text>
   </g></g>
 
-  <!-- Myntra WeForShe HackerRamp 2026 -->
-  <g class="ach-in a2"><g transform="translate(700 24)">
-    <g transform="translate(24 0)">
-      <g clip-path="url(#ach-clip-b)">
-        <rect width="476" height="250" fill="#190B12"/>
-        <rect width="476" height="250" fill="url(#ach-glow-b)"/>
-        <text class="ach-serif" x="490" y="132" text-anchor="end" font-size="160" font-style="italic" font-weight="300" letter-spacing="-6" fill="none" stroke="#E5B5C7" stroke-opacity=".3">UCSI</text>
-      </g>
-      <rect x=".5" y=".5" width="475" height="249" rx="15.5" fill="none" stroke="#C77B9B" stroke-opacity=".3"/>
-      <rect class="ach-trace-b" x=".5" y=".5" width="475" height="249" rx="15.5" fill="none" stroke="url(#ach-trace)" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="40" y="0" width="220" height="1" fill="url(#ach-hair)"/>
-      <text class="ach-mono" x="32" y="154" font-size="12" letter-spacing="2.6" fill="#C77B9B">CONSULTING GROUP PITCH 2025</text>
-      <text class="ach-serif" x="30" y="204" font-size="46" font-weight="300" letter-spacing="-1" fill="#F8F0F3">Winner, Global Strategy</text>
-      <text class="ach-sans" x="32" y="230" font-size="14" fill="#B6A3AC">International Consulting &amp; Tech Venture Pitch</text>
+  <!-- UCSI Venture Pitch Winner -->
+  <g class="ach-in a2"><g transform="translate(664 24)">
+    <g clip-path="url(#ach-clip-b)">
+      <rect width="512" height="250" fill="#190B12"/>
+      <rect width="512" height="250" fill="url(#ach-glow-b)"/>
+      <text class="ach-serif" x="488" y="132" text-anchor="end" font-size="132" font-style="italic" font-weight="300" letter-spacing="-4" fill="none" stroke="#E5B5C7" stroke-opacity=".25">UCSI</text>
     </g>
+    <rect x=".5" y=".5" width="511" height="249" rx="15.5" fill="none" stroke="#C77B9B" stroke-opacity=".3"/>
+    <rect class="ach-trace-b" x=".5" y=".5" width="511" height="249" rx="15.5" fill="none" stroke="url(#ach-trace)" stroke-width="1.8" stroke-linecap="round"/>
+    <rect x="40" y="0" width="240" height="1" fill="url(#ach-hair)"/>
+    <text class="ach-mono" x="32" y="154" font-size="12" letter-spacing="2.6" fill="#C77B9B">CONSULTING GROUP PITCH 2025</text>
+    <text class="ach-serif" x="30" y="202" font-size="38" font-weight="300" letter-spacing="-0.5" fill="#F8F0F3">Winner, Global Strategy</text>
+    <text class="ach-sans" x="32" y="230" font-size="14" fill="#B6A3AC">International Consulting &amp; Tech Venture Pitch</text>
   </g></g>
 
   <!-- Animated connector across the score strip -->
@@ -103,32 +101,32 @@
     <g transform="translate(36 300)">
       <circle cx="0" cy="0" r="3.5" fill="#E5B5C7"/>
       <text class="ach-mono" y="34" font-size="11" letter-spacing="2" fill="#C77B9B">ACADEMICS</text>
-      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">4.37</text>
+      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">8.74</text>
       <text y="102">CGPA · B.Tech CSE SRMIST</text>
     </g>
     <g transform="translate(266 300)">
       <circle cx="0" cy="0" r="3.5" fill="#E5B5C7"/>
-      <text class="ach-mono" y="34" font-size="11" letter-spacing="2" fill="#C77B9B">RADAR SCALE</text>
+      <text class="ach-mono" y="34" font-size="11" letter-spacing="2" fill="#C77B9B">SKYWARD RADAR</text>
       <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">12K+</text>
       <text y="102">aircraft live 60 FPS under 50KB</text>
     </g>
     <g transform="translate(496 300)">
       <circle cx="0" cy="0" r="3.5" fill="#E5B5C7"/>
-      <text class="ach-mono" y="34" font-size="11" letter-spacing="2" fill="#C77B9B">ADVERSARIAL AI</text>
-      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">12K+</text>
-      <text y="102">Stockfish &amp; KataGo bots</text>
+      <text class="ach-mono" y="34" font-size="11" letter-spacing="2" fill="#C77B9B">CRAFTME 3D</text>
+      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">1,000+</text>
+      <text y="102">procedural voxels &amp; RTX world</text>
     </g>
     <g transform="translate(726 300)">
       <circle cx="0" cy="0" r="3.5" fill="#E5B5C7"/>
-      <text class="ach-mono" y="34" font-size="11" letter-spacing="2" fill="#C77B9B">LEARNING GAME</text>
-      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">1M+</text>
-      <text y="102">aspirants on AWS Challenge</text>
+      <text class="ach-mono" y="34" font-size="11" letter-spacing="2" fill="#C77B9B">TODAR FINTECH</text>
+      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">99.2%</text>
+      <text y="102">ML budget forecasting precision</text>
     </g>
     <g transform="translate(956 300)">
       <circle cx="0" cy="0" r="3.5" fill="#E5B5C7"/>
       <text class="ach-mono" y="34" font-size="11" letter-spacing="2" fill="#C77B9B">HONORS</text>
-      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">3★</text>
-      <text y="102">BITS Hyd · UCSI · SRMIST</text>
+      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">5+ ★</text>
+      <text y="102">BITS Hyd · UCSI · Myntra · SRMIST</text>
     </g>
   </g>
 </svg>

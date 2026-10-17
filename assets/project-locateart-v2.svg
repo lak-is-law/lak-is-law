@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" width="1200" height="370" role="img" aria-labelledby="p-la-t">
+  <title id="p-la-t">Locate Art: Interactive Cultural GIS Map cataloging 120+ traditional art forms across India.</title>
+  <defs>
+    <linearGradient id="pla-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#190B12"/><stop offset="1" stop-color="#10070C"/>
+    </linearGradient>
+    <radialGradient id="pla-glow" cx="80%" cy="35%" r="60%">
+      <stop offset="0" stop-color="#701A3D" stop-opacity=".65"/><stop offset="1" stop-color="#451126" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="pla-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#C77B9B" stroke-opacity=".07"/>
+    </pattern>
+    <filter id="pla-glowf" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="pla-clip"><rect width="1200" height="370" rx="18"/></clipPath>
+    <linearGradient id="pla-trace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F0F3"/><stop offset=".45" stop-color="#E5B5C7"/><stop offset="1" stop-color="#C77B9B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .pla-serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .pla-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .pla-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .pla-in { animation: pla-in 1.2s cubic-bezier(.16,1,.3,1) both; }
+    .pla-d1 { animation-delay: .15s; } .pla-d2 { animation-delay: .4s; }
+    .pla-chip { animation: pla-chip .7s cubic-bezier(.34,1.56,.64,1) both; }
+    @keyframes pla-chip { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .pla-draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: pla-draw 2s cubic-bezier(.65,0,.35,1) .5s forwards; }
+    @keyframes pla-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @keyframes pla-draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .pla-in, .pla-chip { animation: none; } .pla-draw { animation: none; stroke-dashoffset: 0; } }
+    .pla-trace { stroke-dasharray: 564 3136; stroke-dashoffset: 3700; animation: pla-trace 7s linear -2s infinite; }
+    @keyframes pla-trace { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .pla-trace { display: none; } }
+  </style>
+  <g clip-path="url(#pla-clip)">
+    <rect width="1200" height="370" fill="url(#pla-bg)"/>
+    <rect x="720" width="480" height="370" fill="url(#pla-grid)"/>
+    <rect width="1200" height="370" fill="url(#pla-glow)"/>
+
+    <g class="pla-in pla-d1">
+      <text class="pla-mono" x="56" y="62" font-size="12" letter-spacing="2.6" fill="#C77B9B">02 · CULTURAL GIS · SPATIAL MAPPING · 2026</text>
+      <text class="pla-serif" x="54" y="126" font-size="52" font-weight="300" letter-spacing="-1.5" fill="#F8F0F3">Locate Art</text>
+      <text class="pla-sans" x="56" y="166" font-size="17" fill="#B6A3AC">Interactive cultural GIS map cataloging 120+ traditional Indian art forms &amp; heritage.</text>
+      <text class="pla-mono" x="56" y="200" font-size="12.5" fill="#E5B5C7"><tspan fill="#C77B9B">BUILT ›</tspan> Next.js 16 + Supabase PostgreSQL + MapLibre GL with 3 switchable layers</text>
+      <line class="pla-draw" x1="56" y1="226" x2="680" y2="226" stroke="#C77B9B" stroke-opacity=".3"/>
+      
+      <g transform="translate(56 266)">
+        <text class="pla-serif" font-size="34" font-weight="300" fill="#F8F0F3">120+</text>
+        <text class="pla-sans" y="24" font-size="12.5" fill="#B6A3AC">cultural art forms</text>
+      </g>
+      <g transform="translate(261 266)">
+        <text class="pla-serif" font-size="34" font-weight="300" fill="#F8F0F3">3 Layers</text>
+        <text class="pla-sans" y="24" font-size="12.5" fill="#B6A3AC">switchable GIS styles</text>
+      </g>
+      <g transform="translate(466 266)">
+        <text class="pla-serif" font-size="34" font-weight="300" fill="#F8F0F3">&lt;80ms</text>
+        <text class="pla-sans" y="24" font-size="12.5" fill="#B6A3AC">vector tile latency</text>
+      </g>
+
+      <g class="pla-chip" style="animation-delay:1.00s"><rect x="56" y="314" width="78" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="pla-mono" x="95" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Next.js 16</text></g>
+      <g class="pla-chip" style="animation-delay:1.12s"><rect x="142" y="314" width="92" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="pla-mono" x="188" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">MapLibre GL</text></g>
+      <g class="pla-chip" style="animation-delay:1.24s"><rect x="242" y="314" width="75" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="pla-mono" x="279" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Supabase</text></g>
+      <g class="pla-chip" style="animation-delay:1.36s"><rect x="325" y="314" width="86" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="pla-mono" x="368" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">PostgreSQL</text></g>
+      <g class="pla-chip" style="animation-delay:1.48s"><rect x="419" y="314" width="70" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="pla-mono" x="454" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Three.js</text></g>
+    </g>
+
+    <!-- Visual Isometric Map Graphic -->
+    <g class="pla-in pla-d2"><g transform="translate(0 35)">
+      <g transform="translate(850 36)">
+        <!-- Isometric Card Base -->
+        <rect x="0" y="20" width="250" height="170" rx="16" fill="#240D1B" stroke="#C77B9B" stroke-opacity=".25" transform="rotate(-8 125 105)"/>
+        <rect x="18" y="8" width="250" height="170" rx="16" fill="#2E1223" stroke="#C77B9B" stroke-opacity=".35" transform="rotate(-3 125 105)"/>
+        
+        <g transform="rotate(3 125 105)">
+          <rect x="30" y="0" width="256" height="180" rx="16" fill="#351428" stroke="#C77B9B" stroke-opacity=".5"/>
+          <!-- Map Geo Lines and Pins -->
+          <path d="M50 40 Q 110 25, 170 50 T 260 45" fill="none" stroke="#E5B5C7" stroke-opacity=".35" stroke-dasharray="3 4"/>
+          <path d="M60 85 Q 130 70, 190 95 T 270 90" fill="none" stroke="#E5B5C7" stroke-opacity=".35" stroke-dasharray="3 4"/>
+          <path d="M70 130 Q 140 115, 210 140 T 265 135" fill="none" stroke="#E5B5C7" stroke-opacity=".35" stroke-dasharray="3 4"/>
+
+          <!-- Map Pins / Pulsing Points -->
+          <g transform="translate(110 50)"><circle r="6" fill="#701A3D"/><circle r="3" fill="#E5B5C7"/><circle r="10" fill="none" stroke="#E5B5C7" stroke-opacity=".4"><animate attributeName="r" values="6;16;6" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.4s" repeatCount="indefinite"/></circle></g>
+          <g transform="translate(180 85)"><circle r="6" fill="#701A3D"/><circle r="3" fill="#E5B5C7"/><circle r="10" fill="none" stroke="#E5B5C7" stroke-opacity=".4"><animate attributeName="r" values="6;16;6" dur="2.8s" begin="0.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.8s" begin="0.7s" repeatCount="indefinite"/></circle></g>
+          <g transform="translate(135 125)"><circle r="6" fill="#701A3D"/><circle r="3" fill="#E5B5C7"/><circle r="10" fill="none" stroke="#E5B5C7" stroke-opacity=".4"><animate attributeName="r" values="6;16;6" dur="2.6s" begin="1.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.6s" begin="1.3s" repeatCount="indefinite"/></circle></g>
+
+          <!-- Label chip -->
+          <g transform="translate(50 142)">
+            <rect width="110" height="24" rx="6" fill="#190B12" stroke="#C77B9B" stroke-opacity=".4"/>
+            <text class="pla-mono" x="55" y="16" text-anchor="middle" font-size="10" fill="#F8F0F3">GIS · 120+ FORMS</text>
+          </g>
+        </g>
+      </g>
+
+      <g transform="translate(1005 240)">
+        <rect width="138" height="44" rx="8" fill="#190B12" stroke="#C77B9B" stroke-opacity=".3"/>
+        <text class="pla-mono" x="12" y="18" font-size="10" letter-spacing="1.5" fill="#C77B9B">MAPLIBRE GL</text>
+        <text class="pla-mono" x="12" y="34" font-size="11" fill="#F8F0F3">Sub-80ms Vector</text>
+      </g>
+    </g></g>
+
+    <!-- Border & Laser Tracer -->
+    <rect x=".5" y=".5" width="1199" height="369" rx="17.5" fill="none" stroke="#C77B9B" stroke-opacity=".22"/>
+    <rect class="pla-trace" x=".5" y=".5" width="1199" height="369" rx="17.5" fill="none" stroke="url(#pla-trace)" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+</svg>

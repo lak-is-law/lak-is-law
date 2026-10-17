@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-labelledby="ab-t ab-d">
   <title id="ab-t">About Lakshya Agarwal</title>
-  <desc id="ab-d">AI/ML Engineer and Full-Stack Developer. B.Tech in Artificial Intelligence and Machine Learning at Aditya Engineering College, CGPA 9.10. Full-Stack Development Trainee at Technical Hub, May 2025 to June 2026. Shipped PolicyGuard AI, a payment gateway, a multi-tenant SaaS platform and StarCloset. Primary language TypeScript; ML work in Python; drawn to system design, AWS and machine learning.</desc>
+  <desc id="ab-d">Full-Stack Architect, AI Developer and Creative Technologist. B.Tech in CSE at SRMIST Chennai, CGPA 8.74. Shipped Skyward, Locate Art, Craftme, and Todar. Primary language TypeScript; ML work in Python; drawn to system design, cloud and machine learning.</desc>
   <defs>
     <linearGradient id="ab-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#190B12"/><stop offset="1" stop-color="#10070C"/></linearGradient>
     <radialGradient id="ab-glow" cx="80%" cy="20%" r="70%"><stop offset="0" stop-color="#701A3D" stop-opacity=".6"/><stop offset="1" stop-color="#451126" stop-opacity="0"/></radialGradient>
@@ -45,11 +45,11 @@
       <g clip-path="url(#ab-c0)"><text x="72" y="128" fill="#C77B9B">$</text><text x="94" y="128" fill="#F8F0F3">whoami</text></g>
       <g clip-path="url(#ab-c1)"><text x="72" y="153" fill="#701A3D">→</text><text x="94" y="153" fill="#B6A3AC">Lakshya Agarwal · AI/ML Engineer · Full-Stack Developer</text></g>
       <g clip-path="url(#ab-c2)"><text x="72" y="178" fill="#C77B9B">$</text><text x="94" y="178" fill="#F8F0F3">cat education.txt</text></g>
-      <g clip-path="url(#ab-c3)"><text x="72" y="203" fill="#701A3D">→</text><text x="94" y="203" fill="#B6A3AC">B.Tech CSE · SRMIST Chennai · CGPA 4.37 / 5.0</text></g>
+      <g clip-path="url(#ab-c3)"><text x="72" y="203" fill="#701A3D">→</text><text x="94" y="203" fill="#B6A3AC">B.Tech CSE · SRMIST Chennai · CGPA 8.74</text></g>
       <g clip-path="url(#ab-c4)"><text x="72" y="228" fill="#C77B9B">$</text><text x="94" y="228" fill="#F8F0F3">cat experience.txt</text></g>
       <g clip-path="url(#ab-c5)"><text x="72" y="253" fill="#701A3D">→</text><text x="94" y="253" fill="#B6A3AC">Genospark · HackerRank · SRMIST Research Assistant</text></g>
       <g clip-path="url(#ab-c6)"><text x="72" y="278" fill="#C77B9B">$</text><text x="94" y="278" fill="#F8F0F3">ls ./shipped</text></g>
-      <g clip-path="url(#ab-c7)"><text x="72" y="303" fill="#701A3D">→</text><text x="94" y="303" fill="#B6A3AC">trackyourflight  red-gambit  aws-challenge  locate-art</text></g>
+      <g clip-path="url(#ab-c7)"><text x="72" y="303" fill="#701A3D">→</text><text x="94" y="303" fill="#B6A3AC">skyward  locate-art  craftme  todar</text></g>
       <g clip-path="url(#ab-c8)"><text x="72" y="328" fill="#C77B9B">$</text><text x="94" y="328" fill="#F8F0F3">echo $PRINCIPLE</text></g>
       <g clip-path="url(#ab-c9)"><text x="72" y="353" fill="#701A3D">→</text><text x="94" y="353" fill="#B6A3AC">systems that hold up · real-time 3D under strict constraints</text></g>
   </g>
@@ -76,6 +76,6 @@
       <rect x="0" y="0" width="3" height="88" rx="1.5" fill="#C77B9B"/>
       <text class="ab-mono" x="22" y="26" font-size="10" letter-spacing="2" fill="#C77B9B">DRAWN TO</text>
       <text class="ab-serif" x="22" y="58" font-size="28" font-weight="300" fill="#F8F0F3">System design</text>
-      <text class="ab-sans" x="22" y="78" font-size="12" fill="#B6A3AC">cloud (AWS) · machine learning</text>
+      <text class="ab-sans" x="22" y="78" font-size="12" fill="#B6A3AC">distributed cloud · machine learning</text>
     </g></g>
 </svg>
