@@ -1,23 +1,65 @@
 name: Generate Snake
+
 on:
   schedule:
     - cron: "0 */12 * * *"
   workflow_dispatch:
+    inputs:
+      snake_color:
+        description: "Snake Head Color (hex)"
+        required: false
+        default: "#F8F0F3"
+      dot_colors:
+        description: "Contribution Dot Colors (5 hex values, empty to max)"
+        required: false
+        default: "#10070C,#451126,#701A3D,#A12556,#E5B5C7"
+      speed:
+        description: "Snake Animation Speed (e.g. 35s, 42s, 50s)"
+        required: false
+        default: "42s"
+      start_length:
+        description: "Initial Snake Length"
+        required: false
+        default: "4"
+      max_length:
+        description: "Maximum Snake Length (grows to this)"
+        required: false
+        default: "18"
   push:
     branches: [main]
+
 permissions:
   contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: Platane/snk/svg-only@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-snake-dark.svg?palette=github-dark&color_snake=#ffffff&color_dots=#12020e,#380625,#660b45,#a3126f,#fce8f5
-      - uses: crazy-max/ghaction-github-pages@v3.2.0
+          python-version: "3.11"
+
+      - name: Generate Synchronized Growing Snake
+        run: |
+          mkdir -p dist
+          python3 scripts/generate_snake.py \
+            --speed "${{ github.event.inputs.speed || '42s' }}" \
+            --snake-color "${{ github.event.inputs.snake_color || '#F8F0F3' }}" \
+            --dot-colors "${{ github.event.inputs.dot_colors || '#10070C,#451126,#701A3D,#A12556,#E5B5C7' }}" \
+            --start-length "${{ github.event.inputs.start_length || '4' }}" \
+            --max-length "${{ github.event.inputs.max_length || '18' }}" \
+            --output dist/github-snake-dark.svg
+
+          # Also keep assets/ updated
+          cp dist/github-snake-dark.svg assets/contribution-snake.svg
+
+      - name: Deploy to Output Branch
+        uses: crazy-max/ghaction-github-pages@v3.2.0
         with:
           target_branch: output
           build_dir: dist

@@ -37,8 +37,8 @@
     <!-- Total Contributions -->
     <g transform="translate(0 0)">
       <text class="gl-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">TOTAL CONTRIBUTIONS</text>
-      <text class="gl-serif" y="38" font-size="36" font-weight="300" fill="#F8F0F3">7,161</text>
-      <text class="gl-sans" y="58" font-size="12" fill="#B6A3AC">2024–2026 indexed</text>
+      <text class="gl-serif" y="38" font-size="36" font-weight="300" fill="#F8F0F3">7,211</text>
+      <text class="gl-sans" y="58" font-size="12" fill="#B6A3AC">2023–2026 indexed</text>
     </g>
 
     <!-- 2026 Contributions -->

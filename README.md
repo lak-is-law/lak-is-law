@@ -54,7 +54,7 @@
 
 <img src="assets/title-commits.svg" width="100%" alt="05 Commit log — A year of building.">
 <img src="assets/contribution-snake.svg" width="100%" alt="Contribution Log: A year of building, one square at a time.">
-<img src="assets/github-glance-v2.svg" width="100%" alt="GitHub at a glance: 7,161 contributions, 14 PRs, 28-day streak, language breakdown.">
+<img src="assets/github-glance-v2.svg" width="100%" alt="GitHub at a glance: 7,211 contributions, 14 PRs, 28-day streak, language breakdown.">
 
 <img src="assets/title-connect.svg" width="100%" alt="06 Connect — Let's build something worth explaining.">
 
