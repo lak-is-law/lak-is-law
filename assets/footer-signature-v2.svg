@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 230" width="1200" height="230" role="img" aria-labelledby="sig-title">
+  <title id="sig-title">Lakshya — Building systems that can explain themselves.</title>
+  <defs>
+    <linearGradient id="sig-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#10070C"/>
+      <stop offset="1" stop-color="#190B12"/>
+    </linearGradient>
+    <radialGradient id="sig-glow" cx="50%" cy="100%" r="70%">
+      <stop offset="0" stop-color="#701A3D" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#451126" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sig-line" gradientUnits="userSpaceOnUse" x1="100" y1="0" x2="1100" y2="0">
+      <stop offset="0" stop-color="#701A3D" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#C77B9B"/>
+      <stop offset="1" stop-color="#701A3D" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .sig-serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .sig-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .sig-name {
+      stroke: #E5B5C7; stroke-width: 1; fill: #E5B5C7; fill-opacity: 0;
+      stroke-dasharray: 900; stroke-dashoffset: 900;
+      animation: sig-write 3.6s cubic-bezier(.65,0,.35,1) .3s forwards;
+    }
+    .sig-rule { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: sig-draw 2.4s cubic-bezier(.65,0,.35,1) 1.6s forwards; }
+    .sig-in { animation: sig-in 1.4s ease 2.6s both; }
+    @keyframes sig-write { 70% { stroke-dashoffset: 0; fill-opacity: 0; } 100% { stroke-dashoffset: 0; fill-opacity: 1; } }
+    @keyframes sig-draw { to { stroke-dashoffset: 0; } }
+    @keyframes sig-in { from { opacity: 0; } to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .sig-name { animation: none; stroke-dashoffset: 0; fill-opacity: 1; }
+      .sig-rule { animation: none; stroke-dashoffset: 0; }
+      .sig-in { animation: none; }
+      .sig-sparks { display: none; }
+    }
+  </style>
+
+  <rect width="1200" height="230" rx="20" fill="url(#sig-bg)"/>
+  <rect width="1200" height="230" rx="20" fill="url(#sig-glow)"/>
+
+  <g class="sig-sparks" fill="#E5B5C7" opacity=".9">
+    <circle cx="451" cy="230" r="1.0"><animate attributeName="cy" values="232;108" dur="7.3s" begin="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="7.3s" begin="2.4s" repeatCount="indefinite"/></circle>
+    <circle cx="216" cy="230" r="1.5"><animate attributeName="cy" values="232;44" dur="5.3s" begin="0.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="5.3s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="208" cy="230" r="1.1"><animate attributeName="cy" values="232;94" dur="5.5s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="5.5s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="230" r="1.2"><animate attributeName="cy" values="232;120" dur="6.9s" begin="0.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="6.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="716" cy="230" r="1.4"><animate attributeName="cy" values="232;68" dur="7.3s" begin="3.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="7.3s" begin="3.5s" repeatCount="indefinite"/></circle>
+    <circle cx="167" cy="230" r="1.4"><animate attributeName="cy" values="232;109" dur="5.9s" begin="0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="5.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="230" r="1.7"><animate attributeName="cy" values="232;53" dur="6.0s" begin="3.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="6.0s" begin="3.4s" repeatCount="indefinite"/></circle>
+    <circle cx="715" cy="230" r="1.1"><animate attributeName="cy" values="232;48" dur="6.0s" begin="1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="6.0s" begin="1.1s" repeatCount="indefinite"/></circle>
+    <circle cx="697" cy="230" r="1.7"><animate attributeName="cy" values="232;94" dur="4.2s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="4.2s" begin="1.2s" repeatCount="indefinite"/></circle>
+    <circle cx="915" cy="230" r="1.5"><animate attributeName="cy" values="232;78" dur="5.1s" begin="3.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="5.1s" begin="3.5s" repeatCount="indefinite"/></circle>
+    <circle cx="374" cy="230" r="1.2"><animate attributeName="cy" values="232;113" dur="6.8s" begin="4.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="6.8s" begin="4.2s" repeatCount="indefinite"/></circle>
+    <circle cx="427" cy="230" r="1.7"><animate attributeName="cy" values="232;76" dur="5.8s" begin="5.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="5.8s" begin="5.3s" repeatCount="indefinite"/></circle>
+    <circle cx="743" cy="230" r="1.4"><animate attributeName="cy" values="232;83" dur="7.4s" begin="0.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="7.4s" begin="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="275" cy="230" r="2.0"><animate attributeName="cy" values="232;49" dur="7.3s" begin="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.85;0" dur="7.3s" begin="2.5s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <text class="sig-serif sig-name" x="600" y="104" text-anchor="middle" font-size="76" font-style="italic" font-weight="300" letter-spacing="-1">Lakshya</text>
+
+  <path class="sig-rule" d="M100 134 H1100" stroke="url(#sig-line)" stroke-width="1"/>
+  <circle cx="600" cy="134" r="3" fill="#F8F0F3" class="sig-in">
+    <animate attributeName="r" values="3;5;3" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <g class="sig-in">
+    <text class="sig-serif" x="600" y="176" text-anchor="middle" font-size="20" font-style="italic" fill="#F8F0F3">Building systems that can explain themselves.</text>
+    <text class="sig-mono" x="600" y="206" text-anchor="middle" font-size="11" letter-spacing="3" fill="#B6A3AC">ENGINEERING INTELLIGENCE · DESIGNING EXPERIENCES</text>
+  </g>
+</svg>

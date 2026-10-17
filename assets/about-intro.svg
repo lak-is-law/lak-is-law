@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-labelledby="ab-t ab-d">
+  <title id="ab-t">About Lakshya Agarwal</title>
+  <desc id="ab-d">AI/ML Engineer and Full-Stack Developer. B.Tech in Artificial Intelligence and Machine Learning at Aditya Engineering College, CGPA 9.10. Full-Stack Development Trainee at Technical Hub, May 2025 to June 2026. Shipped PolicyGuard AI, a payment gateway, a multi-tenant SaaS platform and StarCloset. Primary language TypeScript; ML work in Python; drawn to system design, AWS and machine learning.</desc>
+  <defs>
+    <linearGradient id="ab-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#190B12"/><stop offset="1" stop-color="#10070C"/></linearGradient>
+    <radialGradient id="ab-glow" cx="80%" cy="20%" r="70%"><stop offset="0" stop-color="#701A3D" stop-opacity=".6"/><stop offset="1" stop-color="#451126" stop-opacity="0"/></radialGradient>
+    <pattern id="ab-scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#F8F0F3" opacity=".025"/></pattern>
+    <clipPath id="ab-c0"><rect class="ab-type" x="68" y="112" width="89" height="22" style="animation-delay:0.60s;animation-duration:0.41s;animation-timing-function:steps(6)"/></clipPath>
+    <clipPath id="ab-c1"><rect class="ab-type" x="68" y="137" width="524" height="22" style="animation-delay:1.16s;animation-duration:0.53s;animation-timing-function:steps(1)"/></clipPath>
+    <clipPath id="ab-c2"><rect class="ab-type" x="68" y="162" width="179" height="22" style="animation-delay:2.04s;animation-duration:0.56s;animation-timing-function:steps(17)"/></clipPath>
+    <clipPath id="ab-c3"><rect class="ab-type" x="68" y="187" width="491" height="22" style="animation-delay:2.75s;animation-duration:0.53s;animation-timing-function:steps(1)"/></clipPath>
+    <clipPath id="ab-c4"><rect class="ab-type" x="68" y="212" width="188" height="22" style="animation-delay:3.63s;animation-duration:0.59s;animation-timing-function:steps(18)"/></clipPath>
+    <clipPath id="ab-c5"><rect class="ab-type" x="68" y="237" width="532" height="22" style="animation-delay:4.37s;animation-duration:0.53s;animation-timing-function:steps(1)"/></clipPath>
+    <clipPath id="ab-c6"><rect class="ab-type" x="68" y="262" width="138" height="22" style="animation-delay:5.25s;animation-duration:0.41s;animation-timing-function:steps(12)"/></clipPath>
+    <clipPath id="ab-c7"><rect class="ab-type" x="68" y="287" width="548" height="22" style="animation-delay:5.81s;animation-duration:0.53s;animation-timing-function:steps(1)"/></clipPath>
+    <clipPath id="ab-c8"><rect class="ab-type" x="68" y="312" width="163" height="22" style="animation-delay:6.69s;animation-duration:0.49s;animation-timing-function:steps(15)"/></clipPath>
+    <clipPath id="ab-c9"><rect class="ab-type" x="68" y="337" width="483" height="22" style="animation-delay:7.34s;animation-duration:0.53s;animation-timing-function:steps(1)"/></clipPath>
+  </defs>
+  <style>
+    .ab-serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .ab-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .ab-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .ab-type { transform-box: fill-box; transform-origin: left center; animation-name: ab-type; animation-fill-mode: both; }
+    .ab-card { animation: ab-in 1s cubic-bezier(.16,1,.3,1) both; }
+    .ab-fade { animation: ab-fade 1s ease both; }
+    @keyframes ab-type { 0% { transform: scaleX(0); } 85%, 100% { transform: scaleX(1); } }
+    @keyframes ab-in { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+    @keyframes ab-fade { from { opacity: 0; } to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { .ab-type, .ab-card, .ab-fade { animation: none; } }
+  </style>
+  <rect width="1200" height="420" rx="20" fill="url(#ab-bg)"/>
+  <rect width="1200" height="420" rx="20" fill="url(#ab-glow)"/>
+  <rect x=".5" y=".5" width="1199" height="419" rx="19.5" fill="none" stroke="#C77B9B" stroke-opacity=".16"/>
+
+  <!-- Terminal window -->
+  <g class="ab-fade">
+    <rect x="40" y="40" width="760" height="340" rx="14" fill="#10070C" stroke="#C77B9B" stroke-opacity=".3"/>
+    <rect x="40" y="40" width="760" height="340" rx="14" fill="url(#ab-scan)"/>
+    <path d="M40 54 a14 14 0 0 1 14 -14 H786 a14 14 0 0 1 14 14 V76 H40 Z" fill="#190B12"/>
+    <line x1="40" y1="76" x2="800" y2="76" stroke="#C77B9B" stroke-opacity=".2"/>
+    <circle cx="62" cy="58" r="5" fill="#701A3D"/><circle cx="80" cy="58" r="5" fill="#451126"/><circle cx="98" cy="58" r="5" fill="#451126"/>
+    <text class="ab-mono" x="420" y="62" text-anchor="middle" font-size="11" letter-spacing="1.5" fill="#B6A3AC">lakshya@portfolio: ~</text>
+  </g>
+  <g class="ab-mono" font-size="13.5">
+      <g clip-path="url(#ab-c0)"><text x="72" y="128" fill="#C77B9B">$</text><text x="94" y="128" fill="#F8F0F3">whoami</text></g>
+      <g clip-path="url(#ab-c1)"><text x="72" y="153" fill="#701A3D">→</text><text x="94" y="153" fill="#B6A3AC">Lakshya Agarwal · AI/ML Engineer · Full-Stack Developer</text></g>
+      <g clip-path="url(#ab-c2)"><text x="72" y="178" fill="#C77B9B">$</text><text x="94" y="178" fill="#F8F0F3">cat education.txt</text></g>
+      <g clip-path="url(#ab-c3)"><text x="72" y="203" fill="#701A3D">→</text><text x="94" y="203" fill="#B6A3AC">B.Tech CSE · SRMIST Chennai · CGPA 4.37 / 5.0</text></g>
+      <g clip-path="url(#ab-c4)"><text x="72" y="228" fill="#C77B9B">$</text><text x="94" y="228" fill="#F8F0F3">cat experience.txt</text></g>
+      <g clip-path="url(#ab-c5)"><text x="72" y="253" fill="#701A3D">→</text><text x="94" y="253" fill="#B6A3AC">Genospark · HackerRank · SRMIST Research Assistant</text></g>
+      <g clip-path="url(#ab-c6)"><text x="72" y="278" fill="#C77B9B">$</text><text x="94" y="278" fill="#F8F0F3">ls ./shipped</text></g>
+      <g clip-path="url(#ab-c7)"><text x="72" y="303" fill="#701A3D">→</text><text x="94" y="303" fill="#B6A3AC">trackyourflight  red-gambit  aws-challenge  locate-art</text></g>
+      <g clip-path="url(#ab-c8)"><text x="72" y="328" fill="#C77B9B">$</text><text x="94" y="328" fill="#F8F0F3">echo $PRINCIPLE</text></g>
+      <g clip-path="url(#ab-c9)"><text x="72" y="353" fill="#701A3D">→</text><text x="94" y="353" fill="#B6A3AC">systems that hold up · real-time 3D under strict constraints</text></g>
+  </g>
+  <rect x="72" y="364" width="8" height="16" fill="#E5B5C7" class="ab-fade" style="animation-delay:8.2s">
+    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1.1s" repeatCount="indefinite"/>
+  </rect>
+
+    <g class="ab-card" style="animation-delay:1.2s"><g transform="translate(836 70)">
+      <rect width="324" height="88" rx="14" fill="#190B12" stroke="#C77B9B" stroke-opacity=".28"/>
+      <rect x="0" y="0" width="3" height="88" rx="1.5" fill="#C77B9B"/>
+      <text class="ab-mono" x="22" y="26" font-size="10" letter-spacing="2" fill="#C77B9B">PRIMARY LANGUAGE</text>
+      <text class="ab-serif" x="22" y="58" font-size="28" font-weight="300" fill="#F8F0F3">TypeScript</text>
+      <text class="ab-sans" x="22" y="78" font-size="12" fill="#B6A3AC">DSA practice · Oracle certified</text>
+    </g></g>
+    <g class="ab-card" style="animation-delay:1.7s"><g transform="translate(836 174)">
+      <rect width="324" height="88" rx="14" fill="#190B12" stroke="#C77B9B" stroke-opacity=".28"/>
+      <rect x="0" y="0" width="3" height="88" rx="1.5" fill="#C77B9B"/>
+      <text class="ab-mono" x="22" y="26" font-size="10" letter-spacing="2" fill="#C77B9B">WHERE ML LIVES</text>
+      <text class="ab-serif" x="22" y="58" font-size="28" font-weight="300" fill="#F8F0F3">Python</text>
+      <text class="ab-sans" x="22" y="78" font-size="12" fill="#B6A3AC">NLP · LLM pipelines · deep learning</text>
+    </g></g>
+    <g class="ab-card" style="animation-delay:2.2s"><g transform="translate(836 278)">
+      <rect width="324" height="88" rx="14" fill="#190B12" stroke="#C77B9B" stroke-opacity=".28"/>
+      <rect x="0" y="0" width="3" height="88" rx="1.5" fill="#C77B9B"/>
+      <text class="ab-mono" x="22" y="26" font-size="10" letter-spacing="2" fill="#C77B9B">DRAWN TO</text>
+      <text class="ab-serif" x="22" y="58" font-size="28" font-weight="300" fill="#F8F0F3">System design</text>
+      <text class="ab-sans" x="22" y="78" font-size="12" fill="#B6A3AC">cloud (AWS) · machine learning</text>
+    </g></g>
+</svg>

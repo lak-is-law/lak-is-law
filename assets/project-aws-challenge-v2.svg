@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" width="1200" height="370" role="img" aria-labelledby="p3-t">
+  <title id="p3-t">AWS Challenge Game — Myntra Bharat AI: An explainable AI fashion assistant that understands Hinglish occasions.</title>
+  <defs>
+    <linearGradient id="p3-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#190B12"/><stop offset="1" stop-color="#10070C"/>
+    </linearGradient>
+    <radialGradient id="p3-glow" cx="82%" cy="30%" r="55%">
+      <stop offset="0" stop-color="#701A3D" stop-opacity=".7"/><stop offset="1" stop-color="#451126" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="p3-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#C77B9B" stroke-opacity=".07"/>
+    </pattern>
+    <filter id="p3-glowf" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="p3-clip"><rect width="1200" height="370" rx="18"/></clipPath>
+    <linearGradient id="p3-trace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F0F3"/><stop offset=".45" stop-color="#E5B5C7"/><stop offset="1" stop-color="#C77B9B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .p3-serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .p3-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .p3-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .p3-in { animation: p3-in 1.2s cubic-bezier(.16,1,.3,1) both; }
+    .p3-d1 { animation-delay: .15s; } .p3-d2 { animation-delay: .4s; }
+    .p3-chip { animation: p3-chip .7s cubic-bezier(.34,1.56,.64,1) both; }
+    @keyframes p3-chip { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .p3-draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: p3-draw 2s cubic-bezier(.65,0,.35,1) .5s forwards; }
+    @keyframes p3-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @keyframes p3-draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .p3-in, .p3-chip { animation: none; } .p3-draw { animation: none; stroke-dashoffset: 0; } }
+    .p3-trace { stroke-dasharray: 564 3136; stroke-dashoffset: 3700; animation: p3-trace 7s linear infinite; }
+    @keyframes p3-trace { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .p3-trace { display: none; } }
+  </style>
+  <g clip-path="url(#p3-clip)">
+    <rect width="1200" height="370" fill="url(#p3-bg)"/>
+    <rect x="720" width="480" height="370" fill="url(#p3-grid)"/>
+    <rect width="1200" height="370" fill="url(#p3-glow)"/>
+    <g class="p3-in p3-d1">
+      <text class="p3-mono" x="56" y="62" font-size="12" letter-spacing="2.6" fill="#C77B9B">03 · MYNTRA WEFORSHE HACKERRAMP 2026 · TOP 100</text>
+      <text class="p3-serif" x="54" y="126" font-size="52" font-weight="300" letter-spacing="-1.5" fill="#F8F0F3">AWS Challenge Game<tspan class="p3-serif" font-size="22" font-style="italic" fill="#E5B5C7" dx="14">Myntra Bharat AI</tspan></text>
+      <text class="p3-sans" x="56" y="166" font-size="17" fill="#B6A3AC">An explainable AI fashion assistant that understands Hinglish occasions.</text>
+      <text class="p3-mono" x="56" y="200" font-size="12.5" fill="#E5B5C7"><tspan fill="#C77B9B">BUILT ›</tspan> team entry: rules-first recommender that explains every ranking</text>
+      <line class="p3-draw" x1="56" y1="226" x2="680" y2="226" stroke="#C77B9B" stroke-opacity=".3"/>
+    <g transform="translate(56 266)"><text class="p3-serif" font-size="34" font-weight="300" fill="#F8F0F3">5</text><text class="p3-sans" y="24" font-size="12.5" fill="#B6A3AC">stage pipeline</text></g>
+    <g transform="translate(261 266)"><text class="p3-serif" font-size="34" font-weight="300" fill="#F8F0F3">10</text><text class="p3-sans" y="24" font-size="12.5" fill="#B6A3AC">scoring signals</text></g>
+    <g transform="translate(466 266)"><text class="p3-serif" font-size="34" font-weight="300" fill="#F8F0F3">Hinglish</text><text class="p3-sans" y="24" font-size="12.5" fill="#B6A3AC">occasion-aware prompts</text></g>
+      <g class="p3-chip" style="animation-delay:1.00s"><rect x="56" y="314" width="77" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p3-mono" x="95" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Next.js</text></g><g class="p3-chip" style="animation-delay:1.12s"><rect x="141" y="314" width="92" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p3-mono" x="187" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">TypeScript</text></g><g class="p3-chip" style="animation-delay:1.24s"><rect x="241" y="314" width="33" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p3-mono" x="258" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Prisma</text></g><g class="p3-chip" style="animation-delay:1.36s"><rect x="282" y="314" width="92" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p3-mono" x="328" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">PostgreSQL</text></g><g class="p3-chip" style="animation-delay:1.48s"><rect x="382" y="314" width="55" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p3-mono" x="410" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Azure</text></g><g class="p3-chip" style="animation-delay:1.60s"><rect x="445" y="314" width="62" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p3-mono" x="476" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Gemini</text></g>
+    </g>
+    <g class="p3-in p3-d2"><g transform="translate(0 35)">
+      <g>
+        <rect x="760" y="50" width="250" height="38" rx="12" fill="#F8F0F3" fill-opacity=".07" stroke="#C77B9B" stroke-opacity=".3"/>
+        <text class="p3-mono" x="776" y="74" font-size="12" fill="#F8F0F3">“outfit for a sangeet”</text>
+        <g transform="translate(760 112)">
+          <rect width="76" height="58" rx="9" fill="#27101C" stroke="#C77B9B" stroke-opacity=".3">
+            <animate attributeName="fill" values="#27101C;#701A3D;#27101C;#27101C" keyTimes="0;.08;.2;1" dur="6s" begin="1.0s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values=".3;1;.3;.3" keyTimes="0;.08;.2;1" dur="6s" begin="1.0s" repeatCount="indefinite"/>
+          </rect>
+          <text class="p3-mono" x="8" y="18" font-size="9" fill="#B6A3AC">01</text>
+          <text class="p3-mono" x="38" y="40" font-size="9.5" text-anchor="middle" fill="#F8F0F3">Understand</text>
+        </g>
+        <g transform="translate(844 112)">
+          <rect width="76" height="58" rx="9" fill="#27101C" stroke="#C77B9B" stroke-opacity=".3">
+            <animate attributeName="fill" values="#27101C;#701A3D;#27101C;#27101C" keyTimes="0;.08;.2;1" dur="6s" begin="1.6s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values=".3;1;.3;.3" keyTimes="0;.08;.2;1" dur="6s" begin="1.6s" repeatCount="indefinite"/>
+          </rect>
+          <text class="p3-mono" x="8" y="18" font-size="9" fill="#B6A3AC">02</text>
+          <text class="p3-mono" x="38" y="40" font-size="9.5" text-anchor="middle" fill="#F8F0F3">Retrieve</text>
+        </g>
+        <g transform="translate(928 112)">
+          <rect width="76" height="58" rx="9" fill="#27101C" stroke="#C77B9B" stroke-opacity=".3">
+            <animate attributeName="fill" values="#27101C;#701A3D;#27101C;#27101C" keyTimes="0;.08;.2;1" dur="6s" begin="2.2s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values=".3;1;.3;.3" keyTimes="0;.08;.2;1" dur="6s" begin="2.2s" repeatCount="indefinite"/>
+          </rect>
+          <text class="p3-mono" x="8" y="18" font-size="9" fill="#B6A3AC">03</text>
+          <text class="p3-mono" x="38" y="40" font-size="9.5" text-anchor="middle" fill="#F8F0F3">Score</text>
+        </g>
+        <g transform="translate(1012 112)">
+          <rect width="76" height="58" rx="9" fill="#27101C" stroke="#C77B9B" stroke-opacity=".3">
+            <animate attributeName="fill" values="#27101C;#701A3D;#27101C;#27101C" keyTimes="0;.08;.2;1" dur="6s" begin="2.8s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values=".3;1;.3;.3" keyTimes="0;.08;.2;1" dur="6s" begin="2.8s" repeatCount="indefinite"/>
+          </rect>
+          <text class="p3-mono" x="8" y="18" font-size="9" fill="#B6A3AC">04</text>
+          <text class="p3-mono" x="38" y="40" font-size="9.5" text-anchor="middle" fill="#F8F0F3">Diversify</text>
+        </g>
+        <g transform="translate(1096 112)">
+          <rect width="76" height="58" rx="9" fill="#27101C" stroke="#C77B9B" stroke-opacity=".3">
+            <animate attributeName="fill" values="#27101C;#701A3D;#27101C;#27101C" keyTimes="0;.08;.2;1" dur="6s" begin="3.4s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values=".3;1;.3;.3" keyTimes="0;.08;.2;1" dur="6s" begin="3.4s" repeatCount="indefinite"/>
+          </rect>
+          <text class="p3-mono" x="8" y="18" font-size="9" fill="#B6A3AC">05</text>
+          <text class="p3-mono" x="38" y="40" font-size="9.5" text-anchor="middle" fill="#F8F0F3">Explain</text>
+        </g>
+        <text class="p3-mono" x="1176" y="214" font-size="12" text-anchor="end" fill="#E5B5C7">sangeet → wedding wear · affinity 0.85</text>
+        <text class="p3-mono" x="1176" y="240" font-size="10.5" text-anchor="end" letter-spacing="1.5" fill="#B6A3AC">GEMINI OPTIONAL · RULES FIRST</text>
+      </g>
+    </g></g>
+    <rect x=".5" y=".5" width="1199" height="369" rx="17.5" fill="none" stroke="#C77B9B" stroke-opacity=".2"/>
+    <rect class="p3-trace" style="animation-delay:-3.4s" x=".5" y=".5" width="1199" height="369" rx="17.5" fill="none" stroke="url(#p3-trace)" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+</svg>

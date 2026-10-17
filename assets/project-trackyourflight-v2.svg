@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" width="1200" height="370" role="img" aria-labelledby="p1-t">
+  <title id="p1-t">TrackYourFlight: Live global flight tracker with an interactive 9,000-point 3D globe.</title>
+  <defs>
+    <linearGradient id="p1-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#190B12"/><stop offset="1" stop-color="#10070C"/>
+    </linearGradient>
+    <radialGradient id="p1-glow" cx="82%" cy="30%" r="55%">
+      <stop offset="0" stop-color="#701A3D" stop-opacity=".7"/><stop offset="1" stop-color="#451126" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="p1-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#C77B9B" stroke-opacity=".07"/>
+    </pattern>
+    <filter id="p1-glowf" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="p1-clip"><rect width="1200" height="370" rx="18"/></clipPath>
+    <linearGradient id="p1-trace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F0F3"/><stop offset=".45" stop-color="#E5B5C7"/><stop offset="1" stop-color="#C77B9B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .p1-serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .p1-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .p1-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .p1-in { animation: p1-in 1.2s cubic-bezier(.16,1,.3,1) both; }
+    .p1-d1 { animation-delay: .15s; } .p1-d2 { animation-delay: .4s; }
+    .p1-chip { animation: p1-chip .7s cubic-bezier(.34,1.56,.64,1) both; }
+    @keyframes p1-chip { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .p1-draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: p1-draw 2s cubic-bezier(.65,0,.35,1) .5s forwards; }
+    @keyframes p1-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @keyframes p1-draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .p1-in, .p1-chip { animation: none; } .p1-draw { animation: none; stroke-dashoffset: 0; } }
+    .p1-trace { stroke-dasharray: 564 3136; stroke-dashoffset: 3700; animation: p1-trace 7s linear infinite; }
+    @keyframes p1-trace { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .p1-trace { display: none; } }
+  </style>
+  <g clip-path="url(#p1-clip)">
+    <rect width="1200" height="370" fill="url(#p1-bg)"/>
+    <rect x="720" width="480" height="370" fill="url(#p1-grid)"/>
+    <rect width="1200" height="370" fill="url(#p1-glow)"/>
+    <g class="p1-in p1-d1">
+      <text class="p1-mono" x="56" y="62" font-size="12" letter-spacing="2.6" fill="#C77B9B">01 · 3D · REAL-TIME TELEMETRY · 2026</text>
+      <text class="p1-serif" x="54" y="126" font-size="52" font-weight="300" letter-spacing="-1.5" fill="#F8F0F3">TrackYourFlight</text>
+      <text class="p1-sans" x="56" y="166" font-size="17" fill="#B6A3AC">Live global flight tracker with an interactive 9,000-point 3D globe.</text>
+      <text class="p1-mono" x="56" y="200" font-size="12.5" fill="#E5B5C7"><tspan fill="#C77B9B">BUILT ›</tspan> Three.js globe + WebGL canvas holding 60 FPS under 50KB payload</text>
+      <line class="p1-draw" x1="56" y1="226" x2="680" y2="226" stroke="#C77B9B" stroke-opacity=".3"/>
+    <g transform="translate(56 266)"><text class="p1-serif" font-size="34" font-weight="300" fill="#F8F0F3">12,000+</text><text class="p1-sans" y="24" font-size="12.5" fill="#B6A3AC">aircraft tracked live</text></g>
+    <g transform="translate(261 266)"><text class="p1-serif" font-size="34" font-weight="300" fill="#F8F0F3">60+</text><text class="p1-sans" y="24" font-size="12.5" fill="#B6A3AC">global airlines</text></g>
+    <g transform="translate(466 266)"><text class="p1-serif" font-size="34" font-weight="300" fill="#F8F0F3">&lt;100ms</text><text class="p1-sans" y="24" font-size="12.5" fill="#B6A3AC">query cache latency</text></g>
+      <g class="p1-chip" style="animation-delay:1.00s"><rect x="56" y="314" width="62" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p1-mono" x="87" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Three.js</text></g><g class="p1-chip" style="animation-delay:1.12s"><rect x="126" y="314" width="40" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p1-mono" x="146" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">WebGL</text></g><g class="p1-chip" style="animation-delay:1.24s"><rect x="175" y="314" width="40" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p1-mono" x="195" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Node.js</text></g><g class="p1-chip" style="animation-delay:1.36s"><rect x="223" y="314" width="77" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p1-mono" x="261" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">MapLibre</text></g><g class="p1-chip" style="animation-delay:1.48s"><rect x="308" y="314" width="159" height="26" rx="13" fill="#27101C" stroke="#C77B9B" stroke-opacity=".35"/><text class="p1-mono" x="387" y="331" text-anchor="middle" font-size="11.5" fill="#E5B5C7">Redis cache</text></g>
+    </g>
+    <g class="p1-in p1-d2"><g transform="translate(0 35)">
+      <g transform="translate(870 46)">
+        <rect x="-40" y="22" width="150" height="196" rx="10" fill="#27101C" stroke="#C77B9B" stroke-opacity=".2" transform="rotate(-9 35 120)"/>
+        <rect x="-10" y="14" width="150" height="196" rx="10" fill="#2F1422" stroke="#C77B9B" stroke-opacity=".28" transform="rotate(-3 65 112)"/>
+        <g transform="rotate(4 120 110)">
+          <rect x="44" y="8" width="150" height="200" rx="10" fill="#331627" stroke="#C77B9B" stroke-opacity=".45"/>
+          <g fill="#F8F0F3" fill-opacity=".16">
+            <rect x="64" y="34" width="110" height="5" rx="2.5"/><rect x="64" y="52" width="90" height="5" rx="2.5"/>
+            <rect x="64" y="88" width="110" height="5" rx="2.5"/><rect x="64" y="124" width="100" height="5" rx="2.5"/>
+            <rect x="64" y="160" width="110" height="5" rx="2.5"/><rect x="64" y="178" width="70" height="5" rx="2.5"/>
+          </g>
+          <rect x="64" y="70" width="104" height="5" rx="2.5" fill="#E5B5C7" filter="url(#p1-glowf)"/>
+          <rect x="64" y="142" width="74" height="5" rx="2.5" fill="#C77B9B" filter="url(#p1-glowf)"/>
+          <rect x="46" y="10" width="146" height="40" fill="#E5B5C7" fill-opacity=".08">
+            <animate attributeName="y" values="10;166;10" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1; .45 0 .55 1"/>
+          </rect>
+        </g>
+        <g transform="translate(120 170)">
+          <rect width="196" height="54" rx="10" fill="#190B12" fill-opacity=".92" stroke="#C77B9B" stroke-opacity=".35"/>
+          <text class="p1-mono" x="14" y="22" font-size="10.5" fill="#F8F0F3">LATENCY · &lt;100ms</text>
+          <text class="p1-mono" x="14" y="40" font-size="10.5" fill="#E5B5C7">FRAME RATE · 60 FPS</text>
+        </g>
+      </g>
+    </g></g>
+    <rect x=".5" y=".5" width="1199" height="369" rx="17.5" fill="none" stroke="#C77B9B" stroke-opacity=".2"/>
+    <rect class="p1-trace" style="animation-delay:0.0s" x=".5" y=".5" width="1199" height="369" rx="17.5" fill="none" stroke="url(#p1-trace)" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+</svg>

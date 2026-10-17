@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" width="1200" height="120" role="img" aria-label="05 Commit log: A year of building.">
+  <defs>
+    <linearGradient id="tc-line" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="1160" y2="0">
+      <stop offset="0" stop-color="#C77B9B"/><stop offset=".6" stop-color="#701A3D"/><stop offset="1" stop-color="#701A3D" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tc-sheen" gradientUnits="userSpaceOnUse" x1="-300" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#E5B5C7"/><stop offset=".5" stop-color="#F8F0F3"/><stop offset="1" stop-color="#E5B5C7"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="0 0;1500 0;1500 0" keyTimes="0;.4;1" dur="7s" begin="1.5s" repeatCount="indefinite"/>
+    </linearGradient>
+    <radialGradient id="tc-pulse"><stop offset="0" stop-color="#F8F0F3"/><stop offset=".5" stop-color="#E5B5C7" stop-opacity=".6"/><stop offset="1" stop-color="#C77B9B" stop-opacity="0"/></radialGradient>
+  </defs>
+  <style>
+    .tc-serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .tc-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .tc-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .tc-in { animation: tc-in 1.1s cubic-bezier(.16,1,.3,1) both; }
+    .tc-d2 { animation-delay: .2s; } .tc-d3 { animation-delay: .45s; }
+    .tc-draw { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: tc-draw 1.8s cubic-bezier(.65,0,.35,1) .5s forwards; }
+    @keyframes tc-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes tc-draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .tc-in { animation: none; } .tc-draw { animation: none; stroke-dashoffset: 0; } }
+  </style>
+  <g class="tc-in">
+    <text class="tc-mono" x="40" y="34" font-size="12" letter-spacing="3" fill="#C77B9B"><tspan fill="#E5B5C7">05</tspan>   COMMIT LOG</text>
+  </g>
+  <g class="tc-in tc-d2">
+    <text class="tc-serif" x="38" y="84" font-size="44" font-weight="300" letter-spacing="-1" fill="#F8F0F3">A year of <tspan font-style="italic" fill="url(#tc-sheen)">building.</tspan></text>
+  </g>
+  <g class="tc-in tc-d3">
+    <text class="tc-mono" x="1160" y="34" text-anchor="end" font-size="10.5" letter-spacing="2.4" fill="#B6A3AC">REAL DATA · REFRESHED DAILY</text>
+  </g>
+  <path class="tc-draw" d="M40 106 H1160" stroke="url(#tc-line)" stroke-width="1"/>
+  <circle cx="40" cy="106" r="7" fill="url(#tc-pulse)" opacity="0">
+    <animate attributeName="cx" values="40;1160" dur="6s" begin="2.3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines=".45 0 .55 1"/>
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;.15;1" dur="6s" begin="2.3s" repeatCount="indefinite"/>
+  </circle>
+</svg>

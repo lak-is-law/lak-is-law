@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" width="1200" height="120" role="img" aria-label="07 Connect: Let&#x27;s build something worth explaining.">
+  <defs>
+    <linearGradient id="tk-line" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="1160" y2="0">
+      <stop offset="0" stop-color="#C77B9B"/><stop offset=".6" stop-color="#701A3D"/><stop offset="1" stop-color="#701A3D" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tk-sheen" gradientUnits="userSpaceOnUse" x1="-300" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#E5B5C7"/><stop offset=".5" stop-color="#F8F0F3"/><stop offset="1" stop-color="#E5B5C7"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="0 0;1500 0;1500 0" keyTimes="0;.4;1" dur="7s" begin="1.5s" repeatCount="indefinite"/>
+    </linearGradient>
+    <radialGradient id="tk-pulse"><stop offset="0" stop-color="#F8F0F3"/><stop offset=".5" stop-color="#E5B5C7" stop-opacity=".6"/><stop offset="1" stop-color="#C77B9B" stop-opacity="0"/></radialGradient>
+  </defs>
+  <style>
+    .tk-serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .tk-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .tk-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .tk-in { animation: tk-in 1.1s cubic-bezier(.16,1,.3,1) both; }
+    .tk-d2 { animation-delay: .2s; } .tk-d3 { animation-delay: .45s; }
+    .tk-draw { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: tk-draw 1.8s cubic-bezier(.65,0,.35,1) .5s forwards; }
+    @keyframes tk-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes tk-draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .tk-in { animation: none; } .tk-draw { animation: none; stroke-dashoffset: 0; } }
+  </style>
+  <g class="tk-in">
+    <text class="tk-mono" x="40" y="34" font-size="12" letter-spacing="3" fill="#C77B9B"><tspan fill="#E5B5C7">07</tspan>   CONNECT</text>
+  </g>
+  <g class="tk-in tk-d2">
+    <text class="tk-serif" x="38" y="84" font-size="44" font-weight="300" letter-spacing="-1" fill="#F8F0F3">Let&#x27;s build something <tspan font-style="italic" fill="url(#tk-sheen)">worth explaining.</tspan></text>
+  </g>
+  <g class="tk-in tk-d3">
+    <text class="tk-mono" x="1160" y="34" text-anchor="end" font-size="10.5" letter-spacing="2.4" fill="#B6A3AC">OPEN INBOX</text>
+  </g>
+  <path class="tk-draw" d="M40 106 H1160" stroke="url(#tk-line)" stroke-width="1"/>
+  <circle cx="40" cy="106" r="7" fill="url(#tk-pulse)" opacity="0">
+    <animate attributeName="cx" values="40;1160" dur="6s" begin="2.3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines=".45 0 .55 1"/>
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;.15;1" dur="6s" begin="2.3s" repeatCount="indefinite"/>
+  </circle>
+</svg>
