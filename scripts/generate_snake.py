@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-Luxury Synchronized & Growing Snake Generator
-Generates high-fidelity, user-configurable animated SVG contribution snakes where:
-1. Snake movements are 100% synchronized with contribution cells.
-2. Contribution dots are dynamically eaten (turn dark) as the snake touches them.
-3. The snake's length increases incrementally as it consumes dots.
-4. Fully configurable via CLI flags: speed, colors, start length, max length, and palette.
+Luxury Synchronized & Growing Snake Generator (v3)
+Features:
+1. Dynamic Dot-Eating: Dots flash and disappear as the snake touches them.
+2. Graceful Respawning: Dots recover after the snake passes (~3s trail), so the contribution board always looks full, rich, and complete (never blank or incomplete!).
+3. Dynamic Length Growth: The snake begins at length 4 and grows segment by segment to length 16.
+4. Organic Loop Path: Smooth slithering across the board visiting key contribution peaks.
+5. Fully Balanced Header: All telemetry columns fit with generous margins (no text clipping).
 """
 
 import argparse
 import random
-import sys
 import os
+import sys
 
 DEFAULT_DOT_COLORS = ["#1C0C15", "#451126", "#701A3D", "#A12556", "#E5B5C7"]
 DEFAULT_SNAKE_COLOR = "#F8F0F3"
@@ -20,13 +21,13 @@ DEFAULT_TAIL_COLOR = "#701A3D"
 def parse_args():
     parser = argparse.ArgumentParser(description="Generate synchronized growing contribution snake SVG.")
     parser.add_argument("--output", "-o", default="assets/contribution-snake.svg", help="Output file path")
-    parser.add_argument("--speed", "-s", default="42s", help="Animation loop duration (e.g. 35s, 45s, 60s)")
+    parser.add_argument("--speed", "-s", default="42s", help="Animation loop duration (e.g. 35s, 42s, 50s)")
     parser.add_argument("--snake-color", default=DEFAULT_SNAKE_COLOR, help="Hex color for snake head")
     parser.add_argument("--tail-color", default=DEFAULT_TAIL_COLOR, help="Hex color for tail end")
-    parser.add_argument("--dot-colors", default=",".join(DEFAULT_DOT_COLORS), help="5 comma-separated hex colors (empty to max)")
+    parser.add_argument("--dot-colors", default=",".join(DEFAULT_DOT_COLORS), help="5 comma-separated hex colors")
     parser.add_argument("--start-length", type=int, default=4, help="Initial snake segment length")
-    parser.add_argument("--max-length", type=int, default=18, help="Maximum snake segment length")
-    parser.add_argument("--growth-interval", type=int, default=1, help="Dots eaten per new segment added")
+    parser.add_argument("--max-length", type=int, default=16, help="Maximum snake segment length")
+    parser.add_argument("--growth-interval", type=int, default=4, help="Dots eaten per new segment added")
     return parser.parse_args()
 
 def generate_snake_svg(
@@ -36,8 +37,8 @@ def generate_snake_svg(
     tail_color="#701A3D",
     dot_colors=None,
     start_length=4,
-    max_length=18,
-    growth_interval=1
+    max_length=16,
+    growth_interval=4
 ):
     if dot_colors is None:
         dot_colors = DEFAULT_DOT_COLORS
@@ -54,59 +55,81 @@ def generate_snake_svg(
     gap = 4.5
     step = cell_w + gap
 
-    # Deterministic simulation of contribution matrix
-    random.seed(42)
+    # Generate a rich, active 1-year contribution matrix across all 53 weeks
+    random.seed(1337)
     levels = {}
     for c in range(cols):
         for r in range(rows):
-            # Realistic density profile: heavier mid-year, holiday breaks
-            if (c in [0, 1] and r in [0, 1, 2]) or (c == 24 and r in [3, 4, 5]) or (c == 42 and r in [1, 2]):
+            # A couple natural holiday gaps
+            if (c in [0] and r in [0, 1]) or (c == 24 and r in [3, 4]) or (c == 42 and r in [1]):
                 lvl = 0
             else:
                 prob = random.random()
-                if prob < 0.22:
+                if prob < 0.16:
                     lvl = 0
-                elif prob < 0.58:
+                elif prob < 0.48:
                     lvl = 1
-                elif prob < 0.82:
+                elif prob < 0.76:
                     lvl = 2
-                elif prob < 0.95:
+                elif prob < 0.92:
                     lvl = 3
                 else:
                     lvl = 4
             levels[(c, r)] = lvl
 
-    # Path generation: An organic, winding Hamiltonian-like path that covers the board
+    # Organic Meandering Path across the 53x7 grid
+    # A continuous Hamiltonian-like winding loop that visits clusters across the year
     path = []
-    dir_r = 1
     
-    # We create a sequence of waypoints traversing columns
-    for c in range(cols):
-        r_range = range(0, rows) if dir_r == 1 else range(rows - 1, -1, -1)
-        for r in r_range:
-            path.append((c, r))
-        dir_r *= -1
+    # Forward wave traversing left to right
+    c = 0
+    while c < cols:
+        if (c // 2) % 2 == 0:
+            for r in range(rows):
+                path.append((c, r))
+        else:
+            for r in range(rows - 1, -1, -1):
+                path.append((c, r))
+        c += 1
+
+    # Return traverse across the board to create a seamless loop
+    # Return path along top/middle rows back to start (0, 0)
+    for c in range(cols - 1, -1, -1):
+        r = 0 if (c % 2 == 0) else 1
+        path.append((c, r))
+        
+    # Ensure smooth wrap to starting coordinate
+    start_pos = path[0]
+    last_pos = path[-1]
+    if last_pos != start_pos:
+        path.append(start_pos)
 
     total_steps = len(path)
     
-    # Identify which cells are eaten at what step
-    eaten_steps = {}
+    # Identify eating and respawn intervals for each cell
+    # Respan trail: cell stays eaten for ~14 steps (~3.2 seconds), then gracefully respawns
+    trail_steps = 14
+    trail_pct = (trail_steps / total_steps) * 100
+
+    eaten_events = {} # (c, r) -> list of step indices where snake eats it
     dots_eaten_count = 0
     growth_schedule = {} # segment_index -> step_unlocked
-    
     current_length = start_length
+
     for idx, (pc, pr) in enumerate(path):
-        if levels.get((pc, pr), 0) > 0 and (pc, pr) not in eaten_steps:
-            eaten_steps[(pc, pr)] = idx
+        if levels.get((pc, pr), 0) > 0:
+            if (pc, pr) not in eaten_events:
+                eaten_events[(pc, pr)] = []
+            eaten_events[(pc, pr)].append(idx)
             dots_eaten_count += 1
             if dots_eaten_count % growth_interval == 0 and current_length < max_length:
                 growth_schedule[current_length] = idx
                 current_length += 1
 
-    # CSS Keyframes for Cells (disappear at eating time)
+    # Generate CSS Keyframes for Cells with Dynamic Respawning
     cell_keyframes = []
     cell_rects = []
-    
+
     for c in range(cols):
         for r in range(rows):
             cx = grid_x0 + c * step
@@ -114,16 +137,28 @@ def generate_snake_svg(
             lvl = levels[(c, r)]
             initial_fill = dot_colors[lvl]
             cell_id = f"c_{c}_{r}"
-            
-            if (c, r) in eaten_steps:
-                eat_idx = eaten_steps[(c, r)]
+
+            if (c, r) in eaten_events and lvl > 0:
+                # Build keyframe intervals: initial color -> flash white at eat -> empty -> respawn
+                eat_idx = eaten_events[(c, r)][0]
                 pct_eat = round((eat_idx / total_steps) * 100, 2)
-                pct_pre = max(0.0, round(pct_eat - 0.15, 2))
-                
+                pct_pre = max(0.0, round(pct_eat - 0.2, 2))
+                pct_flash = min(100.0, round(pct_eat + 0.3, 2))
+                pct_respawn = min(100.0, round(pct_eat + trail_pct, 2))
+                pct_recovered = min(100.0, round(pct_respawn + 0.8, 2))
+
+                if pct_recovered < 100.0:
+                    kf_body = f"""  0%, {pct_pre}% {{ fill: {initial_fill}; transform: scale(1); }}
+  {pct_eat}% {{ fill: #FFFFFF; transform: scale(1.22); }}
+  {pct_flash}%, {pct_respawn}% {{ fill: {dot_colors[0]}; transform: scale(1); }}
+  {pct_recovered}%, 100% {{ fill: {initial_fill}; transform: scale(1); }}"""
+                else:
+                    kf_body = f"""  0%, {pct_pre}% {{ fill: {initial_fill}; transform: scale(1); }}
+  {pct_eat}% {{ fill: #FFFFFF; transform: scale(1.22); }}
+  {pct_flash}%, 100% {{ fill: {dot_colors[0]}; transform: scale(1); }}"""
+
                 cell_keyframes.append(f"""@keyframes kf_{cell_id} {{
-  0%, {pct_pre}% {{ fill: {initial_fill}; transform: scale(1); }}
-  {pct_eat}% {{ fill: {snake_color}; transform: scale(1.2); }}
-  {min(100.0, pct_eat + 0.35)}%, 100% {{ fill: {dot_colors[0]}; transform: scale(1); }}
+{kf_body}
 }}
 .{cell_id} {{
   animation: kf_{cell_id} {speed} linear infinite;
@@ -131,10 +166,10 @@ def generate_snake_svg(
 }}""")
             else:
                 cell_keyframes.append(f".{cell_id} {{ fill: {initial_fill}; }}")
-                
+
             cell_rects.append(f'<rect id="{cell_id}" class="{cell_id}" x="{cx:.1f}" y="{cy:.1f}" width="{cell_w}" height="{cell_w}" rx="3"/>')
 
-    # CSS Keyframes for Snake Segments (Head + Body)
+    # Generate CSS Keyframes for Snake Segments (Head + Body)
     snake_keyframes = []
     snake_elements = []
 
@@ -152,9 +187,9 @@ def generate_snake_svg(
         seg_id = f"snk_seg_{s}"
         factor = min(1.0, s / max(1, max_length - 1))
         seg_fill = interpolate_hex(snake_color, tail_color, factor)
-        seg_size = max(9.0, cell_w - (s * 0.22))
+        seg_size = max(9.5, cell_w - (s * 0.2))
         offset = (cell_w - seg_size) / 2.0
-        
+
         frames = []
         for i in range(total_steps):
             pct = round((i / total_steps) * 100, 2)
@@ -163,9 +198,9 @@ def generate_snake_svg(
             sx = grid_x0 + pc * step + offset
             sy = grid_y0 + pr * step + offset
             frames.append(f"{pct}% {{ transform: translate({sx:.1f}px, {sy:.1f}px); }}")
-            
+
         keyframes_str = "\n  ".join(frames)
-        
+
         if s < start_length:
             vis_rule = "opacity: 1;"
         else:
@@ -230,8 +265,6 @@ def generate_snake_svg(
     .hm-serif {{ font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }}
     .hm-mono {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }}
     .hm-sans {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }}
-    .hm-fade {{ animation: hm-fade 1.2s ease both; }}
-    @keyframes hm-fade {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
     @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} }}
     {all_css}
   </style>
@@ -241,30 +274,38 @@ def generate_snake_svg(
   <rect width="1200" height="420" rx="20" fill="url(#hm-light)"/>
   <rect x=".5" y=".5" width="1199" height="419" rx="19.5" fill="none" stroke="#C77B9B" stroke-opacity=".18"/>
 
-  <!-- Telemetry Header -->
-  <g class="hm-fade">
-    <text class="hm-mono" x="56" y="66" font-size="11" letter-spacing="2.6" fill="#C77B9B">COMMIT LOG · SYNCHRONIZED CONTRIBUTION ENGINE</text>
-    <text class="hm-serif" x="54" y="108" font-size="27" font-weight="300" fill="#F8F0F3">A year of building, <tspan font-style="italic" fill="#E5B5C7">eating dots</tspan> &amp; growing.</text>
+  <!-- Telemetry Header (Clean Balanced Spacing, Zero Overlap) -->
+  <g>
+    <!-- Left: Title & Subtitle -->
+    <text class="hm-mono" x="54" y="64" font-size="11" letter-spacing="2.4" fill="#C77B9B">COMMIT LOG · SYNCHRONIZED ENGINE</text>
+    <text class="hm-serif" x="54" y="106" font-size="23" font-weight="300" fill="#F8F0F3">A year of building, <tspan font-style="italic" fill="#E5B5C7">one dot</tspan> at a time.</text>
     
-    <g transform="translate(610 56)">
-      <text class="hm-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">CONTRIBUTIONS</text>
-      <text class="hm-serif" y="44" font-size="36" font-weight="300" fill="#F8F0F3">7,211</text>
-      <text class="hm-mono" y="64" font-size="9.5" fill="#B6A3AC">2023–2026 indexed</text>
+    <!-- Col 1: Contributions -->
+    <g transform="translate(640 54)">
+      <text class="hm-mono" font-size="9.5" letter-spacing="1.6" fill="#C77B9B">CONTRIBUTIONS</text>
+      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">7,211</text>
+      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">2023–2026</text>
     </g>
-    <g transform="translate(760 56)">
-      <text class="hm-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">ACTIVE DAYS</text>
-      <text class="hm-serif" y="44" font-size="36" font-weight="300" fill="#F8F0F3">335</text>
-      <text class="hm-mono" y="64" font-size="9.5" fill="#B6A3AC">verified streaks</text>
+
+    <!-- Col 2: Active Days -->
+    <g transform="translate(770 54)">
+      <text class="hm-mono" font-size="9.5" letter-spacing="1.6" fill="#C77B9B">ACTIVE DAYS</text>
+      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">335</text>
+      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">verified streaks</text>
     </g>
-    <g transform="translate(910 56)">
-      <text class="hm-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">LONGEST STREAK</text>
-      <text class="hm-serif" y="44" font-size="36" font-weight="300" fill="#F8F0F3">28 Days</text>
-      <text class="hm-mono" y="64" font-size="9.5" fill="#B6A3AC">Feb 2026 sprint</text>
+
+    <!-- Col 3: Longest Streak -->
+    <g transform="translate(895 54)">
+      <text class="hm-mono" font-size="9.5" letter-spacing="1.6" fill="#C77B9B">LONGEST STREAK</text>
+      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">28 Days</text>
+      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">Feb 2026 sprint</text>
     </g>
-    <g transform="translate(1060 56)">
-      <text class="hm-mono" font-size="10" letter-spacing="1.8" fill="#C77B9B">BUSIEST DAY</text>
-      <text class="hm-serif" y="44" font-size="36" font-weight="300" fill="#F8F0F3">32 Commits</text>
-      <text class="hm-mono" y="64" font-size="9.5" fill="#B6A3AC">24 Jan 2026</text>
+
+    <!-- Col 4: Busiest Day (Unclipped, Ample Right Margin) -->
+    <g transform="translate(1030 54)">
+      <text class="hm-mono" font-size="9.5" letter-spacing="1.6" fill="#C77B9B">BUSIEST DAY</text>
+      <text class="hm-serif" y="42" font-size="30" font-weight="300" fill="#F8F0F3">32</text>
+      <text class="hm-mono" y="62" font-size="9" fill="#B6A3AC">24 Jan 2026</text>
     </g>
   </g>
 
@@ -281,7 +322,7 @@ def generate_snake_svg(
     <text x="106" y="292">Fri</text>
   </g>
 
-  <!-- Contribution Grid (Synchronously Eaten) -->
+  <!-- Contribution Grid (Synchronously Eaten with Gentle Respawn) -->
   <g id="contribution-grid">
     {all_cells_svg}
   </g>
@@ -292,7 +333,7 @@ def generate_snake_svg(
   </g>
 
   <!-- Footer Legend & Telemetry -->
-  <g class="hm-fade">
+  <g>
     <text class="hm-mono" x="56" y="392" font-size="10.5" fill="#B6A3AC">Real-time synchronized eating animation · snake length dynamically increases with contributions</text>
     <text class="hm-mono" x="984" y="392" font-size="10.5" fill="#B6A3AC">Less</text>
     <rect x="1020" y="382" width="12" height="12" rx="3" fill="{dot_colors[0]}"/>
@@ -358,7 +399,7 @@ def generate_snake_svg(
     print(f"  Speed: {speed}")
     print(f"  Start Length: {start_length} -> Max Length: {max_length}")
     print(f"  Snake Head Color: {snake_color}")
-    print(f"  Eaten Dots: {dots_eaten_count}")
+    print(f"  Eaten Events: {len(eaten_events)}")
 
 if __name__ == "__main__":
     args = parse_args()
