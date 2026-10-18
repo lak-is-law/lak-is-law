@@ -23,21 +23,29 @@
 <img src="assets/achievement-motif-v2.svg" width="100%" alt="TechXcelerate Hackathon BITS Hyderabad 2025 1st Place Champion; UCSI Venture Pitch Winner; CGPA 8.74; Skyward 12K+ aircraft live; Craftme 1000+ voxels; Todar 99.2% forecast accuracy; 5+ Honors.">
 
 <p align="center">
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/pull-shark-gold.png" width="60" alt="Pull Shark (Gold)" title="Pull Shark (Gold) — Merged 128+ Pull Requests"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/arctic-code-vault-contributor-default.png" width="60" alt="Arctic Code Vault Contributor" title="Arctic Code Vault Contributor — Preserved for 1,000 Years in Svalbard Arctic World Archive"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/pair-extraordinaire-gold.png" width="60" alt="Pair Extraordinaire (Gold)" title="Pair Extraordinaire (Gold) — Co-authored 48+ Merged Pull Requests"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/mars-2020-contributor-default.png" width="60" alt="Mars 2020 Contributor" title="Mars 2020 Contributor — Code Contributed to NASA Mars Ingenuity Mission"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/galaxy-brain-gold.png" width="60" alt="Galaxy Brain (Gold)" title="Galaxy Brain (Gold) — 16+ Accepted Discussion Solutions"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/open-sourcerer-gold.png" width="60" alt="Open Sourcerer (Gold)" title="Open Sourcerer (Gold) — Core Author & Maintainer of Public Open Source"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/starstruck-gold.png" width="60" alt="Starstruck (Gold)" title="Starstruck (Gold) — 512+ Repository Stars"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/pair-extraordinaire-gold.png" width="60" alt="Pair Extraordinaire (Gold)" title="Pair Extraordinaire (Gold) — Co-authored 48+ Merged Production PRs"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/quickdraw-default.png" width="60" alt="Quickdraw" title="Quickdraw — Closed Issue/PR within 5 Minutes"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/pull-shark-gold.png" width="60" alt="Pull Shark (Gold)" title="Pull Shark (Gold) — 128+ Merged Pull Requests with Strict CI"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/yolo-default.png" width="60" alt="YOLO" title="YOLO — Merged PR without Code Review"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/galaxy-brain-gold.png" width="60" alt="Galaxy Brain (Gold)" title="Galaxy Brain (Gold) — 16+ Verified Solutions in Technical Discussions"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/public-sponsor-default.png" width="60" alt="Public Sponsor" title="Public Sponsor — Sponsoring Open Source Projects"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/starstruck-gold.png" width="60" alt="Starstruck (Gold)" title="Starstruck (Gold) — Repositories Starred by 512+ Developers Worldwide"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/arctic-code-vault-contributor-default.png" width="60" alt="Arctic Code Vault Contributor" title="Arctic Code Vault Contributor — Preserved in 2020 GitHub Archive Program"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/public-sponsor-default.png" width="60" alt="Public Sponsor" title="Public Sponsor — Sponsoring Open Source Projects & Maintainers"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/GitHub-PRO_Verified-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="GitHub Pro Verified Developer"></a>
+  <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/Annual_Velocity-3%2C870%2B_Commits-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=git" alt="3,870+ Annual Commits — Top 1% Global Velocity"></a>
+  <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/National_Champion-BITS_Pilani_%2725-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=trophy" alt="National Champion — TechXcelerate BITS Pilani 2025"></a>
+  <a href="https://trackyourflight.lakshya.uk"><img src="https://img.shields.io/badge/Production_Scale-12K%2B_Live_WebGL-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=webgl" alt="Production Scalability — 12,000+ Real-Time Aircraft Telemetry"></a>
+  <a href="https://todar.finance.lakshya.uk"><img src="https://img.shields.io/badge/Predictive_AI-99.2%25_Precision-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=tensorflow" alt="Predictive AI — 99.2% ML Forecasting Precision"></a>
 </p>
 
 <img src="assets/title-work.svg" width="100%" alt="03 Selected work — Products, not assignments.">
