@@ -20,6 +20,14 @@
 <img src="assets/title-recognition.svg" width="100%" alt="02 Recognition — Proof, on the record.">
 <img src="assets/achievement-motif-v2.svg" width="100%" alt="TechXcelerate Hackathon BITS Hyderabad 2025 1st Place Champion; UCSI Venture Pitch Winner; CGPA 8.74; Skyward 12K+ aircraft live; Craftme 1000+ voxels; Todar 99.2% forecast accuracy; 5+ Honors.">
 
+<p align="center">
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="60" alt="Quickdraw Achievement" title="Quickdraw"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://github.githubassets.com/assets/pull-shark-bronze-a37accb528d1.png" width="60" alt="Pull Shark Achievement" title="Pull Shark"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="60" alt="YOLO Achievement" title="YOLO"></a>
+</p>
+
 <img src="assets/title-work.svg" width="100%" alt="03 Selected work — Products, not assignments.">
 
 <!-- Project 1: Skyward -->
