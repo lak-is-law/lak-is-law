@@ -58,7 +58,7 @@
 <p align="center">
   <a href="https://lak-is-law.github.io/lak-is-law/"><img src="https://img.shields.io/badge/%F0%9F%8E%AE_Play_Interactive_Snake-Arrow_Keys_%C2%B7_Auto_in_2s-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3" alt="Play Interactive Snake with Arrow Keys (Auto resumes after 2s)"></a>
 </p>
-<img src="assets/github-glance-v2.svg" width="100%" alt="GitHub at a glance: 3,871 contributions, 14 PRs, 13-day streak, language breakdown.">
+<img src="assets/github-glance-v3.svg" width="100%" alt="GitHub at a glance: 3,871 contributions, 14 PRs, 13-day streak, language breakdown.">
 
 <img src="assets/title-connect.svg" width="100%" alt="06 Connect — Let's build something worth explaining.">
 
