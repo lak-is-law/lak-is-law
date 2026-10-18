@@ -381,6 +381,12 @@
       const canvas = document.getElementById('gameCanvas');
       const ctx = canvas.getContext('2d');
 
+      // Grid centering inside canvas (1070 x 150)
+      const GRID_WIDTH = COLS * STEP - CELL_GAP; // 1002px
+      const GRID_HEIGHT = ROWS * STEP - CELL_GAP; // 128px
+      const GRID_X = Math.round((canvas.width - GRID_WIDTH) / 2); // 34px
+      const GRID_Y = Math.round((canvas.height - GRID_HEIGHT) / 2); // 11px
+
       const modeBadge = document.getElementById('modeBadge');
       const modeText = document.getElementById('modeText');
       const timerTrack = document.getElementById('timerTrack');
@@ -391,7 +397,7 @@
       const statScore = document.getElementById('statScore');
 
       const COLORS = ['#1C0C15', '#451126', '#701A3D', '#A12556', '#E5B5C7'];
-      const TRAIL_PALETTE = ['#F8F0F3', '#E5B5C7', '#C77B9B', '#A12556', '#FFD700'];
+      const TRAIL_PALETTE = ['#FFD700', '#F8F0F3', '#E5B5C7', '#C77B9B', '#A12556'];
 
       // Real reduced 53-week contribution matrix
       const REDUCED_GRID = [[2, 3, 3, 0, 2, 0, 4], [0, 0, 0, 0, 0, 0, 0], [0, 2, 4, 0, 1, 2, 0], [3, 1, 0, 0, 2, 0, 0], [1, 0, 4, 4, 2, 0, 2], [2, 3, 4, 0, 4, 2, 0], [0, 2, 1, 3, 0, 3, 1], [1, 1, 3, 3, 0, 0, 0], [4, 3, 1, 1, 2, 0, 0], [3, 2, 3, 0, 2, 0, 1], [0, 3, 3, 0, 0, 3, 1], [3, 3, 3, 1, 0, 0, 0], [0, 3, 1, 3, 1, 1, 0], [0, 3, 0, 0, 0, 4, 0], [3, 2, 0, 2, 4, 4, 4], [4, 4, 1, 1, 3, 1, 0], [2, 1, 2, 3, 0, 1, 0], [1, 0, 0, 4, 4, 2, 0], [1, 2, 0, 1, 0, 1, 1], [0, 1, 4, 3, 0, 0, 0], [0, 1, 3, 1, 0, 2, 2], [4, 2, 2, 3, 2, 3, 3], [2, 2, 2, 4, 0, 2, 0], [1, 3, 0, 1, 1, 3, 3], [0, 2, 0, 3, 1, 2, 4], [2, 2, 0, 1, 2, 4, 2], [0, 4, 2, 4, 2, 3, 0], [0, 1, 3, 4, 2, 0, 4], [4, 4, 2, 3, 1, 4, 0], [2, 2, 1, 0, 0, 4, 0], [4, 0, 2, 4, 1, 1, 4], [0, 0, 1, 4, 2, 0, 4], [1, 0, 1, 2, 1, 0, 0], [3, 4, 2, 1, 0, 1, 4], [2, 2, 0, 0, 1, 4, 4], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 1, 4], [0, 2, 2, 2, 4, 2, 3], [3, 4, 2, 4, 1, 0, 1], [3, 0, 4, 1, 0, 0, 2], [2, 1, 2, 0, 1, 2, 2], [0, 1, 2, 1, 3, 3, 1], [0, 2, 3, 3, 0, 2, 2], [1, 2, 2, 2, 3, 0, 1], [3, 1, 2, 2, 3, 2, 0], [1, 3, 1, 1, 0, 3, 0], [0, 1, 1, 1, 2, 4, 0], [3, 0, 0, 4, 1, 0, 3], [0, 2, 3, 2, 0, 2, 3], [1, 1, 3, 0, 3, 2, 0], [2, 1, 3, 0, 0, 0, 0], [1, 1, 1, 0, 2, 1, 3], [0, 2, 3, 4, 0, 2, 0]];
@@ -406,76 +412,87 @@
         }
       }
 
-      // Compact, sleek snake sizing (capping at max 6 segments)
+      // Compact, sleek snake sizing: starts at 3, max 5 (never too big!)
       const START_LENGTH = 3;
-      const MAX_LENGTH = 6; // sleek, nimble, never too big!
-      const GROWTH_INTERVAL = 6; // +1 segment per 6 dots eaten
+      const MAX_LENGTH = 5;
+      const GROWTH_INTERVAL = 8;
+      let snakeLength = START_LENGTH;
 
-      let snake = [
-        { x: 12, y: 3 },
-        { x: 11, y: 3 },
-        { x: 10, y: 3 }
-      ];
-      let prevSnake = snake.map(s => ({ x: s.x, y: s.y }));
-
+      // Waypoint & Slither Navigation State
+      let headCell = { x: 12, y: 3 };
       let dir = { x: 1, y: 0 };
-      let nextDir = { x: 1, y: 0 };
+      let targetCell = { x: (headCell.x + dir.x + COLS) % COLS, y: (headCell.y + dir.y + ROWS) % ROWS };
+      let bufferedDir = null;
+
+      // History of visited cell coordinates for exact polyline path-following
+      const history = [];
+      for (let k = 0; k <= 30; k++) {
+        history.push({ x: (12 - k + COLS) % COLS, y: 3 });
+      }
 
       // Mode & Timing
       let mode = 'auto'; // 'auto' | 'manual'
       let lastInputTime = 0;
       const IDLE_LIMIT = 2000; // 2 seconds
 
-      const TICK_INTERVAL = 110; // ~9 moves/second
-      let lastTickTime = performance.now();
+      const STEP_INTERVAL = 115; // 115ms per step (~8.7 moves/sec)
+      let lastTimestamp = performance.now();
+      let accumulator = 0;
 
-      // Particle & Trail system
+      // Particles & Visual FX
       const particles = [];
+      const shockwaves = [];
       const floatTexts = [];
       const cellGlows = [];
 
-      function setDirection(dx, dy) {
-        if (snake.length > 1 && dx === -dir.x && dy === -dir.y) return;
-        nextDir = { x: dx, y: dy };
+      function requestDirection(dx, dy) {
+        // Prevent immediate 180-degree self-reversal
+        if (dx === -dir.x && dy === -dir.y) return;
+        if (snakeLength > 1 && dx === -dir.x && dy === 0) return;
+        if (snakeLength > 1 && dy === -dir.y && dx === 0) return;
+
+        bufferedDir = { x: dx, y: dy };
         mode = 'manual';
         lastInputTime = Date.now();
         updateModeUI();
       }
 
-      // Controls
+      // Controls: Keyboard WASD + Arrow keys
       window.addEventListener('keydown', (e) => {
         let handled = false;
         if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
-          setDirection(0, -1);
+          requestDirection(0, -1);
           handled = true;
         } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
-          setDirection(0, 1);
+          requestDirection(0, 1);
           handled = true;
         } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
-          setDirection(-1, 0);
+          requestDirection(-1, 0);
           handled = true;
         } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
-          setDirection(1, 0);
+          requestDirection(1, 0);
           handled = true;
         }
         if (handled) e.preventDefault();
       });
 
-      document.getElementById('btnUp').onclick = () => setDirection(0, -1);
-      document.getElementById('btnDown').onclick = () => setDirection(0, 1);
-      document.getElementById('btnLeft').onclick = () => setDirection(-1, 0);
-      document.getElementById('btnRight').onclick = () => setDirection(1, 0);
+      // Virtual D-pad Handlers
+      document.getElementById('btnUp').onclick = () => requestDirection(0, -1);
+      document.getElementById('btnDown').onclick = () => requestDirection(0, 1);
+      document.getElementById('btnLeft').onclick = () => requestDirection(-1, 0);
+      document.getElementById('btnRight').onclick = () => requestDirection(1, 0);
 
-      // Auto-Pilot Algorithm
-      function findAutoDirection() {
-        const head = snake[0];
+      // Auto-Pilot Algorithm (toroidal shortest path to uneaten dots)
+      function findAutoDirection(currentHead, currentDir) {
         let bestDist = Infinity;
         let target = null;
 
         for (let c = 0; c < COLS; c++) {
           for (let r = 0; r < ROWS; r++) {
             if (grid[c][r] > 0) {
-              const d = Math.abs(c - head.x) + Math.abs(r - head.y);
+              const dx = Math.min(Math.abs(c - currentHead.x), COLS - Math.abs(c - currentHead.x));
+              const dy = Math.min(Math.abs(r - currentHead.y), ROWS - Math.abs(r - currentHead.y));
+              const d = dx + dy;
               if (d < bestDist) {
                 bestDist = d;
                 target = { x: c, y: r };
@@ -484,33 +501,38 @@
           }
         }
 
-        const validMoves = [
+        const candidateMoves = [
           { x: 1, y: 0 },
           { x: -1, y: 0 },
           { x: 0, y: 1 },
           { x: 0, y: -1 }
-        ].filter(m => !(m.x === -dir.x && m.y === -dir.y));
+        ].filter(m => !(m.x === -currentDir.x && m.y === -currentDir.y));
 
         if (!target) {
-          return validMoves[Math.floor(Math.random() * validMoves.length)] || dir;
+          return candidateMoves[Math.floor(Math.random() * candidateMoves.length)] || currentDir;
         }
 
-        validMoves.sort((a, b) => {
-          const nxA = (head.x + a.x + COLS) % COLS;
-          const nyA = (head.y + a.y + ROWS) % ROWS;
-          const nxB = (head.x + b.x + COLS) % COLS;
-          const nyB = (head.y + b.y + ROWS) % ROWS;
+        // Avoid colliding with body segments in recent history
+        const bodyOccupied = history.slice(0, snakeLength);
 
-          const collidesA = snake.some(s => s.x === nxA && s.y === nyA);
-          const collidesB = snake.some(s => s.x === nxB && s.y === nyB);
+        candidateMoves.sort((a, b) => {
+          const nxA = (currentHead.x + a.x + COLS) % COLS;
+          const nyA = (currentHead.y + a.y + ROWS) % ROWS;
+          const nxB = (currentHead.x + b.x + COLS) % COLS;
+          const nyB = (currentHead.y + b.y + ROWS) % ROWS;
+
+          const collidesA = bodyOccupied.some(s => s.x === nxA && s.y === nyA);
+          const collidesB = bodyOccupied.some(s => s.x === nxB && s.y === nyB);
           if (collidesA !== collidesB) return collidesA ? 1 : -1;
 
-          const distA = Math.abs(nxA - target.x) + Math.abs(nyA - target.y);
-          const distB = Math.abs(nxB - target.x) + Math.abs(nyB - target.y);
+          const distA = Math.min(Math.abs(nxA - target.x), COLS - Math.abs(nxA - target.x)) +
+                        Math.min(Math.abs(nyA - target.y), ROWS - Math.abs(nyA - target.y));
+          const distB = Math.min(Math.abs(nxB - target.x), COLS - Math.abs(nxB - target.x)) +
+                        Math.min(Math.abs(nyB - target.y), ROWS - Math.abs(nyB - target.y));
           return distA - distB;
         });
 
-        return validMoves[0] || dir;
+        return candidateMoves[0] || currentDir;
       }
 
       function updateModeUI() {
@@ -538,143 +560,189 @@
       }
 
       function spawnEatBurst(gx, gy, lvl) {
-        const px = gx * STEP + CELL_SIZE / 2;
-        const py = gy * STEP + CELL_SIZE / 2;
-        const count = 12;
+        const px = GRID_X + gx * STEP + CELL_SIZE / 2;
+        const py = GRID_Y + gy * STEP + CELL_SIZE / 2;
+
+        // 1. Expanding luminous shockwave ring
+        shockwaves.push({
+          x: px,
+          y: py,
+          radius: 2,
+          maxRadius: 22,
+          alpha: 1.0,
+          color: lvl >= 3 ? '#E5B5C7' : '#FFD700'
+        });
+
+        // 2. Radiant celestial stardust burst
+        const count = 14;
         for (let i = 0; i < count; i++) {
-          const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
-          const speed = Math.random() * 2.4 + 0.8;
+          const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.45;
+          const speed = Math.random() * 2.8 + 0.9;
           particles.push({
             x: px,
             y: py,
             vx: Math.cos(angle) * speed,
             vy: Math.sin(angle) * speed,
             radius: Math.random() * 2.2 + 1.2,
-            color: lvl >= 3 ? '#E5B5C7' : (lvl === 2 ? '#C77B9B' : '#FFFFFF'),
+            color: lvl >= 3 ? '#E5B5C7' : (lvl === 2 ? '#C77B9B' : '#FFD700'),
             alpha: 1.0,
-            decay: Math.random() * 0.035 + 0.02
+            decay: Math.random() * 0.035 + 0.02,
+            twinkle: Math.random() * Math.PI * 2
           });
         }
+
+        // 3. Floating score badge
         floatTexts.push({
           x: px,
-          y: py - 4,
+          y: py - 6,
           text: '+' + (lvl * 15),
           alpha: 1.0,
-          vy: -0.55
+          vy: -0.65
         });
+
+        // 4. Lingering cell bloom
         cellGlows.push({
           c: gx,
           r: gy,
-          alpha: 0.85
+          alpha: 0.9
         });
       }
 
-      function spawnTailTrail(tx, ty) {
-        particles.push({
-          x: tx + (Math.random() - 0.5) * 3,
-          y: ty + (Math.random() - 0.5) * 3,
-          vx: (Math.random() - 0.5) * 0.25 - dir.x * 0.35,
-          vy: (Math.random() - 0.5) * 0.25 - dir.y * 0.35,
-          radius: Math.random() * 2.0 + 1.0,
-          color: TRAIL_PALETTE[Math.floor(Math.random() * TRAIL_PALETTE.length)],
-          alpha: 0.75,
-          decay: Math.random() * 0.03 + 0.025
-        });
+      function checkAndRespawnGrid() {
+        let remaining = 0;
+        for (let c = 0; c < COLS; c++) {
+          for (let r = 0; r < ROWS; r++) {
+            if (grid[c][r] > 0) remaining++;
+          }
+        }
+        if (remaining === 0) {
+          for (let c = 0; c < COLS; c++) {
+            for (let r = 0; r < ROWS; r++) {
+              grid[c][r] = REDUCED_GRID[c] ? REDUCED_GRID[c][r] : 0;
+            }
+          }
+          floatTexts.push({
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            text: 'CONSTELLATION RESTORED! +500',
+            alpha: 1.0,
+            vy: -0.6
+          });
+          score += 500;
+        }
       }
 
-      // Simulation Step
+      // Simulation Step (Fixed Timestep Tick)
       function tick() {
         updateModeUI();
 
-        if (mode === 'auto') {
-          nextDir = findAutoDirection();
-        }
-        dir = nextDir;
+        // 1. Arrived at targetCell
+        headCell = { x: targetCell.x, y: targetCell.y };
+        history.unshift({ x: headCell.x, y: headCell.y });
+        if (history.length > 30) history.pop();
 
-        // Snapshot current positions for smooth interpolation
-        prevSnake = snake.map(s => ({ x: s.x, y: s.y }));
-
-        const head = snake[0];
-        const newHead = {
-          x: (head.x + dir.x + COLS) % COLS,
-          y: (head.y + dir.y + ROWS) % ROWS
-        };
-
-        const cellLvl = grid[newHead.x][newHead.y];
-        snake.unshift(newHead);
-
+        // 2. Consume dot if present
+        const cellLvl = grid[headCell.x][headCell.y];
         if (cellLvl > 0) {
           totalEaten++;
           score += cellLvl * 15;
-          grid[newHead.x][newHead.y] = 0;
-          spawnEatBurst(newHead.x, newHead.y, cellLvl);
+          grid[headCell.x][headCell.y] = 0;
+          spawnEatBurst(headCell.x, headCell.y, cellLvl);
 
-          // Controlled compact growth: max 6 segments
-          const targetLength = Math.min(MAX_LENGTH, START_LENGTH + Math.floor(totalEaten / GROWTH_INTERVAL));
-          while (snake.length > targetLength) {
-            snake.pop();
+          // Sleek compact growth: capped at MAX_LENGTH (5 segments)
+          snakeLength = Math.min(MAX_LENGTH, START_LENGTH + Math.floor(totalEaten / GROWTH_INTERVAL));
+
+          statLength.textContent = snakeLength;
+          statEaten.textContent = totalEaten;
+          statScore.textContent = score;
+
+          checkAndRespawnGrid();
+        }
+
+        // 3. Select next direction
+        if (bufferedDir) {
+          if (!(bufferedDir.x === -dir.x && bufferedDir.y === -dir.y)) {
+            dir = bufferedDir;
           }
+          bufferedDir = null;
+        } else if (mode === 'auto') {
+          dir = findAutoDirection(headCell, dir);
+        }
+
+        // 4. Set next target cell
+        targetCell = {
+          x: (headCell.x + dir.x + COLS) % COLS,
+          y: (headCell.y + dir.y + ROWS) % ROWS
+        };
+      }
+
+      // Closed-Form Polyline Trajectory Point
+      // Returns exact sub-pixel canvas coordinates at distance 'dist' behind the continuous head
+      function getTrajectoryPoint(dist, progress) {
+        let hdx = targetCell.x - headCell.x;
+        if (hdx > COLS / 2) hdx -= COLS;
+        if (hdx < -COLS / 2) hdx += COLS;
+
+        let hdy = targetCell.y - headCell.y;
+        if (hdy > ROWS / 2) hdy -= ROWS;
+        if (hdy < -ROWS / 2) hdy += ROWS;
+
+        const currHeadX = headCell.x + hdx * progress;
+        const currHeadY = headCell.y + hdy * progress;
+
+        let gx, gy, dirX, dirY;
+
+        if (dist <= progress) {
+          // Point is on the current forward step
+          gx = currHeadX - hdx * dist;
+          gy = currHeadY - hdy * dist;
+          dirX = hdx;
+          dirY = hdy;
         } else {
-          snake.pop();
+          // Point is on historical waypoints behind headCell
+          const rem = dist - progress;
+          let segIdx = Math.floor(rem);
+          const segFrac = rem - segIdx;
+
+          if (segIdx >= history.length - 1) {
+            segIdx = Math.max(0, history.length - 2);
+          }
+
+          const A = history[segIdx];
+          const B = history[segIdx + 1] || A;
+
+          let adx = B.x - A.x;
+          if (adx > COLS / 2) adx -= COLS;
+          if (adx < -COLS / 2) adx += COLS;
+
+          let ady = B.y - A.y;
+          if (ady > ROWS / 2) ady -= ROWS;
+          if (ady < -ROWS / 2) ady += ROWS;
+
+          gx = A.x + adx * segFrac;
+          gy = A.y + ady * segFrac;
+          dirX = -adx;
+          dirY = -ady;
         }
 
-        // Align prevSnake length
-        while (prevSnake.length < snake.length) {
-          prevSnake.push({ ...snake[prevSnake.length] });
-        }
-        while (prevSnake.length > snake.length) {
-          prevSnake.pop();
-        }
+        const normX = ((gx % COLS) + COLS) % COLS;
+        const normY = ((gy % ROWS) + ROWS) % ROWS;
 
-        statLength.textContent = snake.length;
-        statEaten.textContent = totalEaten;
-        statScore.textContent = score;
+        const px = GRID_X + normX * STEP + CELL_SIZE / 2;
+        const py = GRID_Y + normY * STEP + CELL_SIZE / 2;
+
+        return { px, py, normX, normY, dirX, dirY };
       }
 
-      // Smooth Sub-Pixel Segment Interpolation
-      function getInterpolatedSegment(i, progress) {
-        const curr = snake[i];
-        const prev = prevSnake[i] || curr;
-
-        let px = prev.x;
-        let py = prev.y;
-        let cx = curr.x;
-        let cy = curr.y;
-
-        // Wrap-around continuity
-        if (cx - px > COLS / 2) px += COLS;
-        if (px - cx > COLS / 2) cx += COLS;
-        if (cy - py > ROWS / 2) py += ROWS;
-        if (py - cy > ROWS / 2) cy += ROWS;
-
-        let ix = px + (cx - px) * progress;
-        let iy = py + (cy - py) * progress;
-
-        ix = (ix + COLS) % COLS;
-        iy = (iy + ROWS) % ROWS;
-
-        return { x: ix * STEP, y: iy * STEP, gx: ix, gy: iy };
-      }
-
-      // 60 FPS Render Loop
-      function loop(timestamp) {
-        requestAnimationFrame(loop);
-
-        // Simulation update check
-        if (timestamp - lastTickTime >= TICK_INTERVAL) {
-          tick();
-          lastTickTime = timestamp;
-        }
-
-        const progress = Math.min(1.0, Math.max(0.0, (timestamp - lastTickTime) / TICK_INTERVAL));
-
+      // Main Render Function
+      function render(progress) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // 1. Draw Contribution Grid
         for (let c = 0; c < COLS; c++) {
           for (let r = 0; r < ROWS; r++) {
-            const x = c * STEP;
-            const y = r * STEP;
+            const x = GRID_X + c * STEP;
+            const y = GRID_Y + r * STEP;
             const lvl = grid[c][r];
 
             ctx.fillStyle = COLORS[lvl];
@@ -690,121 +758,272 @@
           }
         }
 
-        // 2. Draw Cell Flash Glows
+        // 2. Draw Cell Bloom Glows
         for (let i = cellGlows.length - 1; i >= 0; i--) {
           const cg = cellGlows[i];
           ctx.fillStyle = 'rgba(229, 181, 199, ' + (cg.alpha * 0.45) + ')';
           ctx.beginPath();
-          ctx.roundRect(cg.c * STEP, cg.r * STEP, CELL_SIZE, CELL_SIZE, 3.5);
+          ctx.roundRect(GRID_X + cg.c * STEP, GRID_Y + cg.r * STEP, CELL_SIZE, CELL_SIZE, 3.5);
           ctx.fill();
           cg.alpha -= 0.025;
           if (cg.alpha <= 0) cellGlows.splice(i, 1);
         }
 
-        // 3. Emit Tail Trail Particles
-        const tail = getInterpolatedSegment(snake.length - 1, progress);
-        spawnTailTrail(tail.x + CELL_SIZE / 2, tail.y + CELL_SIZE / 2);
+        // 3. Draw Expanding Shockwave Rings
+        for (let i = shockwaves.length - 1; i >= 0; i--) {
+          const sw = shockwaves[i];
+          sw.radius += 1.4;
+          sw.alpha -= 0.055;
+          if (sw.alpha <= 0 || sw.radius >= sw.maxRadius) {
+            shockwaves.splice(i, 1);
+            continue;
+          }
+          ctx.save();
+          ctx.strokeStyle = sw.color;
+          ctx.globalAlpha = Math.max(0, sw.alpha);
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        }
 
-        // 4. Update & Draw Starlight Particles
+        // 4. Emit Celestial Stardust Trail Particles
+        const tailPt = getTrajectoryPoint(snakeLength - 0.2, progress);
+        if (Math.random() < 0.85) {
+          particles.push({
+            x: tailPt.px + (Math.random() - 0.5) * 5,
+            y: tailPt.py + (Math.random() - 0.5) * 5,
+            vx: (Math.random() - 0.5) * 0.35 - tailPt.dirX * 0.3,
+            vy: (Math.random() - 0.5) * 0.35 - tailPt.dirY * 0.3,
+            radius: Math.random() * 2.0 + 1.0,
+            color: TRAIL_PALETTE[Math.floor(Math.random() * TRAIL_PALETTE.length)],
+            alpha: 0.9,
+            decay: Math.random() * 0.028 + 0.02,
+            twinkle: Math.random() * Math.PI * 2
+          });
+        }
+
+        // 5. Render Luminous Aurora Comet Trail Ribbon
+        // Continuous smooth ribbon trailing behind the snake's tail
+        const tailDist = snakeLength - 0.15;
+        const trailLength = 4.0; // grid units of glowing trail
+        const trailSteps = 24;
+        const trailPoints = [];
+
+        for (let j = 0; j <= trailSteps; j++) {
+          const dist = tailDist + (j / trailSteps) * trailLength;
+          trailPoints.push(getTrajectoryPoint(dist, progress));
+        }
+
+        // Draw glowing ribbon segments along the trail path
+        for (let j = 0; j < trailPoints.length - 1; j++) {
+          const p1 = trailPoints[j];
+          const p2 = trailPoints[j + 1];
+
+          // Skip drawing line across wrap-around boundary jump
+          if (Math.abs(p1.normX - p2.normX) > 10 || Math.abs(p1.normY - p2.normY) > 4) {
+            continue;
+          }
+
+          const t = j / trailSteps; // 0 at tail, 1 at trail end
+          const width = Math.max(0.6, (1.0 - t) * 5.4);
+          const alpha = Math.max(0.0, (1.0 - t) * 0.75);
+
+          // Color ramp: Gold -> Rose -> Crimson -> Deep Burgundy
+          let color = '#FFD700';
+          if (t > 0.6) color = '#701A3D';
+          else if (t > 0.35) color = '#A12556';
+          else if (t > 0.15) color = '#E5B5C7';
+
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.lineWidth = width;
+          ctx.lineCap = 'round';
+          ctx.strokeStyle = color;
+          ctx.shadowColor = color;
+          ctx.shadowBlur = 8;
+
+          ctx.beginPath();
+          ctx.moveTo(p1.px, p1.py);
+          ctx.lineTo(p2.px, p2.py);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // 3 Glowing Ethereal Ghost Halo Nodes along the trail
+        const haloOffsets = [0.9, 2.0, 3.1];
+        for (let h = 0; h < haloOffsets.length; h++) {
+          const hp = getTrajectoryPoint(tailDist + haloOffsets[h], progress);
+          const factor = 1.0 - (haloOffsets[h] / trailLength);
+          ctx.save();
+          ctx.globalAlpha = factor * 0.45;
+          ctx.fillStyle = haloOffsets[h] > 1.5 ? '#701A3D' : '#E5B5C7';
+          ctx.shadowColor = '#C77B9B';
+          ctx.shadowBlur = 6;
+          ctx.beginPath();
+          ctx.arc(hp.px, hp.py, Math.max(1.2, factor * 2.8), 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // 6. Draw Sleek Aerodynamic Snake Body (Tail to Head)
+        // Connected capsule links between segments
+        for (let i = snakeLength - 1; i >= 1; i--) {
+          const pStart = getTrajectoryPoint(i, progress);
+          const pEnd = getTrajectoryPoint(i - 1, progress);
+
+          if (Math.abs(pStart.normX - pEnd.normX) < 10 && Math.abs(pStart.normY - pEnd.normY) < 4) {
+            const factor = i / Math.max(1, snakeLength - 1);
+            const linkWidth = Math.max(5.2, 8.8 - factor * 3.6);
+
+            ctx.save();
+            ctx.lineWidth = linkWidth;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = factor > 0.6 ? '#701A3D' : (factor > 0.3 ? '#A12556' : '#C77B9B');
+            ctx.shadowColor = '#C77B9B';
+            ctx.shadowBlur = 4;
+            ctx.globalAlpha = Math.max(0.7, 1.0 - factor * 0.3);
+
+            ctx.beginPath();
+            ctx.moveTo(pStart.px, pStart.py);
+            ctx.lineTo(pEnd.px, pEnd.py);
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+
+        // Rounded body segment nodes
+        for (let i = snakeLength - 1; i >= 1; i--) {
+          const pt = getTrajectoryPoint(i, progress);
+          const factor = i / Math.max(1, snakeLength - 1);
+          // Sleek compact sizing: 8.4px tapering to 5.4px
+          const segSize = Math.max(5.4, 8.6 - factor * 3.2);
+
+          ctx.save();
+          ctx.fillStyle = factor > 0.6 ? '#701A3D' : (factor > 0.3 ? '#A12556' : '#C77B9B');
+          ctx.shadowColor = '#C77B9B';
+          ctx.shadowBlur = 5;
+          ctx.globalAlpha = Math.max(0.75, 1.0 - factor * 0.25);
+          ctx.beginPath();
+          ctx.roundRect(pt.px - segSize / 2, pt.py - segSize / 2, segSize, segSize, 2.8);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // 7. Draw Snake Head (Sleek 9.2px with radiant aura and expressive eyes)
+        const headPt = getTrajectoryPoint(0, progress);
+        const headSize = 9.2; // Sleek, nimble proportion (was 12.5px!)
+
+        ctx.save();
+        ctx.shadowColor = '#E5B5C7';
+        ctx.shadowBlur = 12;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.roundRect(headPt.px - headSize / 2, headPt.py - headSize / 2, headSize, headSize, 3.2);
+        ctx.fill();
+        ctx.restore();
+
+        // Expressive eyes facing forward
+        ctx.save();
+        ctx.fillStyle = '#10070C';
+        const eyeRadius = 0.9;
+        const eyeOffsetFwd = 2.4;
+        const eyeOffsetSide = 2.3;
+
+        // Forward vector (fx, fy) and perpendicular side vector (sx, sy)
+        const fx = headPt.dirX || 1;
+        const fy = headPt.dirY || 0;
+        const sx = -fy;
+        const sy = fx;
+
+        const eye1X = headPt.px + fx * eyeOffsetFwd + sx * eyeOffsetSide;
+        const eye1Y = headPt.py + fy * eyeOffsetFwd + sy * eyeOffsetSide;
+        const eye2X = headPt.px + fx * eyeOffsetFwd - sx * eyeOffsetSide;
+        const eye2Y = headPt.py + fy * eyeOffsetFwd - sy * eyeOffsetSide;
+
+        ctx.beginPath();
+        ctx.arc(eye1X, eye1Y, eyeRadius, 0, Math.PI * 2);
+        ctx.arc(eye2X, eye2Y, eyeRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Tiny white reflection gleam
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.arc(eye1X + fx * 0.3, eye1Y + fy * 0.3, 0.45, 0, Math.PI * 2);
+        ctx.arc(eye2X + fx * 0.3, eye2Y + fy * 0.3, 0.45, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        // 8. Update & Draw Starlight Particles
         for (let i = particles.length - 1; i >= 0; i--) {
           const p = particles[i];
           p.x += p.vx;
           p.y += p.vy;
           p.alpha -= p.decay;
-          p.radius *= 0.97;
+          p.radius *= 0.975;
+          p.twinkle += 0.15;
 
-          if (p.alpha <= 0 || p.radius < 0.4) {
+          if (p.alpha <= 0 || p.radius < 0.35) {
             particles.splice(i, 1);
             continue;
           }
 
+          const curRadius = Math.max(0.4, p.radius * (0.8 + 0.25 * Math.sin(p.twinkle)));
           ctx.save();
           ctx.globalAlpha = Math.max(0, p.alpha);
           ctx.fillStyle = p.color;
           ctx.shadowColor = p.color;
           ctx.shadowBlur = 6;
           ctx.beginPath();
-          ctx.arc(p.x, p.y, Math.max(0.5, p.radius), 0, Math.PI * 2);
+          ctx.arc(p.x, p.y, curRadius, 0, Math.PI * 2);
           ctx.fill();
           ctx.restore();
         }
 
-        // 5. Draw Sleek Tapered Snake Body (Tail to Head)
-        for (let i = snake.length - 1; i >= 0; i--) {
-          const pos = getInterpolatedSegment(i, progress);
-          const factor = i / Math.max(1, snake.length - 1);
-
-          if (i === 0) {
-            // Snake Head: 12.5px rounded with luminous aura
-            const headSize = 12.5;
-            const ox = (CELL_SIZE - headSize) / 2;
-            const oy = (CELL_SIZE - headSize) / 2;
-
-            ctx.save();
-            ctx.shadowColor = '#E5B5C7';
-            ctx.shadowBlur = 12;
-            ctx.fillStyle = '#FFFFFF';
-            ctx.beginPath();
-            ctx.roundRect(pos.x + ox, pos.y + oy, headSize, headSize, 4.2);
-            ctx.fill();
-            ctx.restore();
-
-            // Eyes facing movement
-            ctx.fillStyle = '#10070C';
-            const eyeSize = 1.5;
-            const hx = pos.x + ox;
-            const hy = pos.y + oy;
-            if (dir.x === 1) {
-              ctx.fillRect(hx + 9, hy + 2.5, eyeSize, eyeSize);
-              ctx.fillRect(hx + 9, hy + 8.5, eyeSize, eyeSize);
-            } else if (dir.x === -1) {
-              ctx.fillRect(hx + 2, hy + 2.5, eyeSize, eyeSize);
-              ctx.fillRect(hx + 2, hy + 8.5, eyeSize, eyeSize);
-            } else if (dir.y === 1) {
-              ctx.fillRect(hx + 2.5, hy + 9, eyeSize, eyeSize);
-              ctx.fillRect(hx + 8.5, hy + 9, eyeSize, eyeSize);
-            } else {
-              ctx.fillRect(hx + 2.5, hy + 2, eyeSize, eyeSize);
-              ctx.fillRect(hx + 8.5, hy + 2, eyeSize, eyeSize);
-            }
-          } else {
-            // Tapered body segments (from 11.5px down to 7.0px)
-            const segSize = Math.max(7.0, 11.8 - (factor * 4.8));
-            const ox = (CELL_SIZE - segSize) / 2;
-            const oy = (CELL_SIZE - segSize) / 2;
-
-            ctx.save();
-            ctx.fillStyle = factor > 0.6 ? '#701A3D' : (factor > 0.3 ? '#A12556' : '#C77B9B');
-            ctx.shadowColor = '#C77B9B';
-            ctx.shadowBlur = 5;
-            ctx.globalAlpha = Math.max(0.65, 1.0 - factor * 0.35);
-            ctx.beginPath();
-            ctx.roundRect(pos.x + ox, pos.y + oy, segSize, segSize, 3.2);
-            ctx.fill();
-            ctx.restore();
-          }
-        }
-
-        // 6. Floating Score Popups
+        // 9. Floating Score Popups
         for (let i = floatTexts.length - 1; i >= 0; i--) {
           const ft = floatTexts[i];
           ft.y += ft.vy;
-          ft.alpha -= 0.025;
+          ft.alpha -= 0.024;
           if (ft.alpha <= 0) {
             floatTexts.splice(i, 1);
             continue;
           }
           ctx.save();
           ctx.font = 'bold 11px ui-monospace, SFMono-Regular, monospace';
-          ctx.fillStyle = 'rgba(255, 215, 0, ' + ft.alpha + ')';
+          ctx.fillStyle = 'rgba(255, 215, 0, ' + Math.max(0, ft.alpha) + ')';
           ctx.shadowColor = 'rgba(255, 215, 0, 0.7)';
-          ctx.shadowBlur = 5;
-          ctx.fillText(ft.text, ft.x - 7, ft.y);
+          ctx.shadowBlur = 6;
+          ctx.fillText(ft.text, ft.x - 8, ft.y);
           ctx.restore();
         }
       }
 
-      // Start 60 FPS interpolated loop
+      // High-Precision 60/120 FPS Loop with Fixed-Timestep Delta Accumulation
+      function loop(timestamp) {
+        requestAnimationFrame(loop);
+
+        let dt = timestamp - lastTimestamp;
+        lastTimestamp = timestamp;
+        if (dt > 100) dt = 100; // Cap to avoid jump on background tab switch
+
+        accumulator += dt;
+        while (accumulator >= STEP_INTERVAL) {
+          tick();
+          accumulator -= STEP_INTERVAL;
+        }
+
+        const progress = Math.min(1.0, Math.max(0.0, accumulator / STEP_INTERVAL));
+        render(progress);
+      }
+
+      // Initial stats display
+      statLength.textContent = snakeLength;
+      statEaten.textContent = totalEaten;
+      statScore.textContent = score;
+
+      // Start Butter-Smooth Render Loop
       requestAnimationFrame(loop);
     })();
   </script>

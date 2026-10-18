@@ -20,11 +20,11 @@ on:
       start_length:
         description: "Initial Snake Length"
         required: false
-        default: "4"
+        default: "3"
       max_length:
         description: "Maximum Snake Length (grows to this)"
         required: false
-        default: "18"
+        default: "5"
   push:
     branches: [main]
 
@@ -48,11 +48,11 @@ jobs:
         run: |
           mkdir -p dist
           python3 scripts/generate_snake.py \
-            --speed "${{ github.event.inputs.speed || '42s' }}" \
+            --speed "${{ github.event.inputs.speed || '36s' }}" \
             --snake-color "${{ github.event.inputs.snake_color || '#F8F0F3' }}" \
             --dot-colors "${{ github.event.inputs.dot_colors || '#10070C,#451126,#701A3D,#A12556,#E5B5C7' }}" \
-            --start-length "${{ github.event.inputs.start_length || '4' }}" \
-            --max-length "${{ github.event.inputs.max_length || '18' }}" \
+            --start-length "${{ github.event.inputs.start_length || '3' }}" \
+            --max-length "${{ github.event.inputs.max_length || '5' }}" \
             --output dist/github-snake-dark.svg
 
           # Also keep assets/ updated and deploy playable interactive snake

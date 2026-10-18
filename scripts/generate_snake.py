@@ -26,7 +26,7 @@ def parse_args():
     parser.add_argument("--tail-color", default=DEFAULT_TAIL_COLOR, help="Hex color for tail end")
     parser.add_argument("--dot-colors", default=",".join(DEFAULT_DOT_COLORS), help="5 comma-separated hex colors")
     parser.add_argument("--start-length", type=int, default=3, help="Initial snake segment length")
-    parser.add_argument("--max-length", type=int, default=6, help="Maximum snake segment length")
+    parser.add_argument("--max-length", type=int, default=5, help="Maximum snake segment length")
     parser.add_argument("--growth-interval", type=int, default=8, help="Dots eaten per new segment added")
     return parser.parse_args()
 
@@ -37,7 +37,7 @@ def generate_snake_svg(
     tail_color="#701A3D",
     dot_colors=None,
     start_length=3,
-    max_length=6,
+    max_length=5,
     growth_interval=8
 ):
     if dot_colors is None:
@@ -163,16 +163,19 @@ def generate_snake_svg(
         bf = int(b1 + (b2 - b1) * factor)
         return f"#{rf:02X}{gf:02X}{bf:02X}"
 
-    # Snake Segments (Head + Body, compact and tapered)
+    # Snake Segments (Head + Body, compact and tapered: 9.2px down to 5.4px)
     for s in range(max_length):
         seg_id = f"snk_seg_{s}"
         factor = min(1.0, s / max(1, max_length - 1))
         seg_fill = interpolate_hex(snake_color, tail_color, factor)
-        # Taper smoothly from 12.5px down to 7.5px
-        seg_size = max(7.5, 12.5 - (s * 0.95))
+        # Taper smoothly from 9.2px down to 5.4px (sleek and nimble)
+        seg_size = 9.2 if s == 0 else max(5.4, 9.0 - (s * 0.9))
         offset = (cell_w - seg_size) / 2.0
 
         frames = []
+        start_sx = grid_x0 + path[max(0, 0 - s)][0] * step + offset
+        start_sy = grid_y0 + path[max(0, 0 - s)][1] * step + offset
+
         for i in range(total_steps):
             pct = round((i / total_steps) * 100, 2)
             pos_idx = max(0, i - s)
@@ -180,6 +183,9 @@ def generate_snake_svg(
             sx = grid_x0 + pc * step + offset
             sy = grid_y0 + pr * step + offset
             frames.append(f"{pct}% {{ transform: translate({sx:.1f}px, {sy:.1f}px); }}")
+
+        # Seamless 100% boundary matching 0%
+        frames.append(f"100% {{ transform: translate({start_sx:.1f}px, {start_sy:.1f}px); }}")
 
         keyframes_str = "\n  ".join(frames)
 
@@ -212,23 +218,29 @@ def generate_snake_svg(
 
         if s == 0:
             snake_elements.append(f"""    <g class="{seg_id}">
-      <rect width="{seg_size:.1f}" height="{seg_size:.1f}" rx="4" fill="{seg_fill}" filter="url(#snk-head-glow)"/>
-      <circle cx="{seg_size * 0.72:.1f}" cy="{seg_size * 0.28:.1f}" r="1.3" fill="#10070C"/>
-      <circle cx="{seg_size * 0.72:.1f}" cy="{seg_size * 0.72:.1f}" r="1.3" fill="#10070C"/>
+      <rect width="{seg_size:.1f}" height="{seg_size:.1f}" rx="3.2" fill="{seg_fill}" filter="url(#snk-head-glow)"/>
+      <circle cx="{seg_size * 0.72:.1f}" cy="{seg_size * 0.28:.1f}" r="0.9" fill="#10070C"/>
+      <circle cx="{seg_size * 0.72:.1f}" cy="{seg_size * 0.72:.1f}" r="0.9" fill="#10070C"/>
     </g>""")
         else:
             snake_elements.append(f"""    <g class="{seg_id}">
-      <rect width="{seg_size:.1f}" height="{seg_size:.1f}" rx="3" fill="{seg_fill}" fill-opacity="{max(0.45, 1.0 - factor * 0.45):.2f}"/>
+      <rect width="{seg_size:.1f}" height="{seg_size:.1f}" rx="2.6" fill="{seg_fill}" fill-opacity="{max(0.55, 1.0 - factor * 0.35):.2f}"/>
     </g>""")
 
-    # 3 Glowing Ghost Trail Segments behind the tail
-    num_trails = 3
-    trail_opacities = [0.38, 0.22, 0.10]
+    # 4 Glowing Ghost Trail Segments behind the tail
+    num_trails = 4
+    trail_opacities = [0.45, 0.30, 0.18, 0.08]
+    trail_sizes = [5.4, 4.4, 3.4, 2.4]
+    trail_fills = [tail_color, tail_color, "#451126", "#1C0C15"]
+
     for t in range(num_trails):
         trail_id = f"snk_trail_{t}"
-        trail_size = max(6.0, 7.5 - (t * 0.9))
+        trail_size = trail_sizes[t]
         trail_offset = (cell_w - trail_size) / 2.0
-        trail_fill = tail_color
+        trail_fill = trail_fills[t]
+
+        start_tsx = grid_x0 + path[max(0, 0 - (max_length + t + 1))][0] * step + trail_offset
+        start_tsy = grid_y0 + path[max(0, 0 - (max_length + t + 1))][1] * step + trail_offset
 
         tframes = []
         for i in range(total_steps):
@@ -238,6 +250,9 @@ def generate_snake_svg(
             sx = grid_x0 + pc * step + trail_offset
             sy = grid_y0 + pr * step + trail_offset
             tframes.append(f"{pct}% {{ transform: translate({sx:.1f}px, {sy:.1f}px); }}")
+
+        # Seamless 100% boundary matching 0%
+        tframes.append(f"100% {{ transform: translate({start_tsx:.1f}px, {start_tsy:.1f}px); }}")
 
         t_keyframes_str = "\n  ".join(tframes)
         snake_keyframes.append(f"""@keyframes kf_{trail_id} {{
