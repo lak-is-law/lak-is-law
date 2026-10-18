@@ -5,6 +5,7 @@
 <p align="center">
   <a href="https://github.com/lak-is-law?tab=followers"><img src="https://img.shields.io/badge/Follow-%40lak--is--law-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="Follow lak-is-law on GitHub"></a>
   <a href="https://github.com/lak-is-law/lak-is-law"><img src="https://img.shields.io/badge/%E2%AD%90_Star-Profile-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="Star Profile"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-NonCommercial_1.0-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3" alt="PolyForm Noncommercial License"></a>
   <a href="https://lakshya.uk"><img src="https://img.shields.io/badge/Portfolio-lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=safari" alt="Portfolio website"></a>
   <a href="https://resume.lakshya.uk"><img src="https://img.shields.io/badge/R%C3%A9sum%C3%A9-resume.lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=googledocs" alt="R&eacute;sum&eacute;"></a>
   <a href="https://linkedin.com/in/lakshya-success"><img src="https://img.shields.io/badge/LinkedIn-lakshya--success-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=linkedin" alt="LinkedIn profile"></a>
@@ -22,11 +23,21 @@
 <img src="assets/achievement-motif-v2.svg" width="100%" alt="TechXcelerate Hackathon BITS Hyderabad 2025 1st Place Champion; UCSI Venture Pitch Winner; CGPA 8.74; Skyward 12K+ aircraft live; Craftme 1000+ voxels; Todar 99.2% forecast accuracy; 5+ Honors.">
 
 <p align="center">
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="60" alt="Quickdraw Achievement" title="Quickdraw"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/pull-shark-gold.png" width="60" alt="Pull Shark (Gold)" title="Pull Shark (Gold) — Merged 128+ Pull Requests"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://github.githubassets.com/assets/pull-shark-bronze-a37accb528d1.png" width="60" alt="Pull Shark Achievement" title="Pull Shark"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/pair-extraordinaire-gold.png" width="60" alt="Pair Extraordinaire (Gold)" title="Pair Extraordinaire (Gold) — Co-authored 48+ Merged Pull Requests"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="60" alt="YOLO Achievement" title="YOLO"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/galaxy-brain-gold.png" width="60" alt="Galaxy Brain (Gold)" title="Galaxy Brain (Gold) — 16+ Accepted Discussion Solutions"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/starstruck-gold.png" width="60" alt="Starstruck (Gold)" title="Starstruck (Gold) — 512+ Repository Stars"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/quickdraw-default.png" width="60" alt="Quickdraw" title="Quickdraw — Closed Issue/PR within 5 Minutes"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/yolo-default.png" width="60" alt="YOLO" title="YOLO — Merged PR without Code Review"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/public-sponsor-default.png" width="60" alt="Public Sponsor" title="Public Sponsor — Sponsoring Open Source Projects"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/arctic-code-vault-contributor-default.png" width="60" alt="Arctic Code Vault Contributor" title="Arctic Code Vault Contributor — Preserved in 2020 GitHub Archive Program"></a>
 </p>
 
 <img src="assets/title-work.svg" width="100%" alt="03 Selected work — Products, not assignments.">
@@ -80,6 +91,11 @@
   <a href="https://lakshya.uk"><img src="https://img.shields.io/badge/Portfolio-lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=safari" alt="Portfolio website"></a>
   <a href="https://resume.lakshya.uk"><img src="https://img.shields.io/badge/R%C3%A9sum%C3%A9-resume.lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=googledocs" alt="R&eacute;sum&eacute;"></a>
   <a href="mailto:contact@lakshya.uk"><img src="https://img.shields.io/badge/Email-contact@lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=gmail" alt="Email contact@lakshya.uk"></a>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/Commercial_Use-PROHIBITED-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3" alt="Commercial Use Prohibited"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-PolyForm_Noncommercial_1.0.0-451126?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3" alt="PolyForm Noncommercial 1.0.0"></a>
 </p>
 
 <a href="https://lakshya.uk">
