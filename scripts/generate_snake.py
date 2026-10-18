@@ -124,23 +124,16 @@ def generate_snake_svg(
             cell_id = f"c_{c}_{r}"
 
             if (c, r) in eaten_events and lvl > 0:
-                # Build keyframe intervals: initial color -> flash white at eat -> empty -> respawn
+                # Once eaten, dot turns empty and STAYS eaten until the 100% cycle loop restarts
                 eat_idx = eaten_events[(c, r)][0]
                 pct_eat = round((eat_idx / total_steps) * 100, 2)
                 pct_pre = max(0.0, round(pct_eat - 0.2, 2))
                 pct_flash = min(100.0, round(pct_eat + 0.3, 2))
-                pct_respawn = min(100.0, round(pct_eat + trail_pct, 2))
-                pct_recovered = min(100.0, round(pct_respawn + 0.8, 2))
 
-                if pct_recovered < 100.0:
-                    kf_body = f"""  0%, {pct_pre}% {{ fill: {initial_fill}; transform: scale(1); }}
+                kf_body = f"""  0%, {pct_pre}% {{ fill: {initial_fill}; transform: scale(1); }}
   {pct_eat}% {{ fill: #FFFFFF; transform: scale(1.22); }}
-  {pct_flash}%, {pct_respawn}% {{ fill: {dot_colors[0]}; transform: scale(1); }}
-  {pct_recovered}%, 100% {{ fill: {initial_fill}; transform: scale(1); }}"""
-                else:
-                    kf_body = f"""  0%, {pct_pre}% {{ fill: {initial_fill}; transform: scale(1); }}
-  {pct_eat}% {{ fill: #FFFFFF; transform: scale(1.22); }}
-  {pct_flash}%, 100% {{ fill: {dot_colors[0]}; transform: scale(1); }}"""
+  {pct_flash}%, 99.8% {{ fill: {dot_colors[0]}; transform: scale(1); }}
+  100% {{ fill: {initial_fill}; transform: scale(1); }}"""
 
                 cell_keyframes.append(f"""@keyframes kf_{cell_id} {{
 {kf_body}

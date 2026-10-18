@@ -62,7 +62,7 @@
 <img src="assets/tech-constellation-v2.svg" width="100%" alt="Engineering Toolkit: Languages, AI/ML, Frontend &amp; 3D, Backend &amp; APIs, Data &amp; Cloud, Architecture.">
 
 <img src="assets/title-commits.svg" width="100%" alt="05 Commit log — A year of building.">
-<a href="https://lak-is-law.github.io/lak-is-law/"><img src="assets/contribution-snake.svg" width="100%" alt="Contribution Log: A year of building, one square at a time. Click to play interactive snake."></a>
+<a href="https://lak-is-law.github.io/lak-is-law/"><img src="assets/contribution-snake-v2.svg" width="100%" alt="Contribution Log: A year of building, one square at a time. Click to play interactive snake."></a>
 <p align="center">
   <a href="https://lak-is-law.github.io/lak-is-law/"><img src="https://img.shields.io/badge/%F0%9F%8E%AE_Play_Interactive_Snake-Arrow_Keys_%C2%B7_Auto_in_2s-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3" alt="Play Interactive Snake with Arrow Keys (Auto resumes after 2s)"></a>
 </p>

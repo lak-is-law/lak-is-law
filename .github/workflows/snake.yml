@@ -57,6 +57,7 @@ jobs:
 
           # Also keep assets/ updated and deploy playable interactive snake
           cp dist/github-snake-dark.svg assets/contribution-snake.svg
+          cp dist/github-snake-dark.svg assets/contribution-snake-v2.svg
           cp index.html dist/index.html
           touch dist/.nojekyll
 
