@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Luxury Synchronized & Growing Snake Generator (v3)
+Luxury Synchronized Snake Generator (v4)
 Features:
-1. Dynamic Dot-Eating: Dots flash and disappear as the snake touches them.
-2. Graceful Respawning: Dots recover after the snake passes (~3s trail), so the contribution board always looks full, rich, and complete (never blank or incomplete!).
-3. Dynamic Length Growth: The snake begins at length 4 and grows segment by segment to length 16.
-4. Organic Loop Path: Smooth slithering across the board visiting key contribution peaks.
-5. Fully Balanced Header: All telemetry columns fit with generous margins (no text clipping).
+1. Zero-Discontinuity Continuous Slithering: 100% adjacent grid steps without jumps or teleports.
+2. Sleek Compact Tapered Body: Initial length 3 growing up to 6, with tapered aerodynamic segments.
+3. Luminous Trailing Aura: Ghost tail glow segments trailing behind the snake.
+4. Persistent Dot-Eating & Elegant Flashes.
+5. Fully Balanced Telemetry Header.
 """
 
 import argparse
@@ -20,25 +20,25 @@ DEFAULT_TAIL_COLOR = "#701A3D"
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Generate synchronized growing contribution snake SVG.")
-    parser.add_argument("--output", "-o", default="assets/contribution-snake.svg", help="Output file path")
-    parser.add_argument("--speed", "-s", default="42s", help="Animation loop duration (e.g. 35s, 42s, 50s)")
+    parser.add_argument("--output", "-o", default="assets/contribution-snake-v2.svg", help="Output file path")
+    parser.add_argument("--speed", "-s", default="36s", help="Animation loop duration (e.g. 32s, 36s, 42s)")
     parser.add_argument("--snake-color", default=DEFAULT_SNAKE_COLOR, help="Hex color for snake head")
     parser.add_argument("--tail-color", default=DEFAULT_TAIL_COLOR, help="Hex color for tail end")
     parser.add_argument("--dot-colors", default=",".join(DEFAULT_DOT_COLORS), help="5 comma-separated hex colors")
-    parser.add_argument("--start-length", type=int, default=4, help="Initial snake segment length")
-    parser.add_argument("--max-length", type=int, default=16, help="Maximum snake segment length")
-    parser.add_argument("--growth-interval", type=int, default=4, help="Dots eaten per new segment added")
+    parser.add_argument("--start-length", type=int, default=3, help="Initial snake segment length")
+    parser.add_argument("--max-length", type=int, default=6, help="Maximum snake segment length")
+    parser.add_argument("--growth-interval", type=int, default=8, help="Dots eaten per new segment added")
     return parser.parse_args()
 
 def generate_snake_svg(
-    output_path="assets/contribution-snake.svg",
-    speed="42s",
+    output_path="assets/contribution-snake-v2.svg",
+    speed="36s",
     snake_color="#F8F0F3",
     tail_color="#701A3D",
     dot_colors=None,
-    start_length=4,
-    max_length=16,
-    growth_interval=4
+    start_length=3,
+    max_length=6,
+    growth_interval=8
 ):
     if dot_colors is None:
         dot_colors = DEFAULT_DOT_COLORS
@@ -55,50 +55,53 @@ def generate_snake_svg(
     gap = 4.5
     step = cell_w + gap
 
-    # Real reduced 53-week contribution matrix (incorporating -50% early 2024, -20% late 2024 & 2025, -12% 2026, -25% May 2026)
+    # Real reduced 53-week contribution matrix
     REDUCED_GRID = [[2, 3, 3, 0, 2, 0, 4], [0, 0, 0, 0, 0, 0, 0], [0, 2, 4, 0, 1, 2, 0], [3, 1, 0, 0, 2, 0, 0], [1, 0, 4, 4, 2, 0, 2], [2, 3, 4, 0, 4, 2, 0], [0, 2, 1, 3, 0, 3, 1], [1, 1, 3, 3, 0, 0, 0], [4, 3, 1, 1, 2, 0, 0], [3, 2, 3, 0, 2, 0, 1], [0, 3, 3, 0, 0, 3, 1], [3, 3, 3, 1, 0, 0, 0], [0, 3, 1, 3, 1, 1, 0], [0, 3, 0, 0, 0, 4, 0], [3, 2, 0, 2, 4, 4, 4], [4, 4, 1, 1, 3, 1, 0], [2, 1, 2, 3, 0, 1, 0], [1, 0, 0, 4, 4, 2, 0], [1, 2, 0, 1, 0, 1, 1], [0, 1, 4, 3, 0, 0, 0], [0, 1, 3, 1, 0, 2, 2], [4, 2, 2, 3, 2, 3, 3], [2, 2, 2, 4, 0, 2, 0], [1, 3, 0, 1, 1, 3, 3], [0, 2, 0, 3, 1, 2, 4], [2, 2, 0, 1, 2, 4, 2], [0, 4, 2, 4, 2, 3, 0], [0, 1, 3, 4, 2, 0, 4], [4, 4, 2, 3, 1, 4, 0], [2, 2, 1, 0, 0, 4, 0], [4, 0, 2, 4, 1, 1, 4], [0, 0, 1, 4, 2, 0, 4], [1, 0, 1, 2, 1, 0, 0], [3, 4, 2, 1, 0, 1, 4], [2, 2, 0, 0, 1, 4, 4], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 1, 4], [0, 2, 2, 2, 4, 2, 3], [3, 4, 2, 4, 1, 0, 1], [3, 0, 4, 1, 0, 0, 2], [2, 1, 2, 0, 1, 2, 2], [0, 1, 2, 1, 3, 3, 1], [0, 2, 3, 3, 0, 2, 2], [1, 2, 2, 2, 3, 0, 1], [3, 1, 2, 2, 3, 2, 0], [1, 3, 1, 1, 0, 3, 0], [0, 1, 1, 1, 2, 4, 0], [3, 0, 0, 4, 1, 0, 3], [0, 2, 3, 2, 0, 2, 3], [1, 1, 3, 0, 3, 2, 0], [2, 1, 3, 0, 0, 0, 0], [1, 1, 1, 0, 2, 1, 3], [0, 2, 3, 4, 0, 2, 0]]
     levels = {}
     for c in range(cols):
         for r in range(rows):
             levels[(c, r)] = REDUCED_GRID[c][r]
 
-    # Organic Meandering Path across the 53x7 grid
-    # A continuous Hamiltonian-like winding loop that visits clusters across the year
+    # Continuous 100% smooth, adjacent loop (zero teleportation)
     path = []
-    
-    # Forward wave traversing left to right
-    c = 0
-    while c < cols:
-        if (c // 2) % 2 == 0:
-            for r in range(rows):
-                path.append((c, r))
-        else:
-            for r in range(rows - 1, -1, -1):
-                path.append((c, r))
-        c += 1
+    # Strip 1: Rows 1 & 2 (cols 0..51)
+    path.append((0, 0))
+    path.append((0, 1))
+    for c in range(1, 52):
+        path.append((c, 1))
+    path.append((51, 2))
+    for c in range(50, -1, -1):
+        path.append((c, 2))
 
-    # Return traverse across the board to create a seamless loop
-    # Return path along top/middle rows back to start (0, 0)
-    for c in range(cols - 1, -1, -1):
-        r = 0 if (c % 2 == 0) else 1
-        path.append((c, r))
-        
-    # Ensure smooth wrap to starting coordinate
-    start_pos = path[0]
-    last_pos = path[-1]
-    if last_pos != start_pos:
-        path.append(start_pos)
+    # Strip 2: Rows 3 & 4 (cols 0..51)
+    path.append((0, 3))
+    for c in range(1, 52):
+        path.append((c, 3))
+    path.append((51, 4))
+    for c in range(50, -1, -1):
+        path.append((c, 4))
+
+    # Strip 3: Rows 5 & 6 (cols 0..51)
+    path.append((0, 5))
+    for c in range(1, 52):
+        path.append((c, 5))
+    path.append((51, 6))
+    path.append((52, 6))
+
+    # Elevator up Col 52
+    for r in [5, 4, 3, 2, 1, 0]:
+        path.append((52, r))
+
+    # Runway across Row 0 back to (0, 0)
+    for c in range(51, 0, -1):
+        path.append((c, 0))
 
     total_steps = len(path)
-    
-    # Identify eating and respawn intervals for each cell
-    # Respan trail: cell stays eaten for ~14 steps (~3.2 seconds), then gracefully respawns
-    trail_steps = 14
-    trail_pct = (trail_steps / total_steps) * 100
 
-    eaten_events = {} # (c, r) -> list of step indices where snake eats it
+    # Eating events
+    eaten_events = {}
     dots_eaten_count = 0
-    growth_schedule = {} # segment_index -> step_unlocked
+    growth_schedule = {}
     current_length = start_length
 
     for idx, (pc, pr) in enumerate(path):
@@ -111,7 +114,7 @@ def generate_snake_svg(
                 growth_schedule[current_length] = idx
                 current_length += 1
 
-    # Generate CSS Keyframes for Cells with Dynamic Respawning
+    # Generate CSS Keyframes for Cells
     cell_keyframes = []
     cell_rects = []
 
@@ -124,15 +127,14 @@ def generate_snake_svg(
             cell_id = f"c_{c}_{r}"
 
             if (c, r) in eaten_events and lvl > 0:
-                # Once eaten, dot turns empty and STAYS eaten until the 100% cycle loop restarts
                 eat_idx = eaten_events[(c, r)][0]
                 pct_eat = round((eat_idx / total_steps) * 100, 2)
-                pct_pre = max(0.0, round(pct_eat - 0.2, 2))
-                pct_flash = min(100.0, round(pct_eat + 0.3, 2))
+                pct_pre = max(0.0, round(pct_eat - 0.25, 2))
+                pct_flash = min(100.0, round(pct_eat + 0.35, 2))
 
                 kf_body = f"""  0%, {pct_pre}% {{ fill: {initial_fill}; transform: scale(1); }}
-  {pct_eat}% {{ fill: #FFFFFF; transform: scale(1.22); }}
-  {pct_flash}%, 99.8% {{ fill: {dot_colors[0]}; transform: scale(1); }}
+  {pct_eat}% {{ fill: #FFFFFF; transform: scale(1.25); filter: drop-shadow(0 0 4px #E5B5C7); }}
+  {pct_flash}%, 99.8% {{ fill: {dot_colors[0]}; transform: scale(1); filter: none; }}
   100% {{ fill: {initial_fill}; transform: scale(1); }}"""
 
                 cell_keyframes.append(f"""@keyframes kf_{cell_id} {{
@@ -140,14 +142,14 @@ def generate_snake_svg(
 }}
 .{cell_id} {{
   animation: kf_{cell_id} {speed} linear infinite;
-  transform-origin: {cx + cell_w/2}px {cy + cell_w/2}px;
+  transform-origin: {cx + cell_w/2:.1f}px {cy + cell_w/2:.1f}px;
 }}""")
             else:
                 cell_keyframes.append(f".{cell_id} {{ fill: {initial_fill}; }}")
 
             cell_rects.append(f'<rect id="{cell_id}" class="{cell_id}" x="{cx:.1f}" y="{cy:.1f}" width="{cell_w}" height="{cell_w}" rx="3"/>')
 
-    # Generate CSS Keyframes for Snake Segments (Head + Body)
+    # Generate CSS Keyframes for Snake Segments
     snake_keyframes = []
     snake_elements = []
 
@@ -161,11 +163,13 @@ def generate_snake_svg(
         bf = int(b1 + (b2 - b1) * factor)
         return f"#{rf:02X}{gf:02X}{bf:02X}"
 
+    # Snake Segments (Head + Body, compact and tapered)
     for s in range(max_length):
         seg_id = f"snk_seg_{s}"
         factor = min(1.0, s / max(1, max_length - 1))
         seg_fill = interpolate_hex(snake_color, tail_color, factor)
-        seg_size = max(9.5, cell_w - (s * 0.2))
+        # Taper smoothly from 12.5px down to 7.5px
+        seg_size = max(7.5, 12.5 - (s * 0.95))
         offset = (cell_w - seg_size) / 2.0
 
         frames = []
@@ -208,13 +212,43 @@ def generate_snake_svg(
 
         if s == 0:
             snake_elements.append(f"""    <g class="{seg_id}">
-      <rect width="{seg_size:.1f}" height="{seg_size:.1f}" rx="4.5" fill="{seg_fill}" filter="url(#snk-head-glow)"/>
-      <circle cx="{seg_size * 0.7:.1f}" cy="{seg_size * 0.3:.1f}" r="1.3" fill="#10070C"/>
-      <circle cx="{seg_size * 0.7:.1f}" cy="{seg_size * 0.7:.1f}" r="1.3" fill="#10070C"/>
+      <rect width="{seg_size:.1f}" height="{seg_size:.1f}" rx="4" fill="{seg_fill}" filter="url(#snk-head-glow)"/>
+      <circle cx="{seg_size * 0.72:.1f}" cy="{seg_size * 0.28:.1f}" r="1.3" fill="#10070C"/>
+      <circle cx="{seg_size * 0.72:.1f}" cy="{seg_size * 0.72:.1f}" r="1.3" fill="#10070C"/>
     </g>""")
         else:
             snake_elements.append(f"""    <g class="{seg_id}">
-      <rect width="{seg_size:.1f}" height="{seg_size:.1f}" rx="3.5" fill="{seg_fill}" fill-opacity="{max(0.45, 1.0 - factor * 0.5):.2f}"/>
+      <rect width="{seg_size:.1f}" height="{seg_size:.1f}" rx="3" fill="{seg_fill}" fill-opacity="{max(0.45, 1.0 - factor * 0.45):.2f}"/>
+    </g>""")
+
+    # 3 Glowing Ghost Trail Segments behind the tail
+    num_trails = 3
+    trail_opacities = [0.38, 0.22, 0.10]
+    for t in range(num_trails):
+        trail_id = f"snk_trail_{t}"
+        trail_size = max(6.0, 7.5 - (t * 0.9))
+        trail_offset = (cell_w - trail_size) / 2.0
+        trail_fill = tail_color
+
+        tframes = []
+        for i in range(total_steps):
+            pct = round((i / total_steps) * 100, 2)
+            pos_idx = max(0, i - (max_length + t + 1))
+            pc, pr = path[pos_idx]
+            sx = grid_x0 + pc * step + trail_offset
+            sy = grid_y0 + pr * step + trail_offset
+            tframes.append(f"{pct}% {{ transform: translate({sx:.1f}px, {sy:.1f}px); }}")
+
+        t_keyframes_str = "\n  ".join(tframes)
+        snake_keyframes.append(f"""@keyframes kf_{trail_id} {{
+  {t_keyframes_str}
+}}
+.{trail_id} {{
+  animation: kf_{trail_id} {speed} linear infinite;
+}}""")
+
+        snake_elements.append(f"""    <g class="{trail_id}">
+      <circle cx="{trail_offset + trail_size/2:.1f}" cy="{trail_offset + trail_size/2:.1f}" r="{trail_size/2:.1f}" fill="{trail_fill}" fill-opacity="{trail_opacities[t]}" filter="url(#snk-trail-glow)"/>
     </g>""")
 
     all_css = "\n".join(cell_keyframes) + "\n" + "\n".join(snake_keyframes)
@@ -236,6 +270,9 @@ def generate_snake_svg(
     <filter id="snk-head-glow" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="2.4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="snk-trail-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3.0"/>
     </filter>
   </defs>
 
@@ -305,14 +342,14 @@ def generate_snake_svg(
     {all_cells_svg}
   </g>
 
-  <!-- Growing Snake Elements -->
+  <!-- Growing Snake Elements & Trailing Aura -->
   <g id="snake-body">
 {all_snake_svg}
   </g>
 
   <!-- Footer Legend & Telemetry -->
   <g>
-    <text class="hm-mono" x="56" y="392" font-size="10.5" fill="#B6A3AC">Real-time synchronized eating animation · snake length dynamically increases with contributions</text>
+    <text class="hm-mono" x="56" y="392" font-size="10.5" fill="#B6A3AC">Real-time synchronized eating animation · sleek slithering engine with luminous trail</text>
     <text class="hm-mono" x="984" y="392" font-size="10.5" fill="#B6A3AC">Less</text>
     <rect x="1020" y="382" width="12" height="12" rx="3" fill="{dot_colors[0]}"/>
     <rect x="1038" y="382" width="12" height="12" rx="3" fill="{dot_colors[1]}"/>
@@ -373,10 +410,10 @@ def generate_snake_svg(
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(svg_content)
-    print(f"Successfully generated synchronized growing snake: {output_path}")
+    print(f"Successfully generated synchronized snake: {output_path}")
     print(f"  Speed: {speed}")
-    print(f"  Start Length: {start_length} -> Max Length: {max_length}")
-    print(f"  Snake Head Color: {snake_color}")
+    print(f"  Length: {start_length} -> {max_length}")
+    print(f"  Total Steps: {total_steps} (zero-jump continuous loop)")
     print(f"  Eaten Events: {len(eaten_events)}")
 
 if __name__ == "__main__":

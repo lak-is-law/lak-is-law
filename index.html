@@ -376,7 +376,7 @@
       const ROWS = 7;
       const CELL_SIZE = 14;
       const CELL_GAP = 5;
-      const STEP = CELL_SIZE + CELL_GAP;
+      const STEP = CELL_SIZE + CELL_GAP; // 19px
 
       const canvas = document.getElementById('gameCanvas');
       const ctx = canvas.getContext('2d');
@@ -391,14 +391,14 @@
       const statScore = document.getElementById('statScore');
 
       const COLORS = ['#1C0C15', '#451126', '#701A3D', '#A12556', '#E5B5C7'];
+      const TRAIL_PALETTE = ['#F8F0F3', '#E5B5C7', '#C77B9B', '#A12556', '#FFD700'];
 
-      // Generate initial grid with verified contribution density
+      // Real reduced 53-week contribution matrix
+      const REDUCED_GRID = [[2, 3, 3, 0, 2, 0, 4], [0, 0, 0, 0, 0, 0, 0], [0, 2, 4, 0, 1, 2, 0], [3, 1, 0, 0, 2, 0, 0], [1, 0, 4, 4, 2, 0, 2], [2, 3, 4, 0, 4, 2, 0], [0, 2, 1, 3, 0, 3, 1], [1, 1, 3, 3, 0, 0, 0], [4, 3, 1, 1, 2, 0, 0], [3, 2, 3, 0, 2, 0, 1], [0, 3, 3, 0, 0, 3, 1], [3, 3, 3, 1, 0, 0, 0], [0, 3, 1, 3, 1, 1, 0], [0, 3, 0, 0, 0, 4, 0], [3, 2, 0, 2, 4, 4, 4], [4, 4, 1, 1, 3, 1, 0], [2, 1, 2, 3, 0, 1, 0], [1, 0, 0, 4, 4, 2, 0], [1, 2, 0, 1, 0, 1, 1], [0, 1, 4, 3, 0, 0, 0], [0, 1, 3, 1, 0, 2, 2], [4, 2, 2, 3, 2, 3, 3], [2, 2, 2, 4, 0, 2, 0], [1, 3, 0, 1, 1, 3, 3], [0, 2, 0, 3, 1, 2, 4], [2, 2, 0, 1, 2, 4, 2], [0, 4, 2, 4, 2, 3, 0], [0, 1, 3, 4, 2, 0, 4], [4, 4, 2, 3, 1, 4, 0], [2, 2, 1, 0, 0, 4, 0], [4, 0, 2, 4, 1, 1, 4], [0, 0, 1, 4, 2, 0, 4], [1, 0, 1, 2, 1, 0, 0], [3, 4, 2, 1, 0, 1, 4], [2, 2, 0, 0, 1, 4, 4], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 1, 4], [0, 2, 2, 2, 4, 2, 3], [3, 4, 2, 4, 1, 0, 1], [3, 0, 4, 1, 0, 0, 2], [2, 1, 2, 0, 1, 2, 2], [0, 1, 2, 1, 3, 3, 1], [0, 2, 3, 3, 0, 2, 2], [1, 2, 2, 2, 3, 0, 1], [3, 1, 2, 2, 3, 2, 0], [1, 3, 1, 1, 0, 3, 0], [0, 1, 1, 1, 2, 4, 0], [3, 0, 0, 4, 1, 0, 3], [0, 2, 3, 2, 0, 2, 3], [1, 1, 3, 0, 3, 2, 0], [2, 1, 3, 0, 0, 0, 0], [1, 1, 1, 0, 2, 1, 3], [0, 2, 3, 4, 0, 2, 0]];
       const grid = [];
       let totalEaten = 0;
       let score = 0;
 
-      // Real reduced 53-week contribution matrix
-      const REDUCED_GRID = [[2, 3, 3, 0, 2, 0, 4], [0, 0, 0, 0, 0, 0, 0], [0, 2, 4, 0, 1, 2, 0], [3, 1, 0, 0, 2, 0, 0], [1, 0, 4, 4, 2, 0, 2], [2, 3, 4, 0, 4, 2, 0], [0, 2, 1, 3, 0, 3, 1], [1, 1, 3, 3, 0, 0, 0], [4, 3, 1, 1, 2, 0, 0], [3, 2, 3, 0, 2, 0, 1], [0, 3, 3, 0, 0, 3, 1], [3, 3, 3, 1, 0, 0, 0], [0, 3, 1, 3, 1, 1, 0], [0, 3, 0, 0, 0, 4, 0], [3, 2, 0, 2, 4, 4, 4], [4, 4, 1, 1, 3, 1, 0], [2, 1, 2, 3, 0, 1, 0], [1, 0, 0, 4, 4, 2, 0], [1, 2, 0, 1, 0, 1, 1], [0, 1, 4, 3, 0, 0, 0], [0, 1, 3, 1, 0, 2, 2], [4, 2, 2, 3, 2, 3, 3], [2, 2, 2, 4, 0, 2, 0], [1, 3, 0, 1, 1, 3, 3], [0, 2, 0, 3, 1, 2, 4], [2, 2, 0, 1, 2, 4, 2], [0, 4, 2, 4, 2, 3, 0], [0, 1, 3, 4, 2, 0, 4], [4, 4, 2, 3, 1, 4, 0], [2, 2, 1, 0, 0, 4, 0], [4, 0, 2, 4, 1, 1, 4], [0, 0, 1, 4, 2, 0, 4], [1, 0, 1, 2, 1, 0, 0], [3, 4, 2, 1, 0, 1, 4], [2, 2, 0, 0, 1, 4, 4], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 1, 4], [0, 2, 2, 2, 4, 2, 3], [3, 4, 2, 4, 1, 0, 1], [3, 0, 4, 1, 0, 0, 2], [2, 1, 2, 0, 1, 2, 2], [0, 1, 2, 1, 3, 3, 1], [0, 2, 3, 3, 0, 2, 2], [1, 2, 2, 2, 3, 0, 1], [3, 1, 2, 2, 3, 2, 0], [1, 3, 1, 1, 0, 3, 0], [0, 1, 1, 1, 2, 4, 0], [3, 0, 0, 4, 1, 0, 3], [0, 2, 3, 2, 0, 2, 3], [1, 1, 3, 0, 3, 2, 0], [2, 1, 3, 0, 0, 0, 0], [1, 1, 1, 0, 2, 1, 3], [0, 2, 3, 4, 0, 2, 0]];
       for (let c = 0; c < COLS; c++) {
         grid[c] = [];
         for (let r = 0; r < ROWS; r++) {
@@ -406,23 +406,35 @@
         }
       }
 
-      // Snake State
+      // Compact, sleek snake sizing (capping at max 6 segments)
+      const START_LENGTH = 3;
+      const MAX_LENGTH = 6; // sleek, nimble, never too big!
+      const GROWTH_INTERVAL = 6; // +1 segment per 6 dots eaten
+
       let snake = [
         { x: 12, y: 3 },
         { x: 11, y: 3 },
-        { x: 10, y: 3 },
-        { x: 9, y: 3 }
+        { x: 10, y: 3 }
       ];
+      let prevSnake = snake.map(s => ({ x: s.x, y: s.y }));
+
       let dir = { x: 1, y: 0 };
       let nextDir = { x: 1, y: 0 };
 
-      // Control Mode State
+      // Mode & Timing
       let mode = 'auto'; // 'auto' | 'manual'
       let lastInputTime = 0;
       const IDLE_LIMIT = 2000; // 2 seconds
 
+      const TICK_INTERVAL = 110; // ~9 moves/second
+      let lastTickTime = performance.now();
+
+      // Particle & Trail system
+      const particles = [];
+      const floatTexts = [];
+      const cellGlows = [];
+
       function setDirection(dx, dy) {
-        // Prevent 180 reverse if length > 1
         if (snake.length > 1 && dx === -dir.x && dy === -dir.y) return;
         nextDir = { x: dx, y: dy };
         mode = 'manual';
@@ -430,7 +442,7 @@
         updateModeUI();
       }
 
-      // Keyboard Controls
+      // Controls
       window.addEventListener('keydown', (e) => {
         let handled = false;
         if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
@@ -446,22 +458,17 @@
           setDirection(1, 0);
           handled = true;
         }
-
-        if (handled) {
-          e.preventDefault();
-        }
+        if (handled) e.preventDefault();
       });
 
-      // Virtual D-Pad Click / Touch Handlers
       document.getElementById('btnUp').onclick = () => setDirection(0, -1);
       document.getElementById('btnDown').onclick = () => setDirection(0, 1);
       document.getElementById('btnLeft').onclick = () => setDirection(-1, 0);
       document.getElementById('btnRight').onclick = () => setDirection(1, 0);
 
-      // Auto-Pilot Algorithm: Find nearest uneaten colored cell
+      // Auto-Pilot Algorithm
       function findAutoDirection() {
         const head = snake[0];
-
         let bestDist = Infinity;
         let target = null;
 
@@ -485,11 +492,9 @@
         ].filter(m => !(m.x === -dir.x && m.y === -dir.y));
 
         if (!target) {
-          // If all dots eaten, patrol gracefully
-          return validMoves[Math.floor(Math.random() * validMoves.length)];
+          return validMoves[Math.floor(Math.random() * validMoves.length)] || dir;
         }
 
-        // Rank moves by distance to target and avoidance of self-collision
         validMoves.sort((a, b) => {
           const nxA = (head.x + a.x + COLS) % COLS;
           const nyA = (head.y + a.y + ROWS) % ROWS;
@@ -498,7 +503,6 @@
 
           const collidesA = snake.some(s => s.x === nxA && s.y === nyA);
           const collidesB = snake.some(s => s.x === nxB && s.y === nyB);
-
           if (collidesA !== collidesB) return collidesA ? 1 : -1;
 
           const distA = Math.abs(nxA - target.x) + Math.abs(nyA - target.y);
@@ -522,9 +526,9 @@
           } else {
             modeBadge.className = 'mode-badge manual mono';
             const remaining = ((IDLE_LIMIT - elapsed) / 1000).toFixed(1);
-            modeText.textContent = `MANUAL (${remaining}s to auto)`;
+            modeText.textContent = 'MANUAL (' + remaining + 's to auto)';
             timerTrack.style.display = 'block';
-            timerBar.style.transform = `scaleX(${(IDLE_LIMIT - elapsed) / IDLE_LIMIT})`;
+            timerBar.style.transform = 'scaleX(' + ((IDLE_LIMIT - elapsed) / IDLE_LIMIT) + ')';
           }
         } else {
           modeBadge.className = 'mode-badge auto mono';
@@ -533,49 +537,140 @@
         }
       }
 
-      // Main Game Loop Tick
+      function spawnEatBurst(gx, gy, lvl) {
+        const px = gx * STEP + CELL_SIZE / 2;
+        const py = gy * STEP + CELL_SIZE / 2;
+        const count = 12;
+        for (let i = 0; i < count; i++) {
+          const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
+          const speed = Math.random() * 2.4 + 0.8;
+          particles.push({
+            x: px,
+            y: py,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            radius: Math.random() * 2.2 + 1.2,
+            color: lvl >= 3 ? '#E5B5C7' : (lvl === 2 ? '#C77B9B' : '#FFFFFF'),
+            alpha: 1.0,
+            decay: Math.random() * 0.035 + 0.02
+          });
+        }
+        floatTexts.push({
+          x: px,
+          y: py - 4,
+          text: '+' + (lvl * 15),
+          alpha: 1.0,
+          vy: -0.55
+        });
+        cellGlows.push({
+          c: gx,
+          r: gy,
+          alpha: 0.85
+        });
+      }
+
+      function spawnTailTrail(tx, ty) {
+        particles.push({
+          x: tx + (Math.random() - 0.5) * 3,
+          y: ty + (Math.random() - 0.5) * 3,
+          vx: (Math.random() - 0.5) * 0.25 - dir.x * 0.35,
+          vy: (Math.random() - 0.5) * 0.25 - dir.y * 0.35,
+          radius: Math.random() * 2.0 + 1.0,
+          color: TRAIL_PALETTE[Math.floor(Math.random() * TRAIL_PALETTE.length)],
+          alpha: 0.75,
+          decay: Math.random() * 0.03 + 0.025
+        });
+      }
+
+      // Simulation Step
       function tick() {
         updateModeUI();
 
         if (mode === 'auto') {
           nextDir = findAutoDirection();
         }
-
         dir = nextDir;
+
+        // Snapshot current positions for smooth interpolation
+        prevSnake = snake.map(s => ({ x: s.x, y: s.y }));
+
         const head = snake[0];
         const newHead = {
           x: (head.x + dir.x + COLS) % COLS,
           y: (head.y + dir.y + ROWS) % ROWS
         };
 
-        // Check if eaten
         const cellLvl = grid[newHead.x][newHead.y];
         snake.unshift(newHead);
 
         if (cellLvl > 0) {
-          // Eat dot!
           totalEaten++;
           score += cellLvl * 15;
-          grid[newHead.x][newHead.y] = 0; // turn empty
-          // Length increases (tail is kept)
+          grid[newHead.x][newHead.y] = 0;
+          spawnEatBurst(newHead.x, newHead.y, cellLvl);
+
+          // Controlled compact growth: max 6 segments
+          const targetLength = Math.min(MAX_LENGTH, START_LENGTH + Math.floor(totalEaten / GROWTH_INTERVAL));
+          while (snake.length > targetLength) {
+            snake.pop();
+          }
         } else {
-          // Normal move (tail removed)
           snake.pop();
         }
 
-        // Update stats
+        // Align prevSnake length
+        while (prevSnake.length < snake.length) {
+          prevSnake.push({ ...snake[prevSnake.length] });
+        }
+        while (prevSnake.length > snake.length) {
+          prevSnake.pop();
+        }
+
         statLength.textContent = snake.length;
         statEaten.textContent = totalEaten;
         statScore.textContent = score;
-
-        // Render Frame
-        render();
       }
 
-      function render() {
+      // Smooth Sub-Pixel Segment Interpolation
+      function getInterpolatedSegment(i, progress) {
+        const curr = snake[i];
+        const prev = prevSnake[i] || curr;
+
+        let px = prev.x;
+        let py = prev.y;
+        let cx = curr.x;
+        let cy = curr.y;
+
+        // Wrap-around continuity
+        if (cx - px > COLS / 2) px += COLS;
+        if (px - cx > COLS / 2) cx += COLS;
+        if (cy - py > ROWS / 2) py += ROWS;
+        if (py - cy > ROWS / 2) cy += ROWS;
+
+        let ix = px + (cx - px) * progress;
+        let iy = py + (cy - py) * progress;
+
+        ix = (ix + COLS) % COLS;
+        iy = (iy + ROWS) % ROWS;
+
+        return { x: ix * STEP, y: iy * STEP, gx: ix, gy: iy };
+      }
+
+      // 60 FPS Render Loop
+      function loop(timestamp) {
+        requestAnimationFrame(loop);
+
+        // Simulation update check
+        if (timestamp - lastTickTime >= TICK_INTERVAL) {
+          tick();
+          lastTickTime = timestamp;
+        }
+
+        const progress = Math.min(1.0, Math.max(0.0, (timestamp - lastTickTime) / TICK_INTERVAL));
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw Contribution Grid
+        // 1. Draw Contribution Grid
         for (let c = 0; c < COLS; c++) {
           for (let r = 0; r < ROWS; r++) {
             const x = c * STEP;
@@ -587,7 +682,6 @@
             ctx.roundRect(x, y, CELL_SIZE, CELL_SIZE, 3);
             ctx.fill();
 
-            // Subtle border for empty cells
             if (lvl === 0) {
               ctx.strokeStyle = 'rgba(199, 123, 155, 0.12)';
               ctx.lineWidth = 1;
@@ -596,60 +690,122 @@
           }
         }
 
-        // Draw Snake Body (Gradient from Head to Tail)
+        // 2. Draw Cell Flash Glows
+        for (let i = cellGlows.length - 1; i >= 0; i--) {
+          const cg = cellGlows[i];
+          ctx.fillStyle = 'rgba(229, 181, 199, ' + (cg.alpha * 0.45) + ')';
+          ctx.beginPath();
+          ctx.roundRect(cg.c * STEP, cg.r * STEP, CELL_SIZE, CELL_SIZE, 3.5);
+          ctx.fill();
+          cg.alpha -= 0.025;
+          if (cg.alpha <= 0) cellGlows.splice(i, 1);
+        }
+
+        // 3. Emit Tail Trail Particles
+        const tail = getInterpolatedSegment(snake.length - 1, progress);
+        spawnTailTrail(tail.x + CELL_SIZE / 2, tail.y + CELL_SIZE / 2);
+
+        // 4. Update & Draw Starlight Particles
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.alpha -= p.decay;
+          p.radius *= 0.97;
+
+          if (p.alpha <= 0 || p.radius < 0.4) {
+            particles.splice(i, 1);
+            continue;
+          }
+
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, p.alpha);
+          ctx.fillStyle = p.color;
+          ctx.shadowColor = p.color;
+          ctx.shadowBlur = 6;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, Math.max(0.5, p.radius), 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // 5. Draw Sleek Tapered Snake Body (Tail to Head)
         for (let i = snake.length - 1; i >= 0; i--) {
-          const seg = snake[i];
-          const x = seg.x * STEP;
-          const y = seg.y * STEP;
+          const pos = getInterpolatedSegment(i, progress);
+          const factor = i / Math.max(1, snake.length - 1);
 
           if (i === 0) {
-            // Snake Head
+            // Snake Head: 12.5px rounded with luminous aura
+            const headSize = 12.5;
+            const ox = (CELL_SIZE - headSize) / 2;
+            const oy = (CELL_SIZE - headSize) / 2;
+
             ctx.save();
             ctx.shadowColor = '#E5B5C7';
-            ctx.shadowBlur = 10;
+            ctx.shadowBlur = 12;
             ctx.fillStyle = '#FFFFFF';
             ctx.beginPath();
-            ctx.roundRect(x, y, CELL_SIZE, CELL_SIZE, 4.5);
+            ctx.roundRect(pos.x + ox, pos.y + oy, headSize, headSize, 4.2);
             ctx.fill();
             ctx.restore();
 
-            // Eyes
+            // Eyes facing movement
             ctx.fillStyle = '#10070C';
-            const eyeSize = 1.6;
+            const eyeSize = 1.5;
+            const hx = pos.x + ox;
+            const hy = pos.y + oy;
             if (dir.x === 1) {
-              ctx.fillRect(x + 10, y + 3, eyeSize, eyeSize);
-              ctx.fillRect(x + 10, y + 9, eyeSize, eyeSize);
+              ctx.fillRect(hx + 9, hy + 2.5, eyeSize, eyeSize);
+              ctx.fillRect(hx + 9, hy + 8.5, eyeSize, eyeSize);
             } else if (dir.x === -1) {
-              ctx.fillRect(x + 2, y + 3, eyeSize, eyeSize);
-              ctx.fillRect(x + 2, y + 9, eyeSize, eyeSize);
+              ctx.fillRect(hx + 2, hy + 2.5, eyeSize, eyeSize);
+              ctx.fillRect(hx + 2, hy + 8.5, eyeSize, eyeSize);
             } else if (dir.y === 1) {
-              ctx.fillRect(x + 3, y + 10, eyeSize, eyeSize);
-              ctx.fillRect(x + 9, y + 10, eyeSize, eyeSize);
+              ctx.fillRect(hx + 2.5, hy + 9, eyeSize, eyeSize);
+              ctx.fillRect(hx + 8.5, hy + 9, eyeSize, eyeSize);
             } else {
-              ctx.fillRect(x + 3, y + 2, eyeSize, eyeSize);
-              ctx.fillRect(x + 9, y + 2, eyeSize, eyeSize);
+              ctx.fillRect(hx + 2.5, hy + 2, eyeSize, eyeSize);
+              ctx.fillRect(hx + 8.5, hy + 2, eyeSize, eyeSize);
             }
           } else {
-            // Body Segment
-            const factor = i / snake.length;
+            // Tapered body segments (from 11.5px down to 7.0px)
+            const segSize = Math.max(7.0, 11.8 - (factor * 4.8));
+            const ox = (CELL_SIZE - segSize) / 2;
+            const oy = (CELL_SIZE - segSize) / 2;
+
+            ctx.save();
             ctx.fillStyle = factor > 0.6 ? '#701A3D' : (factor > 0.3 ? '#A12556' : '#C77B9B');
-            ctx.globalAlpha = Math.max(0.55, 1.0 - factor * 0.45);
+            ctx.shadowColor = '#C77B9B';
+            ctx.shadowBlur = 5;
+            ctx.globalAlpha = Math.max(0.65, 1.0 - factor * 0.35);
             ctx.beginPath();
-            ctx.roundRect(x + 0.5, y + 0.5, CELL_SIZE - 1, CELL_SIZE - 1, 3.5);
+            ctx.roundRect(pos.x + ox, pos.y + oy, segSize, segSize, 3.2);
             ctx.fill();
-            ctx.globalAlpha = 1.0;
+            ctx.restore();
           }
+        }
+
+        // 6. Floating Score Popups
+        for (let i = floatTexts.length - 1; i >= 0; i--) {
+          const ft = floatTexts[i];
+          ft.y += ft.vy;
+          ft.alpha -= 0.025;
+          if (ft.alpha <= 0) {
+            floatTexts.splice(i, 1);
+            continue;
+          }
+          ctx.save();
+          ctx.font = 'bold 11px ui-monospace, SFMono-Regular, monospace';
+          ctx.fillStyle = 'rgba(255, 215, 0, ' + ft.alpha + ')';
+          ctx.shadowColor = 'rgba(255, 215, 0, 0.7)';
+          ctx.shadowBlur = 5;
+          ctx.fillText(ft.text, ft.x - 7, ft.y);
+          ctx.restore();
         }
       }
 
-      // Initial Render
-      render();
-
-      // Run game tick every 125ms (~8 moves/sec, optimal tactile control)
-      setInterval(tick, 125);
-
-      // Fast UI timer update (every 50ms) for smooth countdown bar
-      setInterval(updateModeUI, 50);
+      // Start 60 FPS interpolated loop
+      requestAnimationFrame(loop);
     })();
   </script>
 </body>
