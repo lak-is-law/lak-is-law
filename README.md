@@ -17,13 +17,13 @@
 <img src="assets/achievement-motif-v2.svg" width="100%" alt="TechXcelerate Hackathon BITS Hyderabad 2025 1st Place Champion; UCSI Venture Pitch Winner; CGPA 8.74; Skyward 12K+ aircraft live; Craftme 1000+ voxels; Todar 99.2% forecast accuracy; 5+ Honors.">
 
 <p align="center">
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/galaxy-brain-gold.png" width="60" alt="Galaxy Brain (Gold x4)" title="Galaxy Brain (Gold x4) — 32+ Accepted Discussion Answers"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/galaxy-brain-gold.png" width="60" alt="Galaxy Brain (Gold x4)" title="Galaxy Brain (Gold x4) — 32+ Accepted Discussion Answers"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/pull-shark-gold.png" width="60" alt="Pull Shark (Gold x4)" title="Pull Shark (Gold x4) — 1,024+ Merged Pull Requests"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/pull-shark-gold.png" width="60" alt="Pull Shark (Gold x4)" title="Pull Shark (Gold x4) — 1,024+ Merged Pull Requests"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/pair-extraordinaire-gold.png" width="60" alt="Pair Extraordinaire (Gold x4)" title="Pair Extraordinaire (Gold x4) — 48+ Co-authored Merged Pull Requests"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/pair-extraordinaire-gold.png" width="60" alt="Pair Extraordinaire (Gold x4)" title="Pair Extraordinaire (Gold x4) — 48+ Co-authored Merged Pull Requests"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/starstruck-gold.png" width="60" alt="Starstruck (Gold x4)" title="Starstruck (Gold x4) — 4,096+ Stars on Repository"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/starstruck-gold.png" width="60" alt="Starstruck (Gold x4)" title="Starstruck (Gold x4) — 4,096+ Stars on Repository"></a>
   &nbsp;&nbsp;
   <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/public-sponsor-default.png" width="60" alt="Public Sponsor" title="Public Sponsor — Sponsoring Open Source"></a>
   &nbsp;&nbsp;
