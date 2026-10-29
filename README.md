@@ -3,16 +3,9 @@
 </div>
 
 <p align="center">
-  <a href="https://github.com/lak-is-law?tab=followers"><img src="https://img.shields.io/badge/Follow-%40lak--is--law-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="Follow lak-is-law on GitHub"></a>
-  <a href="https://github.com/lak-is-law/lak-is-law"><img src="https://img.shields.io/badge/%E2%AD%90_Star-Profile-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="Star Profile"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-NonCommercial_1.0-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3" alt="PolyForm Noncommercial License"></a>
   <a href="https://lakshya.uk"><img src="https://img.shields.io/badge/Portfolio-lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=safari" alt="Portfolio website"></a>
   <a href="https://resume.lakshya.uk"><img src="https://img.shields.io/badge/R%C3%A9sum%C3%A9-resume.lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=googledocs" alt="R&eacute;sum&eacute;"></a>
   <a href="https://linkedin.com/in/lakshya-success"><img src="https://img.shields.io/badge/LinkedIn-lakshya--success-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=linkedin" alt="LinkedIn profile"></a>
-  <a href="https://trackyourflight.lakshya.uk"><img src="https://img.shields.io/badge/Skyward-3D_Radar-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=webgl" alt="Skyward 3D Flight Observatory"></a>
-  <a href="https://locate.art.lakshya.uk"><img src="https://img.shields.io/badge/Locate_Art-Cultural_GIS-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=openstreetmap" alt="Locate Art Cultural GIS"></a>
-  <a href="https://craftme.lakshya.uk"><img src="https://img.shields.io/badge/Craftme-3D_Voxel_World-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=three.js" alt="Craftme 3D Voxel World"></a>
-  <a href="https://todar.finance.lakshya.uk"><img src="https://img.shields.io/badge/TODAR-FinTech_AI-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=safari" alt="TODAR FinTech Platform"></a>
   <a href="mailto:contact@lakshya.uk"><img src="https://img.shields.io/badge/Email-contact@lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=gmail" alt="Email contact@lakshya.uk"></a>
 </p>
 
@@ -61,7 +54,7 @@
 <p align="center">
   <a href="https://craftme.lakshya.uk"><img src="https://img.shields.io/badge/Enter_Voxel_World-craftme.lakshya.uk-451126?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=three.js" alt="Craftme live voxel world"></a>
   <a href="https://craftme.lakshya.uk"><img src="https://img.shields.io/badge/Engine-Three.js_TypeScript_Vite-451126?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=typescript" alt="Craftme engine"></a>
-  <a href="https://github.com/lak-is-law/minecraft-portfolio"><img src="https://img.shields.io/badge/%E2%AD%90_Star_Repo-Craftme-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="Star Craftme repository on GitHub"></a>
+  <a href="https://github.com/lak-is-law/minecraft-portfolio"><img src="https://img.shields.io/badge/Repository-GitHub-451126?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="Craftme repository on GitHub"></a>
 </p>
 
 <!-- Project 4: TODAR -->
@@ -69,7 +62,7 @@
 <p align="center">
   <a href="https://todar.finance.lakshya.uk"><img src="https://img.shields.io/badge/Live_Platform-todar.finance.lakshya.uk-451126?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=safari" alt="TODAR live platform"></a>
   <a href="https://todar.finance.lakshya.uk"><img src="https://img.shields.io/badge/Engine-TensorFlow.js_PostgreSQL-451126?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=tensorflow" alt="TODAR engine"></a>
-  <a href="https://github.com/lak-is-law/todar2.O"><img src="https://img.shields.io/badge/%E2%AD%90_Star_Repo-TODAR-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="Star TODAR repository on GitHub"></a>
+  <a href="https://github.com/lak-is-law/todar2.O"><img src="https://img.shields.io/badge/Repository-GitHub-451126?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="TODAR repository on GitHub"></a>
 </p>
 
 <img src="assets/title-toolkit.svg" width="100%" alt="04 Toolkit — The tools I reach for.">
@@ -85,17 +78,10 @@
 <img src="assets/title-connect.svg" width="100%" alt="06 Connect — Let's build something worth explaining.">
 
 <p align="center">
-  <a href="https://github.com/lak-is-law?tab=followers"><img src="https://img.shields.io/badge/Follow-%40lak--is--law-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="Follow on GitHub"></a>
-  <a href="https://github.com/lak-is-law/lak-is-law"><img src="https://img.shields.io/badge/%E2%AD%90_Star-Profile-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="Star Profile"></a>
-  <a href="https://linkedin.com/in/lakshya-success"><img src="https://img.shields.io/badge/LinkedIn-lakshya--success-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=linkedin" alt="LinkedIn profile"></a>
   <a href="https://lakshya.uk"><img src="https://img.shields.io/badge/Portfolio-lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=safari" alt="Portfolio website"></a>
   <a href="https://resume.lakshya.uk"><img src="https://img.shields.io/badge/R%C3%A9sum%C3%A9-resume.lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=googledocs" alt="R&eacute;sum&eacute;"></a>
+  <a href="https://linkedin.com/in/lakshya-success"><img src="https://img.shields.io/badge/LinkedIn-lakshya--success-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=linkedin" alt="LinkedIn profile"></a>
   <a href="mailto:contact@lakshya.uk"><img src="https://img.shields.io/badge/Email-contact@lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=gmail" alt="Email contact@lakshya.uk"></a>
-</p>
-
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/Commercial_Use-PROHIBITED-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3" alt="Commercial Use Prohibited"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-PolyForm_Noncommercial_1.0.0-451126?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3" alt="PolyForm Noncommercial 1.0.0"></a>
 </p>
 
 <a href="https://lakshya.uk">
