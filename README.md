@@ -5,6 +5,7 @@
 <p align="center">
   <a href="https://lakshya.uk"><img src="https://img.shields.io/badge/Portfolio-lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=safari" alt="Portfolio website"></a>
   <a href="https://resume.lakshya.uk"><img src="https://img.shields.io/badge/R%C3%A9sum%C3%A9-resume.lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=googledocs" alt="R&eacute;sum&eacute;"></a>
+  <a href="https://github.com/sponsors/lak-is-law"><img src="https://img.shields.io/badge/Sponsor-lak--is--law-EA4AAA?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github-sponsors" alt="Sponsor lak-is-law on GitHub"></a>
   <a href="https://linkedin.com/in/lakshya-success"><img src="https://img.shields.io/badge/LinkedIn-lakshya--success-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=linkedin" alt="LinkedIn profile"></a>
   <a href="mailto:contact@lakshya.uk"><img src="https://img.shields.io/badge/Email-contact@lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=gmail" alt="Email contact@lakshya.uk"></a>
 </p>
@@ -16,9 +17,15 @@
 <img src="assets/achievement-motif-v2.svg" width="100%" alt="TechXcelerate Hackathon BITS Hyderabad 2025 1st Place Champion; UCSI Venture Pitch Winner; CGPA 8.74; Skyward 12K+ aircraft live; Craftme 1000+ voxels; Todar 99.2% forecast accuracy; 5+ Honors.">
 
 <p align="center">
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://github.githubassets.com/assets/pull-shark-bronze-a37accb528d1.png" width="60" alt="Pull Shark (Bronze x2)" title="Pull Shark (Bronze x2) — Merged 16+ Pull Requests (23 Shipped)"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/galaxy-brain-gold.png" width="60" alt="Galaxy Brain (Gold x4)" title="Galaxy Brain (Gold x4) — 32+ Accepted Discussion Answers"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/pair-extraordinaire-default.png" width="60" alt="Pair Extraordinaire" title="Pair Extraordinaire — Co-authored &amp; Merged Collaborative Pull Requests"></a>
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/pull-shark-gold.png" width="60" alt="Pull Shark (Gold x4)" title="Pull Shark (Gold x4) — 1,024+ Merged Pull Requests"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/pair-extraordinaire-gold.png" width="60" alt="Pair Extraordinaire (Gold x4)" title="Pair Extraordinaire (Gold x4) — 48+ Co-authored Merged Pull Requests"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/starstruck-gold.png" width="60" alt="Starstruck (Gold x4)" title="Starstruck (Gold x4) — 4,096+ Stars on Repository"></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/public-sponsor-default.png" width="60" alt="Public Sponsor" title="Public Sponsor — Sponsoring Open Source"></a>
   &nbsp;&nbsp;
   <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="60" alt="Quickdraw" title="Quickdraw — Closed Issue/PR within 5 Minutes"></a>
   &nbsp;&nbsp;
@@ -80,6 +87,7 @@
 <p align="center">
   <a href="https://lakshya.uk"><img src="https://img.shields.io/badge/Portfolio-lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=safari" alt="Portfolio website"></a>
   <a href="https://resume.lakshya.uk"><img src="https://img.shields.io/badge/R%C3%A9sum%C3%A9-resume.lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=googledocs" alt="R&eacute;sum&eacute;"></a>
+  <a href="https://github.com/sponsors/lak-is-law"><img src="https://img.shields.io/badge/Sponsor-lak--is--law-EA4AAA?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github-sponsors" alt="Sponsor lak-is-law on GitHub"></a>
   <a href="https://linkedin.com/in/lakshya-success"><img src="https://img.shields.io/badge/LinkedIn-lakshya--success-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=linkedin" alt="LinkedIn profile"></a>
   <a href="mailto:contact@lakshya.uk"><img src="https://img.shields.io/badge/Email-contact@lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=gmail" alt="Email contact@lakshya.uk"></a>
 </p>
