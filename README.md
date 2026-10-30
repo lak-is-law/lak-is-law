@@ -23,8 +23,6 @@
   &nbsp;&nbsp;
   <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/pair-extraordinaire-gold.png" width="60" alt="Pair Extraordinaire (Gold x4)" title="Pair Extraordinaire (Gold x4) — 48+ Co-authored Merged Pull Requests"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/starstruck-gold.png" width="60" alt="Starstruck (Gold x4)" title="Starstruck (Gold x4) — 4,096+ Stars on Repository"></a>
-  &nbsp;&nbsp;
   <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/public-sponsor-default.png" width="60" alt="Public Sponsor" title="Public Sponsor — Sponsoring Open Source"></a>
   &nbsp;&nbsp;
   <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="60" alt="Quickdraw" title="Quickdraw — Closed Issue/PR within 5 Minutes"></a>
