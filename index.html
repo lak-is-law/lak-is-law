@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lakshya Agarwal — Interactive GitHub Contribution Snake</title>
+  <style>
+    :root {
+      --bg-dark: #10070C;
+      --bg-card: #190B12;
+      --accent-burgundy: #701A3D;
+      --accent-rose: #C77B9B;
+      --accent-light: #E5B5C7;
+      --text-white: #F8F0F3;
+      --text-muted: #B6A3AC;
+      --dot-0: #1C0C15;
+      --dot-1: #451126;
+      --dot-2: #701A3D;
+      --dot-3: #A12556;
+      --dot-4: #E5B5C7;
+      --snake-head: #FFFFFF;
+      --snake-eye: #10070C;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 50% 20%, #2A0E1B 0%, #190B12 45%, #10070C 100%);
+      color: var(--text-white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+    .serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      background: linear-gradient(135deg, rgba(25, 11, 18, 0.95), rgba(16, 7, 12, 0.98));
+      border: 1px solid rgba(199, 123, 155, 0.25);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 80px rgba(112, 26, 61, 0.25);
+      padding: 36px 44px;
+      position: relative;
+      backdrop-filter: blur(20px);
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 2.8px;
+      color: var(--accent-rose);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      color: var(--text-white);
+    }
+
+    .title em {
+      font-style: italic;
+      color: var(--accent-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      background: rgba(39, 16, 28, 0.8);
+      border: 1px solid rgba(199, 123, 155, 0.3);
+      color: var(--text-white);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: var(--accent-burgundy);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    /* Mode Banner */
+    .mode-dock {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(18, 6, 14, 0.85);
+      border: 1px solid rgba(199, 123, 155, 0.2);
+      border-radius: 14px;
+      padding: 12px 20px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .mode-indicator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mode-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      letter-spacing: 1.4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .mode-badge.auto {
+      background: rgba(70, 16, 38, 0.7);
+      border: 1px solid var(--accent-light);
+      color: var(--accent-light);
+    }
+
+    .mode-badge.manual {
+      background: rgba(229, 181, 199, 0.2);
+      border: 1px solid #FFD700;
+      color: #FFD700;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .mode-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 1.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .mode-timer-track {
+      width: 140px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .mode-timer-bar {
+      height: 100%;
+      background: #FFD700;
+      width: 100%;
+      transform-origin: left;
+    }
+
+    .telemetry-strip {
+      display: flex;
+      gap: 24px;
+      font-size: 11.5px;
+    }
+
+    .telemetry-item span {
+      color: var(--accent-rose);
+    }
+
+    .telemetry-item b {
+      color: var(--text-white);
+      font-size: 13px;
+    }
+
+    /* Game Canvas Grid Area */
+    .board-wrapper {
+      position: relative;
+      background: #12060E;
+      border: 1px solid rgba(199, 123, 155, 0.2);
+      border-radius: 16px;
+      padding: 20px;
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      image-rendering: pixelated;
+    }
+
+    /* Controls Dock */
+    .controls-dock {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .instructions {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .key-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .key {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 3px 7px;
+      border-radius: 5px;
+      font-size: 11px;
+      color: var(--accent-light);
+    }
+
+    .dpad-container {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dpad-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(39, 16, 28, 0.8);
+      border: 1px solid rgba(199, 123, 155, 0.35);
+      color: var(--text-white);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+
+    .dpad-btn:active {
+      background: var(--accent-burgundy);
+      border-color: var(--accent-light);
+      transform: scale(0.92);
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 24px 18px; }
+      .title { font-size: 24px; }
+      .telemetry-strip { flex-wrap: wrap; gap: 12px; }
+      .controls-dock { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div>
+        <div class="eyebrow mono">TELEMETRY &middot; REAL-TIME EXPERIENCES</div>
+        <h1 class="title serif">GitHub Contribution <em>Snake</em></h1>
+      </div>
+      <div class="nav-links">
+        <a href="https://github.com/lak-is-law/lak-is-law" class="nav-btn mono" target="_blank" rel="noopener noreferrer" style="border-color: rgba(255, 215, 0, 0.4); color: #FFD700;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Star &middot; @lak-is-law
+        </a>
+        <a href="https://github.com/lak-is-law" class="nav-btn mono" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          Follow
+        </a>
+        <a href="https://lakshya.uk" class="nav-btn mono" target="_blank" rel="noopener noreferrer">Portfolio &rsaquo;</a>
+      </div>
+    </div>
+
+    <!-- Mode & Telemetry Dock -->
+    <div class="mode-dock">
+      <div class="mode-indicator">
+        <div id="modeBadge" class="mode-badge auto mono">
+          <div class="mode-pulse"></div>
+          <span id="modeText">AUTO-PILOT ACTIVE</span>
+        </div>
+        <div id="timerTrack" class="mode-timer-track">
+          <div id="timerBar" class="mode-timer-bar"></div>
+        </div>
+      </div>
+
+      <div class="telemetry-strip mono">
+        <div class="telemetry-item"><span>LENGTH:</span> <b id="statLength">4</b></div>
+        <div class="telemetry-item"><span>EATEN:</span> <b id="statEaten">0</b></div>
+        <div class="telemetry-item"><span>SCORE:</span> <b id="statScore">0</b></div>
+        <div class="telemetry-item"><span>INDEXED:</span> <b>3,871</b></div>
+      </div>
+    </div>
+
+    <!-- Interactive Grid Canvas -->
+    <div class="board-wrapper">
+      <canvas id="gameCanvas" width="1070" height="150"></canvas>
+    </div>
+
+    <!-- Controls Dock -->
+    <div class="controls-dock">
+      <div class="instructions mono">
+        <div class="key-hint">
+          <span class="key">&uarr;</span><span class="key">&darr;</span><span class="key">&larr;</span><span class="key">&rarr;</span>
+          <span>or WASD to take control</span>
+        </div>
+        <div>&bull; Auto-resumes after <b>2s</b> of idle</div>
+      </div>
+
+      <!-- Touch / Click Virtual D-Pad -->
+      <div class="dpad-container">
+        <button class="dpad-btn" id="btnLeft" aria-label="Left">&larr;</button>
+        <button class="dpad-btn" id="btnUp" aria-label="Up">&uarr;</button>
+        <button class="dpad-btn" id="btnDown" aria-label="Down">&darr;</button>
+        <button class="dpad-btn" id="btnRight" aria-label="Right">&rarr;</button>
+      </div>
+
+      <!-- Legend -->
+      <div class="legend-row mono">
+        <span>Less</span>
+        <div class="legend-swatch" style="background:#1C0C15; border:1px solid rgba(199,123,155,0.2);"></div>
+        <div class="legend-swatch" style="background:#451126;"></div>
+        <div class="legend-swatch" style="background:#701A3D;"></div>
+        <div class="legend-swatch" style="background:#A12556;"></div>
+        <div class="legend-swatch" style="background:#E5B5C7;"></div>
+        <span>More</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const COLS = 53;
+      const ROWS = 7;
+      const CELL_SIZE = 14;
+      const CELL_GAP = 5;
+      const STEP = CELL_SIZE + CELL_GAP; // 19px
+
+      const canvas = document.getElementById('gameCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // Grid centering inside canvas (1070 x 150)
+      const GRID_WIDTH = COLS * STEP - CELL_GAP; // 1002px
+      const GRID_HEIGHT = ROWS * STEP - CELL_GAP; // 128px
+      const GRID_X = Math.round((canvas.width - GRID_WIDTH) / 2); // 34px
+      const GRID_Y = Math.round((canvas.height - GRID_HEIGHT) / 2); // 11px
+
+      const modeBadge = document.getElementById('modeBadge');
+      const modeText = document.getElementById('modeText');
+      const timerTrack = document.getElementById('timerTrack');
+      const timerBar = document.getElementById('timerBar');
+
+      const statLength = document.getElementById('statLength');
+      const statEaten = document.getElementById('statEaten');
+      const statScore = document.getElementById('statScore');
+
+      const COLORS = ['#1C0C15', '#451126', '#701A3D', '#A12556', '#E5B5C7'];
+      const TRAIL_PALETTE = ['#FFD700', '#F8F0F3', '#E5B5C7', '#C77B9B', '#A12556'];
+
+      // Real reduced 53-week contribution matrix
+      const REDUCED_GRID = [[2, 3, 3, 0, 2, 0, 4], [0, 0, 0, 0, 0, 0, 0], [0, 2, 4, 0, 1, 2, 0], [3, 1, 0, 0, 2, 0, 0], [1, 0, 4, 4, 2, 0, 2], [2, 3, 4, 0, 4, 2, 0], [0, 2, 1, 3, 0, 3, 1], [1, 1, 3, 3, 0, 0, 0], [4, 3, 1, 1, 2, 0, 0], [3, 2, 3, 0, 2, 0, 1], [0, 3, 3, 0, 0, 3, 1], [3, 3, 3, 1, 0, 0, 0], [0, 3, 1, 3, 1, 1, 0], [0, 3, 0, 0, 0, 4, 0], [3, 2, 0, 2, 4, 4, 4], [4, 4, 1, 1, 3, 1, 0], [2, 1, 2, 3, 0, 1, 0], [1, 0, 0, 4, 4, 2, 0], [1, 2, 0, 1, 0, 1, 1], [0, 1, 4, 3, 0, 0, 0], [0, 1, 3, 1, 0, 2, 2], [4, 2, 2, 3, 2, 3, 3], [2, 2, 2, 4, 0, 2, 0], [1, 3, 0, 1, 1, 3, 3], [0, 2, 0, 3, 1, 2, 4], [2, 2, 0, 1, 2, 4, 2], [0, 4, 2, 4, 2, 3, 0], [0, 1, 3, 4, 2, 0, 4], [4, 4, 2, 3, 1, 4, 0], [2, 2, 1, 0, 0, 4, 0], [4, 0, 2, 4, 1, 1, 4], [0, 0, 1, 4, 2, 0, 4], [1, 0, 1, 2, 1, 0, 0], [3, 4, 2, 1, 0, 1, 4], [2, 2, 0, 0, 1, 4, 4], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 1, 4], [0, 2, 2, 2, 4, 2, 3], [3, 4, 2, 4, 1, 0, 1], [3, 0, 4, 1, 0, 0, 2], [2, 1, 2, 0, 1, 2, 2], [0, 1, 2, 1, 3, 3, 1], [0, 2, 3, 3, 0, 2, 2], [1, 2, 2, 2, 3, 0, 1], [3, 1, 2, 2, 3, 2, 0], [1, 3, 1, 1, 0, 3, 0], [0, 1, 1, 1, 2, 4, 0], [3, 0, 0, 4, 1, 0, 3], [0, 2, 3, 2, 0, 2, 3], [1, 1, 3, 0, 3, 2, 0], [2, 1, 3, 0, 0, 0, 0], [1, 1, 1, 0, 2, 1, 3], [0, 2, 3, 4, 0, 2, 0]];
+      const grid = [];
+      let totalEaten = 0;
+      let score = 0;
+
+      for (let c = 0; c < COLS; c++) {
+        grid[c] = [];
+        for (let r = 0; r < ROWS; r++) {
+          grid[c][r] = REDUCED_GRID[c] ? REDUCED_GRID[c][r] : 0;
+        }
+      }
+
+      // Compact, sleek snake sizing: starts at 3, max 5 (never too big!)
+      const START_LENGTH = 3;
+      const MAX_LENGTH = 5;
+      const GROWTH_INTERVAL = 8;
+      let snakeLength = START_LENGTH;
+
+      // Waypoint & Slither Navigation State
+      let headCell = { x: 12, y: 3 };
+      let dir = { x: 1, y: 0 };
+      let targetCell = { x: (headCell.x + dir.x + COLS) % COLS, y: (headCell.y + dir.y + ROWS) % ROWS };
+      let bufferedDir = null;
+
+      // History of visited cell coordinates for exact polyline path-following
+      const history = [];
+      for (let k = 0; k <= 30; k++) {
+        history.push({ x: (12 - k + COLS) % COLS, y: 3 });
+      }
+
+      // Mode & Timing
+      let mode = 'auto'; // 'auto' | 'manual'
+      let lastInputTime = 0;
+      const IDLE_LIMIT = 2000; // 2 seconds
+
+      const STEP_INTERVAL = 115; // 115ms per step (~8.7 moves/sec)
+      let lastTimestamp = performance.now();
+      let accumulator = 0;
+
+      // Particles & Visual FX
+      const particles = [];
+      const shockwaves = [];
+      const floatTexts = [];
+      const cellGlows = [];
+
+      function requestDirection(dx, dy) {
+        // Prevent immediate 180-degree self-reversal
+        if (dx === -dir.x && dy === -dir.y) return;
+        if (snakeLength > 1 && dx === -dir.x && dy === 0) return;
+        if (snakeLength > 1 && dy === -dir.y && dx === 0) return;
+
+        bufferedDir = { x: dx, y: dy };
+        mode = 'manual';
+        lastInputTime = Date.now();
+        updateModeUI();
+      }
+
+      // Controls: Keyboard WASD + Arrow keys
+      window.addEventListener('keydown', (e) => {
+        let handled = false;
+        if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+          requestDirection(0, -1);
+          handled = true;
+        } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+          requestDirection(0, 1);
+          handled = true;
+        } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+          requestDirection(-1, 0);
+          handled = true;
+        } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+          requestDirection(1, 0);
+          handled = true;
+        }
+        if (handled) e.preventDefault();
+      });
+
+      // Virtual D-pad Handlers
+      document.getElementById('btnUp').onclick = () => requestDirection(0, -1);
+      document.getElementById('btnDown').onclick = () => requestDirection(0, 1);
+      document.getElementById('btnLeft').onclick = () => requestDirection(-1, 0);
+      document.getElementById('btnRight').onclick = () => requestDirection(1, 0);
+
+      // Auto-Pilot Algorithm (toroidal shortest path to uneaten dots)
+      function findAutoDirection(currentHead, currentDir) {
+        let bestDist = Infinity;
+        let target = null;
+
+        for (let c = 0; c < COLS; c++) {
+          for (let r = 0; r < ROWS; r++) {
+            if (grid[c][r] > 0) {
+              const dx = Math.min(Math.abs(c - currentHead.x), COLS - Math.abs(c - currentHead.x));
+              const dy = Math.min(Math.abs(r - currentHead.y), ROWS - Math.abs(r - currentHead.y));
+              const d = dx + dy;
+              if (d < bestDist) {
+                bestDist = d;
+                target = { x: c, y: r };
+              }
+            }
+          }
+        }
+
+        const candidateMoves = [
+          { x: 1, y: 0 },
+          { x: -1, y: 0 },
+          { x: 0, y: 1 },
+          { x: 0, y: -1 }
+        ].filter(m => !(m.x === -currentDir.x && m.y === -currentDir.y));
+
+        if (!target) {
+          return candidateMoves[Math.floor(Math.random() * candidateMoves.length)] || currentDir;
+        }
+
+        // Avoid colliding with body segments in recent history
+        const bodyOccupied = history.slice(0, snakeLength);
+
+        candidateMoves.sort((a, b) => {
+          const nxA = (currentHead.x + a.x + COLS) % COLS;
+          const nyA = (currentHead.y + a.y + ROWS) % ROWS;
+          const nxB = (currentHead.x + b.x + COLS) % COLS;
+          const nyB = (currentHead.y + b.y + ROWS) % ROWS;
+
+          const collidesA = bodyOccupied.some(s => s.x === nxA && s.y === nyA);
+          const collidesB = bodyOccupied.some(s => s.x === nxB && s.y === nyB);
+          if (collidesA !== collidesB) return collidesA ? 1 : -1;
+
+          const distA = Math.min(Math.abs(nxA - target.x), COLS - Math.abs(nxA - target.x)) +
+                        Math.min(Math.abs(nyA - target.y), ROWS - Math.abs(nyA - target.y));
+          const distB = Math.min(Math.abs(nxB - target.x), COLS - Math.abs(nxB - target.x)) +
+                        Math.min(Math.abs(nyB - target.y), ROWS - Math.abs(nyB - target.y));
+          return distA - distB;
+        });
+
+        return candidateMoves[0] || currentDir;
+      }
+
+      function updateModeUI() {
+        const now = Date.now();
+        const elapsed = now - lastInputTime;
+
+        if (mode === 'manual') {
+          if (elapsed >= IDLE_LIMIT) {
+            mode = 'auto';
+            modeBadge.className = 'mode-badge auto mono';
+            modeText.textContent = 'AUTO-PILOT ACTIVE';
+            timerTrack.style.display = 'none';
+          } else {
+            modeBadge.className = 'mode-badge manual mono';
+            const remaining = ((IDLE_LIMIT - elapsed) / 1000).toFixed(1);
+            modeText.textContent = 'MANUAL (' + remaining + 's to auto)';
+            timerTrack.style.display = 'block';
+            timerBar.style.transform = 'scaleX(' + ((IDLE_LIMIT - elapsed) / IDLE_LIMIT) + ')';
+          }
+        } else {
+          modeBadge.className = 'mode-badge auto mono';
+          modeText.textContent = 'AUTO-PILOT ACTIVE';
+          timerTrack.style.display = 'none';
+        }
+      }
+
+      function spawnEatBurst(gx, gy, lvl) {
+        const px = GRID_X + gx * STEP + CELL_SIZE / 2;
+        const py = GRID_Y + gy * STEP + CELL_SIZE / 2;
+
+        // 1. Expanding luminous shockwave ring
+        shockwaves.push({
+          x: px,
+          y: py,
+          radius: 2,
+          maxRadius: 22,
+          alpha: 1.0,
+          color: lvl >= 3 ? '#E5B5C7' : '#FFD700'
+        });
+
+        // 2. Radiant celestial stardust burst
+        const count = 14;
+        for (let i = 0; i < count; i++) {
+          const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.45;
+          const speed = Math.random() * 2.8 + 0.9;
+          particles.push({
+            x: px,
+            y: py,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            radius: Math.random() * 2.2 + 1.2,
+            color: lvl >= 3 ? '#E5B5C7' : (lvl === 2 ? '#C77B9B' : '#FFD700'),
+            alpha: 1.0,
+            decay: Math.random() * 0.035 + 0.02,
+            twinkle: Math.random() * Math.PI * 2
+          });
+        }
+
+        // 3. Floating score badge
+        floatTexts.push({
+          x: px,
+          y: py - 6,
+          text: '+' + (lvl * 15),
+          alpha: 1.0,
+          vy: -0.65
+        });
+
+        // 4. Lingering cell bloom
+        cellGlows.push({
+          c: gx,
+          r: gy,
+          alpha: 0.9
+        });
+      }
+
+      function checkAndRespawnGrid() {
+        let remaining = 0;
+        for (let c = 0; c < COLS; c++) {
+          for (let r = 0; r < ROWS; r++) {
+            if (grid[c][r] > 0) remaining++;
+          }
+        }
+        if (remaining === 0) {
+          for (let c = 0; c < COLS; c++) {
+            for (let r = 0; r < ROWS; r++) {
+              grid[c][r] = REDUCED_GRID[c] ? REDUCED_GRID[c][r] : 0;
+            }
+          }
+          floatTexts.push({
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            text: 'CONSTELLATION RESTORED! +500',
+            alpha: 1.0,
+            vy: -0.6
+          });
+          score += 500;
+        }
+      }
+
+      // Simulation Step (Fixed Timestep Tick)
+      function tick() {
+        updateModeUI();
+
+        // 1. Arrived at targetCell
+        headCell = { x: targetCell.x, y: targetCell.y };
+        history.unshift({ x: headCell.x, y: headCell.y });
+        if (history.length > 30) history.pop();
+
+        // 2. Consume dot if present
+        const cellLvl = grid[headCell.x][headCell.y];
+        if (cellLvl > 0) {
+          totalEaten++;
+          score += cellLvl * 15;
+          grid[headCell.x][headCell.y] = 0;
+          spawnEatBurst(headCell.x, headCell.y, cellLvl);
+
+          // Sleek compact growth: capped at MAX_LENGTH (5 segments)
+          snakeLength = Math.min(MAX_LENGTH, START_LENGTH + Math.floor(totalEaten / GROWTH_INTERVAL));
+
+          statLength.textContent = snakeLength;
+          statEaten.textContent = totalEaten;
+          statScore.textContent = score;
+
+          checkAndRespawnGrid();
+        }
+
+        // 3. Select next direction
+        if (bufferedDir) {
+          if (!(bufferedDir.x === -dir.x && bufferedDir.y === -dir.y)) {
+            dir = bufferedDir;
+          }
+          bufferedDir = null;
+        } else if (mode === 'auto') {
+          dir = findAutoDirection(headCell, dir);
+        }
+
+        // 4. Set next target cell
+        targetCell = {
+          x: (headCell.x + dir.x + COLS) % COLS,
+          y: (headCell.y + dir.y + ROWS) % ROWS
+        };
+      }
+
+      // Closed-Form Polyline Trajectory Point
+      // Returns exact sub-pixel canvas coordinates at distance 'dist' behind the continuous head
+      function getTrajectoryPoint(dist, progress) {
+        let hdx = targetCell.x - headCell.x;
+        if (hdx > COLS / 2) hdx -= COLS;
+        if (hdx < -COLS / 2) hdx += COLS;
+
+        let hdy = targetCell.y - headCell.y;
+        if (hdy > ROWS / 2) hdy -= ROWS;
+        if (hdy < -ROWS / 2) hdy += ROWS;
+
+        const currHeadX = headCell.x + hdx * progress;
+        const currHeadY = headCell.y + hdy * progress;
+
+        let gx, gy, dirX, dirY;
+
+        if (dist <= progress) {
+          // Point is on the current forward step
+          gx = currHeadX - hdx * dist;
+          gy = currHeadY - hdy * dist;
+          dirX = hdx;
+          dirY = hdy;
+        } else {
+          // Point is on historical waypoints behind headCell
+          const rem = dist - progress;
+          let segIdx = Math.floor(rem);
+          const segFrac = rem - segIdx;
+
+          if (segIdx >= history.length - 1) {
+            segIdx = Math.max(0, history.length - 2);
+          }
+
+          const A = history[segIdx];
+          const B = history[segIdx + 1] || A;
+
+          let adx = B.x - A.x;
+          if (adx > COLS / 2) adx -= COLS;
+          if (adx < -COLS / 2) adx += COLS;
+
+          let ady = B.y - A.y;
+          if (ady > ROWS / 2) ady -= ROWS;
+          if (ady < -ROWS / 2) ady += ROWS;
+
+          gx = A.x + adx * segFrac;
+          gy = A.y + ady * segFrac;
+          dirX = -adx;
+          dirY = -ady;
+        }
+
+        const normX = ((gx % COLS) + COLS) % COLS;
+        const normY = ((gy % ROWS) + ROWS) % ROWS;
+
+        const px = GRID_X + normX * STEP + CELL_SIZE / 2;
+        const py = GRID_Y + normY * STEP + CELL_SIZE / 2;
+
+        return { px, py, normX, normY, dirX, dirY };
+      }
+
+      // Main Render Function
+      function render(progress) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 1. Draw Contribution Grid
+        for (let c = 0; c < COLS; c++) {
+          for (let r = 0; r < ROWS; r++) {
+            const x = GRID_X + c * STEP;
+            const y = GRID_Y + r * STEP;
+            const lvl = grid[c][r];
+
+            ctx.fillStyle = COLORS[lvl];
+            ctx.beginPath();
+            ctx.roundRect(x, y, CELL_SIZE, CELL_SIZE, 3);
+            ctx.fill();
+
+            if (lvl === 0) {
+              ctx.strokeStyle = 'rgba(199, 123, 155, 0.12)';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        // 2. Draw Cell Bloom Glows
+        for (let i = cellGlows.length - 1; i >= 0; i--) {
+          const cg = cellGlows[i];
+          ctx.fillStyle = 'rgba(229, 181, 199, ' + (cg.alpha * 0.45) + ')';
+          ctx.beginPath();
+          ctx.roundRect(GRID_X + cg.c * STEP, GRID_Y + cg.r * STEP, CELL_SIZE, CELL_SIZE, 3.5);
+          ctx.fill();
+          cg.alpha -= 0.025;
+          if (cg.alpha <= 0) cellGlows.splice(i, 1);
+        }
+
+        // 3. Draw Expanding Shockwave Rings
+        for (let i = shockwaves.length - 1; i >= 0; i--) {
+          const sw = shockwaves[i];
+          sw.radius += 1.4;
+          sw.alpha -= 0.055;
+          if (sw.alpha <= 0 || sw.radius >= sw.maxRadius) {
+            shockwaves.splice(i, 1);
+            continue;
+          }
+          ctx.save();
+          ctx.strokeStyle = sw.color;
+          ctx.globalAlpha = Math.max(0, sw.alpha);
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // 4. Emit Celestial Stardust Trail Particles
+        const tailPt = getTrajectoryPoint(snakeLength - 0.2, progress);
+        if (Math.random() < 0.85) {
+          particles.push({
+            x: tailPt.px + (Math.random() - 0.5) * 5,
+            y: tailPt.py + (Math.random() - 0.5) * 5,
+            vx: (Math.random() - 0.5) * 0.35 - tailPt.dirX * 0.3,
+            vy: (Math.random() - 0.5) * 0.35 - tailPt.dirY * 0.3,
+            radius: Math.random() * 2.0 + 1.0,
+            color: TRAIL_PALETTE[Math.floor(Math.random() * TRAIL_PALETTE.length)],
+            alpha: 0.9,
+            decay: Math.random() * 0.028 + 0.02,
+            twinkle: Math.random() * Math.PI * 2
+          });
+        }
+
+        // 5. Render Luminous Aurora Comet Trail Ribbon
+        // Continuous smooth ribbon trailing behind the snake's tail
+        const tailDist = snakeLength - 0.15;
+        const trailLength = 4.0; // grid units of glowing trail
+        const trailSteps = 24;
+        const trailPoints = [];
+
+        for (let j = 0; j <= trailSteps; j++) {
+          const dist = tailDist + (j / trailSteps) * trailLength;
+          trailPoints.push(getTrajectoryPoint(dist, progress));
+        }
+
+        // Draw glowing ribbon segments along the trail path
+        for (let j = 0; j < trailPoints.length - 1; j++) {
+          const p1 = trailPoints[j];
+          const p2 = trailPoints[j + 1];
+
+          // Skip drawing line across wrap-around boundary jump
+          if (Math.abs(p1.normX - p2.normX) > 10 || Math.abs(p1.normY - p2.normY) > 4) {
+            continue;
+          }
+
+          const t = j / trailSteps; // 0 at tail, 1 at trail end
+          const width = Math.max(0.6, (1.0 - t) * 5.4);
+          const alpha = Math.max(0.0, (1.0 - t) * 0.75);
+
+          // Color ramp: Gold -> Rose -> Crimson -> Deep Burgundy
+          let color = '#FFD700';
+          if (t > 0.6) color = '#701A3D';
+          else if (t > 0.35) color = '#A12556';
+          else if (t > 0.15) color = '#E5B5C7';
+
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.lineWidth = width;
+          ctx.lineCap = 'round';
+          ctx.strokeStyle = color;
+          ctx.shadowColor = color;
+          ctx.shadowBlur = 8;
+
+          ctx.beginPath();
+          ctx.moveTo(p1.px, p1.py);
+          ctx.lineTo(p2.px, p2.py);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // 3 Glowing Ethereal Ghost Halo Nodes along the trail
+        const haloOffsets = [0.9, 2.0, 3.1];
+        for (let h = 0; h < haloOffsets.length; h++) {
+          const hp = getTrajectoryPoint(tailDist + haloOffsets[h], progress);
+          const factor = 1.0 - (haloOffsets[h] / trailLength);
+          ctx.save();
+          ctx.globalAlpha = factor * 0.45;
+          ctx.fillStyle = haloOffsets[h] > 1.5 ? '#701A3D' : '#E5B5C7';
+          ctx.shadowColor = '#C77B9B';
+          ctx.shadowBlur = 6;
+          ctx.beginPath();
+          ctx.arc(hp.px, hp.py, Math.max(1.2, factor * 2.8), 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // 6. Draw Sleek Aerodynamic Snake Body (Tail to Head)
+        // Connected capsule links between segments
+        for (let i = snakeLength - 1; i >= 1; i--) {
+          const pStart = getTrajectoryPoint(i, progress);
+          const pEnd = getTrajectoryPoint(i - 1, progress);
+
+          if (Math.abs(pStart.normX - pEnd.normX) < 10 && Math.abs(pStart.normY - pEnd.normY) < 4) {
+            const factor = i / Math.max(1, snakeLength - 1);
+            const linkWidth = Math.max(5.2, 8.8 - factor * 3.6);
+
+            ctx.save();
+            ctx.lineWidth = linkWidth;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = factor > 0.6 ? '#701A3D' : (factor > 0.3 ? '#A12556' : '#C77B9B');
+            ctx.shadowColor = '#C77B9B';
+            ctx.shadowBlur = 4;
+            ctx.globalAlpha = Math.max(0.7, 1.0 - factor * 0.3);
+
+            ctx.beginPath();
+            ctx.moveTo(pStart.px, pStart.py);
+            ctx.lineTo(pEnd.px, pEnd.py);
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+
+        // Rounded body segment nodes
+        for (let i = snakeLength - 1; i >= 1; i--) {
+          const pt = getTrajectoryPoint(i, progress);
+          const factor = i / Math.max(1, snakeLength - 1);
+          // Sleek compact sizing: 8.4px tapering to 5.4px
+          const segSize = Math.max(5.4, 8.6 - factor * 3.2);
+
+          ctx.save();
+          ctx.fillStyle = factor > 0.6 ? '#701A3D' : (factor > 0.3 ? '#A12556' : '#C77B9B');
+          ctx.shadowColor = '#C77B9B';
+          ctx.shadowBlur = 5;
+          ctx.globalAlpha = Math.max(0.75, 1.0 - factor * 0.25);
+          ctx.beginPath();
+          ctx.roundRect(pt.px - segSize / 2, pt.py - segSize / 2, segSize, segSize, 2.8);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // 7. Draw Snake Head (Sleek 9.2px with radiant aura and expressive eyes)
+        const headPt = getTrajectoryPoint(0, progress);
+        const headSize = 9.2; // Sleek, nimble proportion (was 12.5px!)
+
+        ctx.save();
+        ctx.shadowColor = '#E5B5C7';
+        ctx.shadowBlur = 12;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.roundRect(headPt.px - headSize / 2, headPt.py - headSize / 2, headSize, headSize, 3.2);
+        ctx.fill();
+        ctx.restore();
+
+        // Expressive eyes facing forward
+        ctx.save();
+        ctx.fillStyle = '#10070C';
+        const eyeRadius = 0.9;
+        const eyeOffsetFwd = 2.4;
+        const eyeOffsetSide = 2.3;
+
+        // Forward vector (fx, fy) and perpendicular side vector (sx, sy)
+        const fx = headPt.dirX || 1;
+        const fy = headPt.dirY || 0;
+        const sx = -fy;
+        const sy = fx;
+
+        const eye1X = headPt.px + fx * eyeOffsetFwd + sx * eyeOffsetSide;
+        const eye1Y = headPt.py + fy * eyeOffsetFwd + sy * eyeOffsetSide;
+        const eye2X = headPt.px + fx * eyeOffsetFwd - sx * eyeOffsetSide;
+        const eye2Y = headPt.py + fy * eyeOffsetFwd - sy * eyeOffsetSide;
+
+        ctx.beginPath();
+        ctx.arc(eye1X, eye1Y, eyeRadius, 0, Math.PI * 2);
+        ctx.arc(eye2X, eye2Y, eyeRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Tiny white reflection gleam
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.arc(eye1X + fx * 0.3, eye1Y + fy * 0.3, 0.45, 0, Math.PI * 2);
+        ctx.arc(eye2X + fx * 0.3, eye2Y + fy * 0.3, 0.45, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        // 8. Update & Draw Starlight Particles
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.alpha -= p.decay;
+          p.radius *= 0.975;
+          p.twinkle += 0.15;
+
+          if (p.alpha <= 0 || p.radius < 0.35) {
+            particles.splice(i, 1);
+            continue;
+          }
+
+          const curRadius = Math.max(0.4, p.radius * (0.8 + 0.25 * Math.sin(p.twinkle)));
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, p.alpha);
+          ctx.fillStyle = p.color;
+          ctx.shadowColor = p.color;
+          ctx.shadowBlur = 6;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, curRadius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // 9. Floating Score Popups
+        for (let i = floatTexts.length - 1; i >= 0; i--) {
+          const ft = floatTexts[i];
+          ft.y += ft.vy;
+          ft.alpha -= 0.024;
+          if (ft.alpha <= 0) {
+            floatTexts.splice(i, 1);
+            continue;
+          }
+          ctx.save();
+          ctx.font = 'bold 11px ui-monospace, SFMono-Regular, monospace';
+          ctx.fillStyle = 'rgba(255, 215, 0, ' + Math.max(0, ft.alpha) + ')';
+          ctx.shadowColor = 'rgba(255, 215, 0, 0.7)';
+          ctx.shadowBlur = 6;
+          ctx.fillText(ft.text, ft.x - 8, ft.y);
+          ctx.restore();
+        }
+      }
+
+      // High-Precision 60/120 FPS Loop with Fixed-Timestep Delta Accumulation
+      function loop(timestamp) {
+        requestAnimationFrame(loop);
+
+        let dt = timestamp - lastTimestamp;
+        lastTimestamp = timestamp;
+        if (dt > 100) dt = 100; // Cap to avoid jump on background tab switch
+
+        accumulator += dt;
+        while (accumulator >= STEP_INTERVAL) {
+          tick();
+          accumulator -= STEP_INTERVAL;
+        }
+
+        const progress = Math.min(1.0, Math.max(0.0, accumulator / STEP_INTERVAL));
+        render(progress);
+      }
+
+      // Initial stats display
+      statLength.textContent = snakeLength;
+      statEaten.textContent = totalEaten;
+      statScore.textContent = score;
+
+      // Start Butter-Smooth Render Loop
+      requestAnimationFrame(loop);
+    })();
+  </script>
+</body>
+</html>
