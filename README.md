@@ -10,7 +10,7 @@
   <a href="mailto:contact@lakshya.uk"><img src="https://img.shields.io/badge/Email-contact@lakshya.uk-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=gmail" alt="Email contact@lakshya.uk"></a>
 </p>
 
-<img src="assets/title-about.svg" width="100%" alt="01 About — Hello, I'm Lakshya.">
+<img src="assets/title-about.svg" width="100%" alt="01 About — Hey/Cíao/안녕하세요, I'm Lakshya.">
 <img src="assets/about-intro.svg" width="100%" alt="About Lakshya Agarwal: Full-Stack Architect, AI Developer and Creative Technologist. B.Tech in CSE at SRMIST Chennai. Shipped Skyward, Locate Art, Craftme, and Todar.">
 
 <img src="assets/title-recognition.svg" width="100%" alt="02 Recognition — Proof, on the record.">
