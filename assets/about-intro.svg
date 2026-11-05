@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-labelledby="ab-t ab-d">
   <title id="ab-t">About Lakshya Agarwal</title>
-  <desc id="ab-d">Full-Stack Architect, AI Developer and Creative Technologist. B.Tech in CSE at SRMIST Chennai, CGPA 8.74. Shipped Skyward, Locate Art, Craftme, and Todar. Primary language TypeScript; ML work in Python; drawn to system design, cloud and machine learning.</desc>
+  <desc id="ab-d">Full-Stack Architect, AI Developer and Creative Technologist. B.Tech in CSE at SRMIST Chennai. Shipped Skyward, Locate Art, Craftme, and Todar. Primary language TypeScript; ML work in Python; drawn to system design, cloud and machine learning.</desc>
   <defs>
     <linearGradient id="ab-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#190B12"/><stop offset="1" stop-color="#10070C"/></linearGradient>
     <radialGradient id="ab-glow" cx="80%" cy="20%" r="70%"><stop offset="0" stop-color="#701A3D" stop-opacity=".6"/><stop offset="1" stop-color="#451126" stop-opacity="0"/></radialGradient>
