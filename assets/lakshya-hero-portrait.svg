@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-labelledby="hero-title hero-desc">
   <title id="hero-title">Lakshya Agarwal — Engineering intelligence. Designing real-time experiences.</title>
-  <desc id="hero-desc">Full-Stack Architect, AI Developer and Creative Technologist. B.Tech in CSE at SRMIST Chennai, CGPA 8.74.</desc>
+  <desc id="hero-desc">Full-Stack Architect, AI Developer and Creative Technologist. B.Tech in CSE at SRMIST Chennai.</desc>
 
   <defs>
     <radialGradient id="hero-bg" cx="72%" cy="38%" r="80%">
