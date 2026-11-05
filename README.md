@@ -14,7 +14,7 @@
 <img src="assets/about-intro.svg" width="100%" alt="About Lakshya Agarwal: Full-Stack Architect, AI Developer and Creative Technologist. B.Tech in CSE at SRMIST Chennai. Shipped Skyward, Locate Art, Craftme, and Todar.">
 
 <img src="assets/title-recognition.svg" width="100%" alt="02 Recognition — Proof, on the record.">
-<img src="assets/achievement-motif-v2.svg" width="100%" alt="TechXcelerate Hackathon BITS Hyderabad 2025 1st Place Champion; UCSI Venture Pitch Winner; CGPA 8.74; Skyward 12K+ aircraft live; Craftme 1000+ voxels; Todar 99.2% forecast accuracy; 5+ Honors.">
+<img src="assets/achievement-motif-v2.svg" width="100%" alt="TechXcelerate Hackathon BITS Hyderabad 2025 1st Place Champion; UCSI Venture Pitch Winner; Skyward 12K+ aircraft live; Craftme 1000+ voxels; Todar 99.2% forecast accuracy; 5+ Honors.">
 
 <p align="center">
   <a href="https://github.com/lak-is-law?tab=achievements"><img src="https://cdn.jsdelivr.net/gh/Schweinepriester/github-profile-achievements@main/images/tiers/galaxy-brain-gold.png" width="60" alt="Galaxy Brain (Gold x4)" title="Galaxy Brain (Gold x4) — 32+ Accepted Discussion Answers"></a>
@@ -32,7 +32,7 @@
 
 <p align="center">
   <a href="https://github.com/lak-is-law?tab=repositories"><img src="https://img.shields.io/badge/Public_Repos-49_Shipped-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="49 Public Repositories Shipped"></a>
-  <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/Pull_Requests-23_Merged-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=git" alt="1,024+ Merged Pull Requests"></a>
+  <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/Pull_Requests-1024+_Merged-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=git" alt="1,024+ Merged Pull Requests"></a>
   <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/Total_Contributions-3%2C871_Indexed-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=git" alt="3,871 Contributions Indexed"></a>
   <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/National_Champion-BITS_Pilani_%2725-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=trophy" alt="National Champion — TechXcelerate BITS Pilani 2025"></a>
   <a href="https://trackyourflight.lakshya.uk"><img src="https://img.shields.io/badge/Production_Scale-12K%2B_Live_WebGL-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=webgl" alt="Production Scalability — 12,000+ Real-Time Aircraft Telemetry"></a>
