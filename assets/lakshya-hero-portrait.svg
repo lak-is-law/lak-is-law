@@ -251,8 +251,8 @@
     <!-- Meta strip -->
     <g class="hero-fade d6">
       <line x1="72" y1="446" x2="1128" y2="446" stroke="#C77B9B" stroke-opacity=".14"/>
-      <text class="hero-mono" x="72" y="466" font-size="10.5" letter-spacing="2" fill="#B6A3AC">B.TECH CSE · SRMIST CHENNAI · CGPA 8.74</text>
-      <text class="hero-mono" x="1128" y="466" text-anchor="end" font-size="10.5" letter-spacing="2" fill="#E5B5C7">WINNER, TECHXCELERATE 2025 BITS HYD · UCSI PITCH WINNER · 5+ HONORS</text>
+      <text class="hero-mono" x="72" y="466" font-size="10.5" letter-spacing="2" fill="#B6A3AC">B.TECH CSE · SRMIST CHENNAI </text>
+      <text class="hero-mono" x="1128" y="466" text-anchor="end" font-size="10.5" letter-spacing="2" fill="#E5B5C7">WINNER, TECHXCELERATE 2025 BITS HYD · UCSI MALAYSIA PITCH WINNER · 7+ HONORS</text>
     </g>
 
     <!-- Frame -->
