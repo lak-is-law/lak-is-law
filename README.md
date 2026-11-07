@@ -31,7 +31,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/lak-is-law?tab=repositories"><img src="https://img.shields.io/badge/Public_Repos-49_Shipped-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="49 Public Repositories Shipped"></a>
+  <a href="https://github.com/lak-is-law?tab=repositories"><img src="https://img.shields.io/badge/Public_Repos-50%2B_Shipped-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=github" alt="50+ Public Repositories Shipped"></a>
   <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/Pull_Requests-1024+_Merged-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=git" alt="1,024+ Merged Pull Requests"></a>
   <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/Total_Contributions-3%2C871_Indexed-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=git" alt="3,871 Contributions Indexed"></a>
   <a href="https://github.com/lak-is-law"><img src="https://img.shields.io/badge/National_Champion-BITS_Pilani_%2725-701A3D?style=for-the-badge&amp;labelColor=190B12&amp;logoColor=F8F0F3&amp;logo=trophy" alt="National Champion — TechXcelerate BITS Pilani 2025"></a>
