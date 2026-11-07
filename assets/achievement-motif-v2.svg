@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="1200" height="430" role="img" aria-labelledby="ach-title ach-desc">
   <title id="ach-title">Recognition</title>
-  <desc id="ach-desc">Flipkart BITS '25 1st Place Champion. UCSI Venture Pitch Winner. CGPA 8.74. Skyward 12K+ aircraft live. Craftme 1000+ procedural voxels. Todar 99.2% ML forecast precision. 5+ National &amp; Global Honors.</desc>
+  <desc id="ach-desc">Flipkart BITS '25 1st Place Champion. UCSI Venture Pitch Winner. CGPA 8.74. Skyward 12K+ aircraft live. Craftme 1000+ procedural voxels. Todar 99.2% ML forecast precision. 7+ National &amp; Global Honors.</desc>
 
   <defs>
     <linearGradient id="ach-bg" x1="0" y1="0" x2="0" y2="1">
@@ -125,8 +125,8 @@
     <g transform="translate(956 300)">
       <circle cx="0" cy="0" r="3.5" fill="#E5B5C7"/>
       <text class="ach-mono" y="34" font-size="11" letter-spacing="2" fill="#C77B9B">HONORS</text>
-      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">5+ ★</text>
-      <text y="102">BITS Hyd · UCSI · Myntra · SRMIST</text>
+      <text class="ach-serif" y="78" font-size="40" font-weight="300" fill="#F8F0F3">7+ ★</text>
+      <text y="102">BITS Hyd · UCSI · IAYP · SRMIST</text>
     </g>
   </g>
 </svg>
